@@ -5,18 +5,16 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // linked components
-import Inbox from "./inbox";
-import Avatar from "./avatar";
+import Inbox from "./Inbox";
+import Avatar from "./Avatar";
 
 const UserMenu = props => {
-  render() {
-    return (
-      <div className="UserMenu">
-        <Inbox inbox={this.props.user.inbox} />
-        <Avatar />
-      </div>
-    )
-  }
+  return (
+    <div className="UserMenu">
+      <Inbox inbox={this.props.user.inbox} />
+      <Avatar />
+    </div>
+  );
 };
 
 export default UserMenu;

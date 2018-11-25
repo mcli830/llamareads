@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/* PALETTE */
+/* variables */
+.Navbar {
+  position: fixed;
+  width: 100vw;
+  height: 70px;
+  background-color: white;
+  border-bottom: 1px solid #cbc9c2; }
+
+/*# sourceMappingURL=navbar.css.map */
