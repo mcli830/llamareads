@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
+import ListEntry from './listentry';
 
 const Inbox = (props) => {
 
-  renderInbox(inbox) {
+  renderInbox = inbox => {
+    return inbox.map(entry => (
+      <ListEntry entry={entry} />
+    )
   }
 
   render() {
