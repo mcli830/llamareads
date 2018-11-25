@@ -5,23 +5,16 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // components
-import ListEntry from './listentry';
+import ListEntry from "./ListEntry";
 
-const Inbox = (props) => {
+const Inbox = props => {
+  return (
+    <div className="Inbox">
+      {this.props.inbox.map(entry => (
+        <ListEntry entry={entry} />
+      ))}
+    </div>
+  );
+};
 
-  renderInbox = inbox => {
-    return inbox.map(entry => (
-      <ListEntry entry={entry} />
-    ))
-  }
-
-  render() {
-    return (
-      <div className="Inbox">
-        {this.renderInbox(this.props.inbox)}
-      </div>
-    )
-  }
-}
- 
 export default Inbox;
