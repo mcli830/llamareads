@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
+
+// components
 import ListEntry from './listentry';
 
 const Inbox = (props) => {
@@ -10,7 +12,7 @@ const Inbox = (props) => {
   renderInbox = inbox => {
     return inbox.map(entry => (
       <ListEntry entry={entry} />
-    )
+    ))
   }
 
   render() {
