@@ -8,10 +8,13 @@ import { withFirestore } from "react-redux-firebase";
 import Inbox from "./Inbox";
 import Avatar from "./Avatar";
 
-const UserMenu = props => {
+// css
+import "../../stylesheets/css/base.css";
+
+const UserMenu = () => {
   return (
     <div className="UserMenu">
-      <Inbox inbox={this.props.user.inbox} />
+      <Inbox />
       <Avatar />
     </div>
   );

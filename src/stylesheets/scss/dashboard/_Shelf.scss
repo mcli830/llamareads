@@ -1,0 +1,18 @@
+.ShelfList {
+  align-items: flex-end;
+}
+
+.Shelf {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  min-width: 500px;
+  border-bottom: 10px double $bookshelf;
+}
+
+.ShelfHeader {
+  color: $text;
+}
+
+.ShelfPlatform {
+}

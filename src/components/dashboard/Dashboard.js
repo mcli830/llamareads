@@ -4,14 +4,18 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
-// linked component
+// components
 import Navbar from "../navbar/Navbar";
+import ShelfList from "./ShelfList";
+
+// css
+import "../../stylesheets/css/base.css";
 
 const Dashboard = () => {
   return (
     <div className="Dashboard">
+      <ShelfList />
       <Navbar />
-      <div>Dashboard</div>
     </div>
   );
 };

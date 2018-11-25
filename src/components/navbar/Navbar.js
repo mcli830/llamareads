@@ -9,7 +9,7 @@ import Brand from "./Brand";
 import UserMenu from "./UserMenu";
 
 // css
-import "../../stylesheets/css/components/navbar.css";
+import "../../stylesheets/css/base.css";
 
 const Navbar = ({ seed }) => (
   <div className="Navbar">

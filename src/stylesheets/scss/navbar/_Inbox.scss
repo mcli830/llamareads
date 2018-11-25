@@ -1,0 +1,27 @@
+.Inbox-list {
+  text-align: left;
+  height: 0;
+  opacity: 0;
+  display: block;
+  transition: 300ms;
+}
+
+.Inbox-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Inbox {
+  width: 300px;
+  color: $secondary;
+  text-align: right;
+  border: 1px solid $light-gray;
+  right: 200px;
+  position: absolute;
+  &:hover .Inbox-list {
+    height: 300px;
+    opacity: 1;
+    overflow-y: auto;
+  }
+}
