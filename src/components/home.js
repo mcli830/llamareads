@@ -1,10 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { withHandlers, withStateHandlers } from "recompose";
-import { firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
-import { firebase as firebaseConf } from "../config/api";
+z
 
 // components
 import Dashboard from "./dashboard/Dashboard";
