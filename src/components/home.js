@@ -23,22 +23,7 @@ const enhance = compose(
 const Home = ({ firestore, books, addBook }) => (
   <div className="App">
     <div className="App-header">
-      <h2>Llama Demo React/Redux/Firestore</h2>
-    </div>
-    <div className="App-books">
-      <h4>
-        Loaded From
-        <span className="App-Url">
-          <a href={firebaseConf.databaseURL}>{firebaseConf.databaseURL}</a>
-        </span>
-      </h4>
-      <h4>Books recieve from Firestore</h4>
-      {!isLoaded(books)
-        ? "Loading"
-        : isEmpty(books)
-        ? "Book list is empty"
-        : books.map(book => <Book key={book && book.id} book={book} />)}
-      <NewBook />
+      <h2>Llama Staging BUILD</h2>
     </div>
   </div>
 );
