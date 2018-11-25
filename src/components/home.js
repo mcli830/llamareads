@@ -10,13 +10,13 @@ import "../App.css";
 import { firebase as firebaseConf } from "../config/api";
 
 const enhance = compose(
-  firestoreConnect([{ collection: "books", where: ["read", "==", false] }]),
+  firestoreConnect([{ collection: "books" }]),
   connect(({ firestore }) => ({
     books: firestore.ordered.books
   })),
   withHandlers({
     addBook: props => () =>
-      props.firestore.add("books", { title: "something", read: false })
+      props.firestore.add("books", { title: "something" })
   })
 );
 
