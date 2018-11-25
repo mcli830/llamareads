@@ -7,12 +7,16 @@ import { withFirestore } from "react-redux-firebase";
 // components
 import ListEntry from "./ListEntry";
 
+// css
+import "../../stylesheets/css/base.css";
+
 const Inbox = props => {
   return (
     <div className="Inbox">
-      {this.props.inbox.map(entry => (
-        <ListEntry entry={entry} />
-      ))}
+      <div className="Inbox-header">Inbox</div>
+      <div className="Inbox-list">
+        <ListEntry />
+      </div>
     </div>
   );
 };

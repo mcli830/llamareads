@@ -7,12 +7,13 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../stylesheets/css/base.css";
 
-const Brand = () => {
+const ShelfHeader = () => {
   return (
-    <div className="Brand">
-      <div className="Brand-name">Llama</div>
+    <div className="ShelfHeader">
+      <div>My Books</div>
+      <button>+</button>
     </div>
   );
 };
 
-export default Brand;
+export default ShelfHeader;

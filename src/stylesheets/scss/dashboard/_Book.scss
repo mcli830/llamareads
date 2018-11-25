@@ -1,0 +1,15 @@
+.BookList {
+  display: flex;
+  flex-direction: row;
+}
+
+.Book {
+  height: $book-height;
+  width: $book-shelf-width;
+  background-color: dodgerblue;
+  border: 2px solid rgba(68, 68, 68, 0.4);
+  &:hover {
+    width: $book-open-width;
+    border-width: 6px;
+  }
+}

@@ -4,15 +4,18 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
+// linked component
+import Shelf from "./Shelf";
+
 // css
 import "../../stylesheets/css/base.css";
 
-const Brand = () => {
+const ShelfList = () => {
   return (
-    <div className="Brand">
-      <div className="Brand-name">Llama</div>
+    <div className="ShelfList">
+      <Shelf />
     </div>
   );
 };
 
-export default Brand;
+export default ShelfList;

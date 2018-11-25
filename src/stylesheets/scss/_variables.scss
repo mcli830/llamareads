@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
-/* PALETTE */
-
 $yellow: #f8e9a1;
 $red: #f76f6f;
 $light-blue: #a8d0e6;
@@ -11,14 +9,15 @@ $light-gray: #cbc9c2;
 $off-white: #faf8f3;
 $dark: #484848;
 
-/* variables */
-
 $font-main: "Lato";
 
 $primary: $red;
 $secondary: $dark-blue;
 $text: $dark;
-// $text-light: ;
 $bg: $off-white;
 
 $bookshelf: $light-gray;
+
+$book-height: 400px;
+$book-shelf-width: 100px;
+$book-open-width: 450px;

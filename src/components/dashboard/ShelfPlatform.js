@@ -4,4 +4,15 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
-// linked component
+// css
+import "../../stylesheets/css/base.css";
+
+const ShelfPlatform = () => {
+  return (
+    <div className="ShelfPlatform">
+      <div>ShelfPlatform</div>
+    </div>
+  );
+};
+
+export default ShelfPlatform;
