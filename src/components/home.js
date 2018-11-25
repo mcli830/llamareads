@@ -60,6 +60,7 @@ const Home = ({ firestore, books, addBook }) => (
 Home.propTypes = {
   firestore: PropTypes.shape({
     add: PropTypes.func.isRequired,
+    login: PropTypes.func.isRequired
   }),
   addBook: PropTypes.func.isRequired,
   books: PropTypes.array

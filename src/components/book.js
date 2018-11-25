@@ -9,22 +9,16 @@ const enhance = compose(
   withFirestore,
 
   withHandlers({
-    toggleRead: ({ firestore, book }) => () =>
-      firestore.update({ collection: 'books', doc: book.id }, { read: !book.read }),
     deleteBook: ({ firestore, book }) => () =>
       firestore.delete({ collection: 'books', doc: book.id })
   })
 )
 
-const Book = ({ deleteBook, toggleRead,  book }) => (
+const Book = ({ deleteBook,  book }) => (
   <li>
-    <input
-      className="Book-Input"
-      type="checkbox"
-      checked={book.read}
-      onChange={toggleRead}
-    />
-    {book.title}
+    {book.title}&nbsp;	
+    {book.author}&nbsp;	
+    {book.excerpt}&nbsp;	
     <button className="Book-Button" onClick={deleteBook}>
       Delete
     </button>

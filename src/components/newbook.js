@@ -9,33 +9,39 @@ const enhance = compose(
   withFirestore,
   withStateHandlers(
     ({ initialVal = '' }) => ({
-      inputVal: initialVal
+      inputTitle: initialVal,
+      inputAuthor: initialVal,
+      inputExcerpt: initialVal
     }),
     {
-      onInputChange: ({ inputVal }) => (e) => ({ inputVal: e.target.value }),
-      resetInput: ({ inputVal }) => (e) => ({ inputVal: e.target.value })
+      onInputTChange: ({ inputTitle }) => (e) => ({ inputTitle: e.target.value }),
+      onInputAChange: ({ inputAuthor }) => (e) => ({ inputAuthor: e.target.value }),
+      onInputEChange: ({ inputExcerpt }) => (e) => ({ inputExcerpt: e.target.value }),
+      resetInput: ({ inputTitle }) => (e) => ({ inputVal: e.target.value })
     }
   ),
   withHandlers({
     addBook: props => () =>
-      props.firestore.add('books', { title: props.inputVal || 'PAX', read: false })
+      props.firestore.add('books', { title: props.inputTitle, author: props.inputAuthor, excerpt: props.inputExcerpt })
   })
 )
 
-const NewBook = ({ books, addBook, inputVal, onInputChange, resetInput }) => (
+const NewBook = ({ books, addBook, onInputAChange, onInputEChange, onInputTChange, resetInput, inputTitle, inputAuthor, inputExcerpt }) => (
   <div>
     <h4>Send new Book to Firestore</h4>
-    <input value={inputVal} onChange={onInputChange} />
+    <input value={inputTitle} onChange={onInputTChange} />
+    <input value={inputAuthor} onChange={onInputAChange} />
+    <input value={inputExcerpt} onChange={onInputEChange} />
     <button onClick={addBook}>Add</button>
     <button onClick={resetInput}>Cancel</button>
   </div>
 )
 
 NewBook.propTypes = {
-  firestore: PropTypes.shape({ // from enhnace (withFirestore)
+  firestore: PropTypes.shape({
     add: PropTypes.func.isRequired,
   }),
-  addBook: PropTypes.func.isRequired, // from enhance (withHandlers)
+  addBook: PropTypes.func.isRequired,
   books: PropTypes.array
 }
 
