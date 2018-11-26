@@ -64,7 +64,6 @@ const Dashboard = ({
     <div className="Dashboard">
       <ShelfList />
       <Navbar />
-
       {/* <ModalBase content={<ReceiveModal />} /> */}
       {!isLoaded(users)
         ? ""
@@ -79,6 +78,13 @@ const Dashboard = ({
               Send Book
             </button>
           ))}
+      <button onClick={pushSample} />
+      <input value={searchVal} onChange={onSearchChange} type="text" />
+      <ModalBase content={<ReceiveModal />} />? "" : users.map(user => (
+      <button onClick={sendBook} key={user.id} value={user.id && searchVal}>
+        Send Book
+      </button>
+      ))}
       <button onClick={pushSample} />
       <input value={searchVal} onChange={onSearchChange} type="text" />
       <ModalBase content={<ReceiveModal />} />
