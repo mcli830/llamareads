@@ -1,0 +1,45 @@
+.BookCard {
+  padding: 10px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  background-color: white;
+  font-family: "Lato";
+  color: $text;
+}
+
+.BookCard-cover {
+  margin: 10px 30px;
+  flex: 0 1 160px;
+  padding: 5px;
+  border: 1px solid $modal-bg;
+}
+
+.BookCard-cover-img {
+  width: 100%;
+}
+
+.BookCard-info {
+  padding: 10px 20px;
+  margin-left: 30px;
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.BookCard-title {
+  margin-bottom: 20px;
+}
+
+.BookCard-author {
+  margin-bottom: 20px;
+}
+
+.BookCard-description {
+}
+
+.BookCard-details {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

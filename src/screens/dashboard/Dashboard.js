@@ -7,6 +7,8 @@ import { firebaseConnect, firestoreConnect, withFirestore, isLoaded, isEmpty } f
 // components
 import Navbar from "./components/navbar/Navbar";
 import ShelfList from "./components/shelf/ShelfList";
+import ModalBase from "./components/modal/ModalBase";
+import ReceiveModal from "./components/receiveModal/ReceiveModal";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -45,6 +47,7 @@ const enhance = compose(
   )
 )
 
+
 const Dashboard = ({ users, pushSample, onSearchChange, searchVal, sendBook }) => {
   return (
     <div className="Dashboard">
@@ -61,6 +64,8 @@ const Dashboard = ({ users, pushSample, onSearchChange, searchVal, sendBook }) =
       }
       <button onClick={pushSample}></button>
       <input value={searchVal} onChange={onSearchChange} type="text"></input>
+      <ModalBase content={<ReceiveModal />} />
+      <button onClick={pushSample} />
     </div>
   );
 };
