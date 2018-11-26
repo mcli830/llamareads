@@ -35,7 +35,7 @@ const Dashboard = ({ pushSample }) => {
     <div className="Dashboard">
       <ShelfList />
       <Navbar />
-      <ModalBase content={<ReceiveModal />} />
+      {/* <ModalBase content={<ReceiveModal />} /> */}
       <button onClick={pushSample} />
     </div>
   );
