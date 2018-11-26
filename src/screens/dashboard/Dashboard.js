@@ -2,7 +2,13 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { withHandlers, withStateHandlers } from "recompose";
-import { firebaseConnect, firestoreConnect, withFirestore, isLoaded, isEmpty } from 'react-redux-firebase';
+import {
+  firebaseConnect,
+  firestoreConnect,
+  withFirestore,
+  isLoaded,
+  isEmpty
+} from "react-redux-firebase";
 
 // components
 import Navbar from "./components/navbar/Navbar";
@@ -18,52 +24,61 @@ const enhance = compose(
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   withHandlers({
-    pushSample:  props => ({ auth }) => (
-      props.firestore.add('booksList', { bookFor: props.auth.uid, book: "9xzHVb6LM4Cq67XUHFRF" })
-    ),
-    sendBook:  props => (e) => {
-      console.log(e.target)
+    pushSample: props => ({ auth }) =>
+      props.firestore.add("booksList", {
+        bookFor: props.auth.uid,
+        book: "9xzHVb6LM4Cq67XUHFRF"
+      }),
+    sendBook: props => e => {
+      console.log(e.target);
       // props.firestore.add('booksList', { bookFor: key, book: "9xzHVb6LM4Cq67XUHFRF" })
       // props.firestore.add('journeyList', { sender: key, notes: e.target.value})
     }
   }),
   firestoreConnect(({ auth }) => [
     {
-      collection: 'users'
-    },
+      collection: "users"
+    }
   ]),
-  connect(
-    ({ firestore }) => ({
-      users: firestore.ordered.users,
-    })
-  ),
+  connect(({ firestore }) => ({
+    users: firestore.ordered.users
+  })),
   withStateHandlers(
-    ({ initialVal = '' }) => ({
-        searchVal: initialVal
+    ({ initialVal = "" }) => ({
+      searchVal: initialVal
     }),
     {
-        onSearchChange: ({ props }) => (e) => ({ searchVal: e.target.value }),
+      onSearchChange: ({ props }) => e => ({ searchVal: e.target.value })
     }
   )
-)
+);
 
-
-const Dashboard = ({ users, pushSample, onSearchChange, searchVal, sendBook }) => {
+const Dashboard = ({
+  users,
+  pushSample,
+  onSearchChange,
+  searchVal,
+  sendBook
+}) => {
   return (
     <div className="Dashboard">
       <ShelfList />
       <Navbar />
-      {
-        !isLoaded(users)
-          ? ''
-          : isEmpty(users)
-            ? ''
-            : users.map((user) =>
-              <button onClick={sendBook} key={user.id} value={(user.id && searchVal)}>Send Book</button>
-              )
-      }
-      <button onClick={pushSample}></button>
-      <input value={searchVal} onChange={onSearchChange} type="text"></input>
+      {!isLoaded(users)
+        ? ""
+        : isEmpty(users)
+        ? ""
+        : users.map(user => (
+            <button
+              onClick={sendBook}
+              key={user.id}
+              value={user.id && searchVal}
+            >
+              Send Book
+            </button>
+          ))}
+      <button onClick={pushSample} />
+      <input value={searchVal} onChange={onSearchChange} type="text" />
       <ModalBase content={<ReceiveModal />} />
       <button onClick={pushSample} />
     </div>
