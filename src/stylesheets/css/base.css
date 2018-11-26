@@ -253,4 +253,52 @@
   bottom: 20px;
   right: 20px; }
 
+.AddModal {
+  display: flex;
+  flex-direction: column; }
+
+.AddModal-search {
+  flex: 0 0 80px;
+  margin-bottom: 30px; }
+
+.AddModal-search-input {
+  height: 100%;
+  display: block;
+  width: auto; }
+
+.AddModal-search-list {
+  flex: 1 1 300px;
+  overflow-y: scroll; }
+
+.BookSearchCard {
+  padding: 10px;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  background-color: white;
+  font-family: "Lato";
+  color: #484848;
+  position: relative; }
+
+.BookSearchCard-cover {
+  margin: 10px 30px;
+  flex: 0 0 100px;
+  padding: 5px;
+  border: 1px solid rgba(68, 68, 68, 0.6); }
+
+.BookSearchCard-info {
+  font-family: "Lato";
+  font-size: 14px;
+  color: #484848;
+  flex: 1 1 auto;
+  margin: 10px 40px 10px 15px; }
+
+.BookSearchCard-actions {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; }
+
 /*# sourceMappingURL=base.css.map */

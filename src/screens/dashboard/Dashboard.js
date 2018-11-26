@@ -16,7 +16,7 @@ import ShelfList from "./components/shelf/ShelfList";
 import ModalBase from "./components/modal/ModalBase";
 import ReceiveModal from "./components/receiveModal/ReceiveModal";
 import SendModal from "./components/sendModal/SendModal";
-// import AddModal from "./components/addModal/AddModal";
+import AddModal from "./components/addModal/AddModal";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -81,8 +81,8 @@ const Dashboard = ({
           ))}
       <button onClick={addBook} />
       <input value={searchVal} onChange={onSearchChange} type="text" />
-      <ModalBase content={<SendModal />} />
-      {/* <AddModal /> */}
+      {/* <ModalBase content={<SendModal />} /> */}
+      {/* <ModalBase content={<AddModal />} /> */}
       {/* <ModalBase content={<ReceiveModal />} /> */}
       <button onClick={pushSample} />
     </div>
