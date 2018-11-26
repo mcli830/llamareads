@@ -5,21 +5,22 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // components
-import BookCard from "./BookCard";
-import SenderNote from "./SenderNote";
-import ModalActions from "../modal/ModalActions";
+import "./SearchResults";
+import "../modal/ModalActions/modalActions";
 
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ReceiveModal = () => {
+const AddModal = () => {
   return (
-    <div className="ReceiveModal">
-      <BookCard />
-      <SenderNote />
+    <div className="AddModal">
+      <div className="AddModal-search">
+        <input id="AddModal-search-input" />
+      </div>
+      <SearchResults />
       <ModalActions />
     </div>
   );
 };
 
-export default ReceiveModal;
+export default AddModal;
