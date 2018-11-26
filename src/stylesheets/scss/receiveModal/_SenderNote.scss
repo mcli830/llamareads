@@ -1,0 +1,14 @@
+.SenderNote {
+  padding: 40px 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: transparent;
+  justify-content: center;
+  align-content: center;
+}
+
+.SenderNote-text {
+  @include textStyle(20px);
+}

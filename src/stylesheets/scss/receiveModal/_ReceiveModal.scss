@@ -1,9 +1,15 @@
 .ReceiveModal {
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 .ReceiveModal-actions {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
 }

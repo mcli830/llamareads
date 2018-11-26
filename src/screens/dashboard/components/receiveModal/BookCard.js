@@ -32,7 +32,7 @@ const BookCard = () => {
           multi-award winner, Jon Klassen. Pax was only a kit when his family
           was killed and he was rescued by ‘his boy’, Peter…
         </div>
-        <button className="BookCard-details">Details</button>
+        <button className="BookCard-details btn">Details</button>
       </div>
     </div>
   );

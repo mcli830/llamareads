@@ -10,7 +10,15 @@ import { withFirestore } from "react-redux-firebase";
 import "../../../../stylesheets/css/base.css";
 
 const SenderNote = () => {
-  return <div className="SenderNote" />;
+  return (
+    <div className="SenderNote">
+      <div className="SenderNote-text">
+        <em>
+          “Hey Sam, I really enjoyed this book. Hope you like it too!” - Jordan
+        </em>
+      </div>
+    </div>
+  );
 };
 
 export default SenderNote;

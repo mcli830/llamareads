@@ -1,14 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import { connect } from "react-redux";
+import {
+  withProps,
+  withHandlers,
+  branch,
+  renderNothing,
+  withState,
+  withStateHandlers
+} from "recompose";
+import { firebaseConnect, isLoaded, isEmpty } from "react-redux-firebase";
 
 // css
 import "../../../../stylesheets/css/base.css";
 
-const Avatar = props => {
-  return <div className="Avatar" />;
+const enhance = compose(
+  firebaseConnect(),
+  connect(({ firebase: { auth } }) => ({ auth }))
+);
+
+const Avatar = ({ auth }) => {
+  return <div className="Avatar">{auth.username}</div>;
 };
 
-export default Avatar;
+export default enhance(Avatar);

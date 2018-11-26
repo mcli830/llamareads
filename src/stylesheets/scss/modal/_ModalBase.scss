@@ -21,6 +21,8 @@
   display: flex;
   flex-direction: column;
   font-family: $font-main;
+  box-shadow: $shadow;
+  border-radius: 2px;
 }
 
 .ModalBase-visuals {
