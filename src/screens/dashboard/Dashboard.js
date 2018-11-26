@@ -15,6 +15,8 @@ import Navbar from "./components/navbar/Navbar";
 import ShelfList from "./components/shelf/ShelfList";
 import ModalBase from "./components/modal/ModalBase";
 import ReceiveModal from "./components/receiveModal/ReceiveModal";
+import SendModal from "./components/sendModal/SendModal";
+import AddModal from "./components/addModal/AddModal";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -24,21 +26,21 @@ const enhance = compose(
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   withHandlers({
-    pushSample: props => ({ auth }) =>
+    addBook: props => ({ auth }) =>
       props.firestore.add("booksList", {
         bookFor: props.auth.uid,
-        book: "9xzHVb6LM4Cq67XUHFRF"
+        book: "9xzHVb6LM4Cq67XUHFRF",
+        inbox: true
       }),
     sendBook: props => e => {
-      console.log(e.target);
-      // props.firestore.add('booksList', { bookFor: key, book: "9xzHVb6LM4Cq67XUHFRF" })
+      props.firestore.add('booksList', { bookFor: e.target.value, book: "9xzHVb6LM4Cq67XUHFRF", inbox: true })
       // props.firestore.add('journeyList', { sender: key, notes: e.target.value})
     }
   }),
   firestoreConnect(({ auth }) => [
     {
       collection: "users"
-    }
+    },
   ]),
   connect(({ firestore }) => ({
     users: firestore.ordered.users
@@ -55,7 +57,7 @@ const enhance = compose(
 
 const Dashboard = ({
   users,
-  pushSample,
+  addBook,
   onSearchChange,
   searchVal,
   sendBook
@@ -72,14 +74,16 @@ const Dashboard = ({
             <button
               onClick={sendBook}
               key={user.id}
-              value={user.id && searchVal}
+              value={user.id}
             >
               Send Book
             </button>
           ))}
-      <button onClick={pushSample} />
+      <button onClick={addBook} />
       <input value={searchVal} onChange={onSearchChange} type="text" />
-      <ModalBase content={<ReceiveModal />} />
+      {/* <ModalBase content={<SendModal />} /> */}
+      {/* <ModalBase content={<AddModal />} /> */}
+      {/* <ModalBase content={<ReceiveModal />} /> */}
       <button onClick={pushSample} />
     </div>
   );

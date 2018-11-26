@@ -1,0 +1,20 @@
+.AddModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddModal-search {
+  flex: 0 0 80px;
+  margin-bottom: 30px;
+}
+
+.AddModal-search-input {
+  height: 100%;
+  display: block;
+  width: auto;
+}
+
+.AddModal-search-list {
+  flex: 1 1 300px;
+  overflow-y: scroll;
+}
