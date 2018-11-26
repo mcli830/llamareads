@@ -7,10 +7,10 @@ import { withFirestore } from "react-redux-firebase";
 // linked component
 import ShelfPlatform from "./ShelfPlatform";
 import ShelfHeader from "./ShelfHeader";
-import BookList from "./BookList";
+import BookList from "../book/BookList";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
 const Shelf = () => {
   return (

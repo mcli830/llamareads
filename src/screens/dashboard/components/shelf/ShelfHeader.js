@@ -4,20 +4,16 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
-// components
-import Navbar from "../navbar/Navbar";
-import ShelfList from "./ShelfList";
-
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
-const Dashboard = () => {
+const ShelfHeader = () => {
   return (
-    <div className="Dashboard">
-      <ShelfList />
-      <Navbar />
+    <div className="ShelfHeader">
+      <div>My Books</div>
+      <button>+</button>
     </div>
   );
 };
 
-export default Dashboard;
+export default ShelfHeader;

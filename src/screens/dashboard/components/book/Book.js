@@ -5,14 +5,15 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
-const Brand = () => {
+const Book = () => {
   return (
-    <div className="Brand">
-      <div className="Brand-name">Llama</div>
+    <div className="Book">
+      <div className="Book-title">Pax</div>
+      <div className="Book-author">Sara Pennypacker</div>
     </div>
   );
 };
 
-export default Brand;
+export default Book;
