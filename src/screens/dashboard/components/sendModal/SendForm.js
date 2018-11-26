@@ -4,22 +4,20 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
-// components
-import BookCard from "./BookCard";
-import SenderNote from "./SenderNote";
-import ModalActions from "../modal/ModalActions";
-
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ReceiveModal = () => {
+const SendForm = () => {
   return (
-    <div className="ReceiveModal">
-      <BookCard />
-      <SenderNote />
-      <ModalActions />
+    <div className="SendForm">
+      <div className="SendForm-search">
+        <input id="SendForm-search-input" />
+      </div>
+      <div className="SendForm-note">
+        <textarea id="SendForm-note-input" />
+      </div>
     </div>
   );
 };
 
-export default ReceiveModal;
+export default SendForm;
