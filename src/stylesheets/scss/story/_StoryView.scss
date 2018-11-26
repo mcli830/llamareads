@@ -1,0 +1,9 @@
+.StoryView {
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: $bg;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
