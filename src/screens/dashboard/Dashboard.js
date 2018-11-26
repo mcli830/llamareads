@@ -1,8 +1,8 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { withHandlers } from "recompose";
-import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
+import { withHandlers, withStateHandlers } from "recompose";
+import { firebaseConnect, firestoreConnect, withFirestore, isLoaded, isEmpty } from 'react-redux-firebase';
 
 // components
 import Navbar from "./components/navbar/Navbar";
@@ -12,27 +12,55 @@ import ShelfList from "./components/shelf/ShelfList";
 import "../../stylesheets/css/base.css";
 
 const enhance = compose(
-  firebaseConnect(({ params, uid }) => [
-    {
-      path: 'userBooks',
-      queryParams: ['orderByChild=createdBy', `equalTo=${uid}`]
-    }
-  ]),
+  withFirestore,
+  firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   withHandlers({
-    pushSample: ({firebase, auth}) => firebase.push('userBooks', {
-      books: "9xzHVb6LM4Cq67XUHFRF",
-      booksFor: auth.uid
+    pushSample:  props => ({ auth }) => (
+      props.firestore.add('booksList', { bookFor: props.auth.uid, book: "9xzHVb6LM4Cq67XUHFRF" })
+    ),
+    sendBook:  props => (e) => {
+      console.log(e.target)
+      // props.firestore.add('booksList', { bookFor: key, book: "9xzHVb6LM4Cq67XUHFRF" })
+      // props.firestore.add('journeyList', { sender: key, notes: e.target.value})
+    }
+  }),
+  firestoreConnect(({ auth }) => [
+    {
+      collection: 'users'
+    },
+  ]),
+  connect(
+    ({ firestore }) => ({
+      users: firestore.ordered.users,
     })
-  })
+  ),
+  withStateHandlers(
+    ({ initialVal = '' }) => ({
+        searchVal: initialVal
+    }),
+    {
+        onSearchChange: ({ props }) => (e) => ({ searchVal: e.target.value }),
+    }
+  )
 )
 
-const Dashboard = ({ pushSample }) => {
+const Dashboard = ({ users, pushSample, onSearchChange, searchVal, sendBook }) => {
   return (
     <div className="Dashboard">
       <ShelfList />
       <Navbar />
+      {
+        !isLoaded(users)
+          ? ''
+          : isEmpty(users)
+            ? ''
+            : users.map((user) =>
+              <button onClick={sendBook} key={user.id} value={(user.id && searchVal)}>Send Book</button>
+              )
+      }
       <button onClick={pushSample}></button>
+      <input value={searchVal} onChange={onSearchChange} type="text"></input>
     </div>
   );
 };

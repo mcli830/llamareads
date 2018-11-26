@@ -10,8 +10,7 @@ export const firebase = {
 export const rrfConfig = {
     userProfile: 'users',
     useFirestoreForProfile: true,
-    enableLogging: false,
-    attachAuthIsReady: true
+    enableLogging: false
 }
 
 export default { firebase, rrfConfig }
