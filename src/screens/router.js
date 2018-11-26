@@ -7,11 +7,13 @@ import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import Dashboard from "./dashboard/Dashboard"
 import Identity from "./identity/Identity"
 
+import '../stylesheets/css/router.css'
+
 export const Router = ({ firebase, auth }) => (
   <div>
       {
         !isLoaded(auth)
-        ? <span>Loading...</span>
+        ? <div className="loader"><div className="lds-ripple"><div></div><div></div></div></div>
         : isEmpty(auth)
           ? <Identity />
           : <Dashboard />

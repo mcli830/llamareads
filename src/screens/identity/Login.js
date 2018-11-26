@@ -16,8 +16,13 @@ const enhance = compose(
       })
     }),
     withHandlers({
-        emailLogin: ({ firebase, router, showError }) => creds =>
-        firebase.login(creds).catch(err => showError(err.message))
+        emailSignup: ({ firebase, showError }) => creds =>
+      firebase
+        .createUser(creds, {
+          email: creds.email,
+          username: creds.username
+        })
+        .catch(err => showError(err.message))
     }),
     withStateHandlers(
         ({ initialVal = '' }) => ({
@@ -31,10 +36,17 @@ const enhance = compose(
     )
 )
 
-const Login = ({ firebase, auth, email, password, emailLogin, onPasswordChange, onEmailChange }) => (
+const Login = ({ emailSignup, firebase, auth, email, password, onPasswordChange, onEmailChange }) => (
+    <div>
     <button 
     onClick={() => firebase.login({ provider: 'google', type: 'popup' })}
   >Login With Google</button>
+    <form onSubmit={emailSignup}>
+        <input type="text" name="email" id="email" value={email} onChange={onEmailChange}></input>
+        <input type="password" name="password" id="password" value={password} onChange={onPasswordChange}></input>
+        <input type="submit"></input>
+    </form>
+    </div>
 )
 
 Login.propTypes = {
