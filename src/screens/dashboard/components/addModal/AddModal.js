@@ -5,20 +5,23 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // components
-import "./SearchResults";
-import "../modal/ModalActions/modalActions";
+import BookSearchCard from "./BookSearchCard";
 
 // css
 import "../../../../stylesheets/css/base.css";
 
-const AddModal = () => {
+const AddModal = props => {
   return (
     <div className="AddModal">
       <div className="AddModal-search">
-        <input id="AddModal-search-input" />
+        <input id="AddModal-search-input" className="AddModal-search-input" />
       </div>
-      <SearchResults />
-      <ModalActions />
+      <span>Results</span>
+      <div className="AddModal-search-list">
+        {[1, 2].map(i => (
+          <BookSearchCard key={i} />
+        ))}
+      </div>
     </div>
   );
 };
