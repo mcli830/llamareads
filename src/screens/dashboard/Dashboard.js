@@ -12,7 +12,12 @@ import ShelfList from "./components/shelf/ShelfList";
 import "../../stylesheets/css/base.css";
 
 const enhance = compose(
-  firebaseConnect(),
+  firebaseConnect(({ params, uid }) => [
+    {
+      path: 'userBooks',
+      queryParams: ['orderByChild=createdBy', `equalTo=${uid}`]
+    }
+  ]),
   connect(({ firebase: { auth } }) => ({ auth })),
   withHandlers({
     pushSample: ({firebase, auth}) => firebase.push('userBooks', {
