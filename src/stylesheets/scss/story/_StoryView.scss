@@ -1,9 +1,22 @@
 .StoryView {
   width: 100vw;
   height: 100vh;
-  z-index: 3;
+  z-index: 10;
   background-color: $bg;
   display: flex;
   flex-direction: row;
   position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.Story-indicator-map {
+  flex: 0 0 100px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }

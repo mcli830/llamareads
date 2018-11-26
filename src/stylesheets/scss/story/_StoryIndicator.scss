@@ -1,0 +1,33 @@
+$node: 10px;
+$node-ring: $node * 3;
+$node-ring-offset: (($node - $node-ring) / 2) - 1;
+$node-dist: 60px;
+$node-tail: $node + $node-dist;
+
+.StoryIndicator {
+  position: relative;
+  margin-top: $node-dist;
+  height: $node;
+  width: $node;
+  border-radius: 50%;
+  background-color: $dark;
+}
+
+.StoryIndicator-tail {
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - 1px);
+  height: $node-tail;
+  width: 2px;
+  background-color: $dark;
+}
+
+.StoryIndicator-ring {
+  height: $node-ring;
+  width: $node-ring;
+  position: absolute;
+  left: $node-ring-offset;
+  top: $node-ring-offset;
+  border-radius: 50%;
+  border: 1px solid $dark;
+}

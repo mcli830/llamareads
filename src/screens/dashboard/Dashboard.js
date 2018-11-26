@@ -17,6 +17,7 @@ import ModalBase from "./components/modal/ModalBase";
 import ReceiveModal from "./components/receiveModal/ReceiveModal";
 import SendModal from "./components/sendModal/SendModal";
 import AddModal from "./components/addModal/AddModal";
+import StoryView from "./components/storyView/StoryView";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -64,29 +65,30 @@ const Dashboard = ({
 }) => {
   return (
     <div className="Dashboard">
-      <ShelfList />
-      <Navbar />
-      {!isLoaded(users)
-        ? ""
-        : isEmpty(users)
-        ? ""
-        : users.map(user => (
-            <button
-              onClick={sendBook}
-              key={user.id}
-              value={user.id}
-            >
-              Send Book
-            </button>
-          ))}
-      <button onClick={addBook} />
-      <input value={searchVal} onChange={onSearchChange} type="text" />
-      {/* <ModalBase content={<SendModal />} /> */}
-      {/* <ModalBase content={<AddModal />} /> */}
-      {/* <ModalBase content={<ReceiveModal />} /> */}
-      <button onClick={pushSample} />
+      <StoryView />
     </div>
   );
 };
 
-export default enhance(Dashboard);
+export default Dashboard;
+
+// <ShelfList />
+// <Navbar />
+// {!isLoaded(users)
+//   ? ""
+//   : isEmpty(users)
+//   ? ""
+//   : users.map(user => (
+//       <button
+//         onClick={sendBook}
+//         key={user.id}
+//         value={user.id}
+//       >
+//         Send Book
+//       </button>
+//     ))}
+// <button onClick={addBook} />
+// <input value={searchVal} onChange={onSearchChange} type="text" />
+// <ModalBase content={<SendModal />} />
+// <ModalBase content={<AddModal />} />
+// <ModalBase content={<ReceiveModal />} />
