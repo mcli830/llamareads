@@ -8,7 +8,7 @@ import { withFirestore } from "react-redux-firebase";
 import Book from "./Book";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
 const BookList = () => {
   return (

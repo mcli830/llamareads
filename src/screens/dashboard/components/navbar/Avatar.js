@@ -5,15 +5,10 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
-const ShelfHeader = () => {
-  return (
-    <div className="ShelfHeader">
-      <div>My Books</div>
-      <button>+</button>
-    </div>
-  );
+const Avatar = props => {
+  return <div className="Avatar" />;
 };
 
-export default ShelfHeader;
+export default Avatar;

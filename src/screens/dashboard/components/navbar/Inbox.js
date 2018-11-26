@@ -8,7 +8,7 @@ import { withFirestore } from "react-redux-firebase";
 import ListEntry from "./ListEntry";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
 const Inbox = props => {
   return (

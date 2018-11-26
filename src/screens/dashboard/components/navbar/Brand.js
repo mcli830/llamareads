@@ -5,10 +5,14 @@ import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // css
-import "../../stylesheets/css/base.css";
+import "../../../../stylesheets/css/base.css";
 
-const Avatar = props => {
-  return <div className="Avatar" />;
+const Brand = () => {
+  return (
+    <div className="Brand">
+      <div className="Brand-name">Llama</div>
+    </div>
+  );
 };
 
-export default Avatar;
+export default Brand;
