@@ -12,10 +12,10 @@ import "../../../../stylesheets/css/base.css";
 const ModalBase = props => {
   return (
     <div className="ModalBase">
-      <div className="ModalBase-content">
+      <div className="ModalBase-view">
         <div className="ModalBase-visuals" />
-        <div className="ModalBase-header">Modal header message</div>
-        {props.content}
+        <div className="ModalBase-header">Modal Title Message</div>
+        <div className="ModalBase-content">{props.content}</div>
       </div>
     </div>
   );

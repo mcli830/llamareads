@@ -8,13 +8,18 @@ $dark-blue: #4e64bb;
 $light-gray: #cbc9c2;
 $off-white: #faf8f3;
 $dark: #484848;
-
-$font-main: "Lato";
+$alpha-mask: rgba(255, 255, 255, 0.1);
 
 $primary: $red;
 $secondary: $dark-blue;
 $text: $dark;
 $bg: $off-white;
+
+$modal-bg: rgba(68, 68, 68, 0.6);
+
+$font-main: "Lato";
+$font-size-header: 30px;
+$font-size-button: 20px;
 
 $bookshelf: $light-gray;
 

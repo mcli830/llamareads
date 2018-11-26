@@ -8,6 +8,7 @@ import { firebaseConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import Navbar from "./components/navbar/Navbar";
 import ShelfList from "./components/shelf/ShelfList";
 import ModalBase from "./components/modal/ModalBase";
+import ReceiveModal from "./components/receiveModal/ReceiveModal";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -34,7 +35,7 @@ const Dashboard = ({ pushSample }) => {
     <div className="Dashboard">
       <ShelfList />
       <Navbar />
-      <ModalBase content={<div>Modal test</div>} />
+      <ModalBase content={<ReceiveModal />} />
       <button onClick={pushSample} />
     </div>
   );
