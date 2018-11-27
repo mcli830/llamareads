@@ -21,7 +21,7 @@ const enhance = compose(
   ),
   firestoreConnect(({ auth }) => [
     {
-      collection: 'booksList', where: ['inbox', "==", false], where: ['bookFor', '==', auth.uid]
+      collection: 'booksList', where: ['bookFor', '==', auth.uid]
     },
   ]),
   connect(

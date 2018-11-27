@@ -18,8 +18,7 @@ const enhance = compose(
 const UserMenu = ({auth}) => {
   return (
     <div className="UserMenu">
-    {auth.displayName}
-      <Inbox />
+      <Inbox  />
       <Avatar />
     </div>
   );

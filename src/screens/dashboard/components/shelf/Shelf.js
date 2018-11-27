@@ -12,10 +12,10 @@ import BookList from "../book/BookList";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const Shelf = () => {
+const Shelf = ({setModal}) => {
   return (
     <div className="Shelf">
-      <ShelfHeader />
+      <ShelfHeader setModal={setModal}/>
       <BookList />
     </div>
   );
