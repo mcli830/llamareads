@@ -1,7 +1,8 @@
-export default (modal = '', book = null) => {
-  type: 'VIEW_NODE',
+export default (modal = '', book = null) => ({
+  type: 'VIEW_MODAL',
   payload: {
     modal,
     book
   }
 }
+)

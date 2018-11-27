@@ -17,6 +17,8 @@ import {
 } from "react-redux-firebase";
 
 import firebase from "firebase";
+import viewModal from "../../functions/actions/viewModal";
+import viewStory from "../../functions/actions/viewStory";
 
 // components
 import Navbar from "./components/navbar/Navbar";
@@ -31,10 +33,6 @@ import StoryView from "./components/storyView/StoryView";
 import "../../stylesheets/css/base.css";
 import Login from "../identity/Login";
 
-function setModal(newState) {
-  console.log(newState);
-}
-
 const enhance = compose(
   withProps({
     modal: ""
@@ -44,7 +42,7 @@ const enhance = compose(
   connect(({ firebase: { auth } }) => ({ auth })),
   connect(
     ({view, dispatch}) => ({view, dispatch})
-  )
+  ),
   firestoreConnect(({ auth }) => [
     {
       collection: "users"
@@ -63,65 +61,48 @@ const enhance = compose(
   )
 );
 
-const DashboardContainer = ({
-  users,
-  addBook,
-  onSearchChange,
-  searchVal,
-  sendBook
-}) => (
-  <Dashboard
-    users={users}
-    addBook={addBook}
-    onSearchChange={onSearchChange}
-    searchVal={searchVal}
-    sendBook={sendBook}
-  />
-);
+// const DashboardContainer = ({
+//   users,
+//   addBook,
+//   onSearchChange,
+//   searchVal,
+//   sendBook
+// }) => (
+//   <Dashboard
+//     users={users}
+//     addBook={addBook}
+//     onSearchChange={onSearchChange}
+//     searchVal={searchVal}
+//     sendBook={sendBook}
+//   />
+// );
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modal: "",
-      story: false,
-      sending: {
-        book: null
-      },
-      viewing: {
-        book: null
-      }
-    };
-    this.changeModal = this.changeModal.bind(this);
-    this.showStory = this.showStory.bind(this);
-    this.sendBook = this.sendBook.bind(this);
   }
 
   renderModal() {
-    switch (this.state.modal) {
+    switch (this.props.view.modal) {
       case "add":
         return (
           <ModalBase
-            changeModal={this.changeModal}
-            content={<AddModal
-              changeModal={this.changeModal}
-            />}
+            exit={()=>this.props.dispatch(viewModal(''))}
+            content={<AddModal />}
             title="Add a book to your shelf"
           />
         );
       case "send":
         return (
           <ModalBase
-            changeModal={this.changeModal}
-            content={<SendModal book={this.state.sending.book} />}
+            content={<SendModal />}
             title="Send"
           />
         );
       case "receive":
         return (
           <ModalBase
-            changeModal={this.changeModal}
-            content={<ReceiveModal showStory={this.showStory} />}
+            content={<ReceiveModal />}
             title="Receive"
           />
         );
@@ -131,22 +112,18 @@ class Dashboard extends React.Component {
   }
 
   renderStory() {
-    if (this.state.story) {
+    if (this.props.view.story) {
       return (
-        <StoryView book={this.state.viewing.book} showStory={this.showStory} />
+        <StoryView book={this.props.view.book} />
       );
     }
   }
 
   render() {
     return (
-      <div className="Dashboard">
-        <ShelfList
-          showStory={this.showStory}
-          changeModal={this.changeModal}
-          sendBook={this.sendBook}
-        />
-        <Navbar changeModal={this.changeModal} />
+      <div className="Dashboard" onClick={()=>this.props.dispatch(viewModal('add'))}>
+        <ShelfList />
+        <Navbar />
         {this.renderModal()}
         {this.renderStory()}
       </div>
@@ -154,7 +131,7 @@ class Dashboard extends React.Component {
   }
 }
 
-export default enhance(DashboardContainer);
+export default enhance(Dashboard);
 
 // <ShelfList />
 // <Navbar />
