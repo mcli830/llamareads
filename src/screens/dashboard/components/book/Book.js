@@ -13,13 +13,13 @@ import {
 import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
-  firestoreConnect((props) => [
+  firestoreConnect(props => [
     {
-      collection: 'books',
-      where: ['id', '==', props.id],
+      collection: "books",
+      where: ["id", "==", props.id],
       limit: 1,
-      storeAs: 'currentBook'
-    },
+      storeAs: "currentBook"
+    }
   ]),
   connect(
     ({ firestore }) => ({
@@ -33,9 +33,9 @@ const enhance = compose(
   })
 )
 
-const Book = (props) => {
+const Book = props => {
   return (
-    <div className="Book" style={{backgroundColor: props.color}}>
+    <div className="Book" style={{ backgroundColor: props.color }}>
       <div className="Book-content">
         {
           !isLoaded(props.dataBook)
@@ -53,8 +53,10 @@ const Book = (props) => {
             ? ''
               : props.currentBook.map((book) =>
               <div className="Book-author">{book.author}</div>
-            )
-        }
+            ))}
+      </div>
+      <div onClick={() => props.changeModal("send")} className="Book-send">
+        <i class="fas fa-paper-plane" />
       </div>
     </div>
   );

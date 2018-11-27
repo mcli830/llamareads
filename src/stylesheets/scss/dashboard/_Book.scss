@@ -42,7 +42,7 @@
     width: $book-width-open;
     z-index: 5;
     transform: scale(1.15);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border-width: 5px;
     border-style: outset;
     .Book-content {
@@ -56,6 +56,9 @@
         text-overflow: initial;
       }
     }
+    .Book-send {
+      opacity: 1;
+    }
   }
 }
 
@@ -64,5 +67,28 @@
 }
 
 .Book-author {
-  @include textStyle(24px);
+  @include textStyle(18px);
+}
+
+.Book-send {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: white;
+  font-size: 26px;
+  transition: 250ms;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+
+  i {
+    position: absolute;
+  }
+  &:hover {
+    transform: scale(1.3);
+  }
 }
