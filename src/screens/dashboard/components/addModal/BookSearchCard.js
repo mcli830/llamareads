@@ -23,13 +23,14 @@ import BookCardInfo from "../book/BookCardInfo";
 import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
+  withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   withHandlers({
     addBook: props => ({ auth }) =>
       props.firestore.add("booksList", {
         bookFor: props.auth.uid,
-        book: ""
+        book: props.book.id
       })
   })
 );
@@ -48,7 +49,7 @@ const BookSearchCard = (props) => {
         <BookCardInfo book={props.book} />
       </div>
       <div className="BookSearchCard-actions">
-        <button className="mbtn mbtn-confirm BookSearchCard-add">Add</button>
+        <button className="mbtn mbtn-confirm BookSearchCard-add" onClick={props.addBook}>Add</button>
         <button className="BookCard-details btn">Details</button>
       </div>
     </div>
