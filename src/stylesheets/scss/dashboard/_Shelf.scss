@@ -39,8 +39,8 @@
   height: 26px;
   background-color: $light-gray;
   border-bottom: 4px solid $dark;
-  border-bottom-left-radius: 8px;  
-  border-bottom-right-radius: 8px;  
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .ShelfHeader-add-btn {
@@ -76,7 +76,7 @@
     border-left: 2px solid $dark-blue;
   }
   &:hover {
+    box-shadow: 0 0 20px $light-blue;
     transform: scale(1.1);
-    box-shadow: 0 0 15px $light-blue;
   }
 }
