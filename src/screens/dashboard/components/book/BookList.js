@@ -42,7 +42,7 @@ const BookList = ({
         : userBooks.map(book => (
             <Book
               key={book.id}
-              id={book.book}
+              bookId={book.book}
               color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
               changeModal={changeModal}
               sendBook={sendBook}

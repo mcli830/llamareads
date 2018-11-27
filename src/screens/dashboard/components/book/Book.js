@@ -12,7 +12,7 @@ const enhance = compose(
   firestoreConnect(props => [
     {
       collection: "books",
-      where: ["id", "==", props.id],
+      where: ["id", "==", props.bookId],
       limit: 1,
       storeAs: "currentBook"
     }
@@ -52,7 +52,7 @@ const Book = props => {
               <div className="Book-author">{book.author}</div>
             ))}
       </div>
-      <div onClick={() => props.sendBook({})} className="Book-send">
+      <div onClick={() => props.sendBook(props.dataBook)} className="Book-send">
         <i class="fas fa-paper-plane" />
       </div>
     </div>

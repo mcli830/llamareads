@@ -7,17 +7,13 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const SendForm = ({book}) => {
+const ModalActionsSend = () => {
   return (
-    <div className="SendForm">
-      <div className="SendForm-search">
-        <input id="SendForm-search-input" />
-      </div>
-      <div className="SendForm-note">
-        <textarea id="SendForm-note-input" />
-      </div>
+    <div className="ReceiveModal-actions mbtn-container">
+      <button className="mbtn mbtn-cancel">Cancel</button>
+      <button className="mbtn mbtn-confirm">Send</button>
     </div>
   );
 };
 
-export default SendForm;
+export default ModalActionsSend;
