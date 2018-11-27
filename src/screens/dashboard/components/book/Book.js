@@ -16,7 +16,7 @@ const enhance = compose(
   firestoreConnect(props => [
     {
       collection: "books",
-      where: ["id", "==", props.id],
+      where: ["id", "==", props.bookId],
       limit: 1,
       storeAs: "currentBook"
     }
