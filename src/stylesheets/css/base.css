@@ -160,22 +160,11 @@
   position: absolute;
   bottom: 30px;
   height: 26px;
-
-  width: calc(100% - 120px);
-  background-color: #cbc9c2; }
-  .Shelf-platform:before, .Shelf-platform:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: 6px;
-    background-color: #484848;
-    transform-origin: 50% 100%; }
-  .Shelf-platform:before {
-    transform: skew(60deg); }
-  .Shelf-platform:after {
-    transform: skew(-60deg); }
+  background-color: #cbc9c2;
+  border-bottom: 4px solid #484848;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 
 .ShelfHeader-add-btn {
   font-size: 40px;
@@ -588,8 +577,8 @@
   top: 0;
   left: 0;
   overflow: hidden;
-  animation: fadeIn 400ms ease-out; }
-
+  animation: fadeIn 400ms ease-out;
+}
 
 .Story-indicator-map {
   flex: 0 0 100px;
@@ -607,24 +596,31 @@
   right: 30px;
   height: 30px;
   width: 30px;
-  cursor: pointer; }
-  .Story-exit:before, .Story-exit:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background-color: #484848;
-    top: 0; }
-  .Story-exit:before {
-    transform: rotate(45deg); }
-  .Story-exit:after {
-    transform: rotate(-45deg); }
+  cursor: pointer;
+}
+.Story-exit:before, .Story-exit:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #484848;
+  top: 0;
+}
+.Story-exit:before {
+  transform: rotate(45deg);
+}
+.Story-exit:after {
+  transform: rotate(-45deg);
+}
 
 @keyframes fadeIn {
   from {
-    opacity: 0; }
+    opacity: 0;
+  }
   to {
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 .StoryIndicator {
   position: relative;
   margin-top: 60px;
@@ -709,7 +705,8 @@
   color: #484848;
   font-weight: 600;
   text-align: center;
-  margin: 30px 0 0; }
+  margin: 30px 0 0;
+}
 
 .StoryWall-author {
   font-family: "Lato";
@@ -717,23 +714,27 @@
   color: #484848;
   text-align: center;
   font-style: italic;
-  margin: 10px 0 30px; }
+  margin: 10px 0 30px;
+}
 
 .StoryWall-excerpt {
   font-family: "Lato";
   font-size: 20px;
-  color: #484848; }
+  color: #484848;
+}
 
 .Journey {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+}
 
 .Journey-header {
   font-family: "Lato";
   font-size: 30px;
   color: #484848;
-  text-align: center; }
+  text-align: center;
+}
 
 /*# sourceMappingURL=base.css.map */
