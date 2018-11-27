@@ -78,30 +78,51 @@
 
 .Inbox-list {
   text-align: left;
-  height: 0;
   opacity: 0;
   display: block;
   transition: 300ms;
+  box-shadow: 1px 1px 5px #cbc9c2;
+  border-top: none;
 }
 
 .Inbox-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
 }
 
 .Inbox {
+  font-family: "Lato";
+  font-size: 20px;
+  color: #484848;
   width: 300px;
   color: #4e64bb;
   text-align: right;
-  border: 1px solid #cbc9c2;
   right: 200px;
   position: absolute;
+  cursor: pointer;
 }
 .Inbox:hover .Inbox-list {
-  height: 300px;
+  max-height: 400px;
   opacity: 1;
   overflow-y: auto;
+}
+
+.ListEntry {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.ListEntry-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ListEntry-action {
+  flex: 0 0 40px;
 }
 
 .Avatar {
