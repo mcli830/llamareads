@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { compose } from "redux";
-import { withHandlers, branch, renderNothing, withProps } from "recompose";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { withHandlers } from 'recompose'
 import {
   firestoreConnect,
   isLoaded,
   isEmpty
 } from 'react-redux-firebase'
-import { connect } from 'react-redux'
 
 // css
 import "../../../../stylesheets/css/base.css";
@@ -16,28 +16,38 @@ const enhance = compose(
   firestoreConnect((props) => [
     {
       collection: 'books',
-      where: ["title", '==', "Pax"]
+      where: ['id', '==', 'Pax'],
+      storeAs: 'currentBook'
     },
   ]),
-  connect(({ firestore }) => ({
-    books: firestore.ordered.books
-  })),
+  connect(
+    ({ firestore }) => ({
+      currentBook: firestore.ordered.currentBook,
+    })
+  ) 
 )
 
-const Book = (props, books) => {
+const Book = ({currentBook}) => {
   return (
-    <div className="Book" style={{backgroundColor: props.color}}>
+    <div className="Book">
       {
-        !isLoaded(books)
+        !isLoaded(currentBook)
           ? console.log("LOAD")
-          : isEmpty(books)
-            ? ''
-            : books.map((book) =>
-                <button value={book.title}/>
-              )
+          : isEmpty(currentBook)
+            ? console.log("empty")
+            : currentBook.map((book) =>
+            <div className="Book-title">{book.title}</div>
+          )
       }
-      <div className="Book-title">{props.id}</div>
-      <div className="Book-author">{props.id}</div>
+      {
+        !isLoaded(currentBook)
+          ? console.log("LOAD")
+          : isEmpty(currentBook)
+            ? console.log("empty")
+            : currentBook.map((book) =>
+            <div className="Book-author">{book.author}</div>
+          )
+      }
     </div>
   );
 };
