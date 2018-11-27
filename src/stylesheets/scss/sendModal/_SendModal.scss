@@ -17,8 +17,8 @@
   padding: 10px;
   margin: 0 auto;
   margin-top: 20px;
-  border: 1px solid $border-color;
-  border-radius: 3px;
+  border: 1px solid $textbox-border-color;
+  border-radius: $textbox-border-radius;
 }
 
 .SendForm-note {
@@ -34,6 +34,6 @@
   width: 86%;
   padding: 10px;
   margin: 0 auto;
-  border: 1px solid $border-color;
-  border-radius: 3px;
+  border: 1px solid $textbox-border-color;
+  border-radius: $textbox-border-radius;
 }
