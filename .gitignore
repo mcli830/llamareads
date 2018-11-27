@@ -21,4 +21,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-stylesheets/.sass-cachestylesheets/.sass-cache
+src/stylesheets/.sass-cache
