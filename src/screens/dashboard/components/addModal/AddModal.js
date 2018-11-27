@@ -55,7 +55,7 @@ const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => 
   return (
     <div className="AddModal">
       <div className="AddModal-search">
-        <input onChange={onSearchChange} id="AddModal-search-input" className="AddModal-search-input" />
+        <input placeholder="Type in bookname or author" onChange={onSearchChange} id="AddModal-search-input" className="AddModal-search-input" />
       </div>
       <span>Results</span>
       <div className="AddModal-search-list">
