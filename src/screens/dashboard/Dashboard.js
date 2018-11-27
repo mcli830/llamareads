@@ -42,6 +42,9 @@ const enhance = compose(
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
+  connect(
+    ({view, dispatch}) => ({view, dispatch})
+  )
   firestoreConnect(({ auth }) => [
     {
       collection: "users"
@@ -100,7 +103,7 @@ class Dashboard extends React.Component {
         return (
           <ModalBase
             changeModal={this.changeModal}
-            content={<AddModal 
+            content={<AddModal
               changeModal={this.changeModal}
             />}
             title="Add a book to your shelf"
@@ -127,30 +130,12 @@ class Dashboard extends React.Component {
     }
   }
 
-  changeModal(modal) {
-    this.setState({ modal: modal });
-  }
-
   renderStory() {
     if (this.state.story) {
       return (
         <StoryView book={this.state.viewing.book} showStory={this.showStory} />
       );
     }
-  }
-
-  showStory(bool, book = null) {
-    this.setState({
-      story: bool,
-      viewing: { book }
-    });
-  }
-
-  sendBook(book) {
-    this.setState({
-      modal: "send",
-      sending: { book }
-    });
   }
 
   render() {
