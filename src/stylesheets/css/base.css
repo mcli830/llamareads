@@ -254,11 +254,15 @@
 }
 
 .Book-title {
-  font-family: "Julius Sans One", "Fredericka the Great", "Libre Baskerville", "serif";
+  font-family: "Lato";
+  font-size: 24px;
+  color: #484848;
 }
 
 .Book-author {
-  font-family: "Metamorphous", "Libre Baskerville", "Fredericka the Great", "serif";
+  font-family: "Lato";
+  font-size: 24px;
+  color: #484848;
 }
 
 .ModalBase {

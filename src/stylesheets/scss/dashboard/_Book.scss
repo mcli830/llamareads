@@ -60,9 +60,9 @@
 }
 
 .Book-title {
-  font-family: 'Julius Sans One', 'Fredericka the Great', 'Libre Baskerville', 'serif';
+  @include textStyle(24px);
 }
 
 .Book-author {
-  font-family: 'Metamorphous', 'Libre Baskerville', 'Fredericka the Great', 'serif';
+  @include textStyle(24px);
 }
