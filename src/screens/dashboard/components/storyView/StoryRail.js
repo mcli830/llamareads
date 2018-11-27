@@ -7,8 +7,13 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const StoryRail = () => {
-  return <div className="StoryRail" />;
+const StoryRail = (props) => {
+  return (
+    <div className="StoryRail">
+      <div className="StoryRail-rail"></div>
+      <div className="StoryRail-cover" style={{backgroundImage: `url(${props.cover})`}}></div>
+    </div>
+  );
 };
 
 export default StoryRail;

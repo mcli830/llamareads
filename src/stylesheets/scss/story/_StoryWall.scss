@@ -1,0 +1,10 @@
+.StoryWall {
+  flex: 1 1 auto;
+  padding: 160px 80px 60px 40px;
+  overflow-y: scroll;
+}
+
+.StoryWall-text {
+  @include textStyle(24);
+  min-height: 600px;
+}

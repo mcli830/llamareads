@@ -8,7 +8,15 @@ import { withFirestore } from "react-redux-firebase";
 import "../../../../stylesheets/css/base.css";
 
 const Journey = () => {
-  return <div className="Journey" />;
+  return (
+    <div className="Journey">
+      <div className="Journey-header">Journey</div>
+      <div className="Journey-timeline">
+        <div className="Journey-timeline-path" />
+        
+      </div>
+    </div>
+  );
 };
 
 export default Journey;
