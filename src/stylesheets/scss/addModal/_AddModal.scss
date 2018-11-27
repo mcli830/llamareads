@@ -17,6 +17,8 @@
   padding: 10px;
   margin: 0 auto;
   margin-top: 20px;
+  border: 1px solid $textbox-border-color;
+  border-radius: $textbox-border-radius;
 }
 
 .AddModal span{
