@@ -87,7 +87,9 @@ class Dashboard extends React.Component {
         return (
           <ModalBase
             changeModal={this.changeModal}
-            content={<AddModal />}
+            content={<AddModal 
+              changeModal={this.changeModal}
+            />}
             title="Add a book to your shelf"
           />
         );
