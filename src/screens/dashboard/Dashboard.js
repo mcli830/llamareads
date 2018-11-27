@@ -84,6 +84,9 @@ class Dashboard extends React.Component {
       story: false,
       sending: {
         book: null
+      },
+      viewing: {
+        book: null
       }
     };
     this.changeModal = this.changeModal.bind(this);
@@ -128,12 +131,17 @@ class Dashboard extends React.Component {
 
   renderStory() {
     if (this.state.story) {
-      return <StoryView />;
+      return (
+        <StoryView book={this.state.viewing.book} showStory={this.showStory} />
+      );
     }
   }
 
-  showStory(bool) {
-    this.setState({ story: bool });
+  showStory(bool, book = null) {
+    this.setState({
+      story: bool,
+      viewing: { book }
+    });
   }
 
   sendBook(book) {
@@ -146,7 +154,11 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="Dashboard">
-        <ShelfList changeModal={this.changeModal} sendBook={this.sendBook} />
+        <ShelfList
+          showStory={this.showStory}
+          changeModal={this.changeModal}
+          sendBook={this.sendBook}
+        />
         <Navbar changeModal={this.changeModal} />
         {this.renderModal()}
         {this.renderStory()}
