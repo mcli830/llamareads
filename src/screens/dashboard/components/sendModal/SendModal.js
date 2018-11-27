@@ -18,6 +18,9 @@ import {
 
 
 const enhance = compose(
+  withProps({
+    noteValue: "",
+  }),
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
@@ -26,11 +29,11 @@ const enhance = compose(
       props.firestore.add("inboxList", {
         sender: props.auth.uid,
         inboxFor: "4IGGkEDpmgbSq1jSsHfVhKHmCIH3",
-        book: props.book.id
+        book: props.book[0].id
       });
       props.firestore.add("journeyList", {
         sender: props.auth.uid,
-        notes: "This is a note"
+        notes: "Something"
       });
     },
   }),
@@ -39,7 +42,7 @@ const enhance = compose(
       noteValue: initialVal
     }),
     {
-      onNoteChange: ({ props }) => e => ({ searchVal: e.target.value })
+      onNoteChange: ({ props }) => e => ({ noteValue: e.target.value })
     }
   )
 );
@@ -53,7 +56,7 @@ const SendModal = (props) => {
           <input id="SendForm-search-input" />
         </div>
         <div className="SendForm-note">
-          <textarea id="SendForm-note-input" onChange={props.onNoteChange} />
+          <textarea id="SendForm-note-input" value={props.noteValue} onChange={props.onNoteChange} />
         </div>
       </div>
       <div className="ReceiveModal-actions mbtn-container">
