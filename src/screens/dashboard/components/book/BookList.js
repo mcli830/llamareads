@@ -25,7 +25,14 @@ const enhance = compose(
   }))
 );
 
-const BookList = ({ firestore, userBooks, auth, changeModal, sendBook }) => {
+const BookList = ({
+  firestore,
+  userBooks,
+  auth,
+  changeModal,
+  sendBook,
+  showStory
+}) => {
   return (
     <div className="BookList">
       {!isLoaded(userBooks)
@@ -39,6 +46,7 @@ const BookList = ({ firestore, userBooks, auth, changeModal, sendBook }) => {
               color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
               changeModal={changeModal}
               sendBook={sendBook}
+              showStory={showStory}
             />
           ))}
     </div>
