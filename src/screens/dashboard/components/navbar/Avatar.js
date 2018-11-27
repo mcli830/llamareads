@@ -20,8 +20,8 @@ const enhance = compose(
   connect(({ firebase: { auth } }) => ({ auth }))
 );
 
-const Avatar = ({auth}) => {
-  return <img  className="Avatar" src={auth.photoURL}></img>
+const Avatar = (props) => {
+  return <img  className="Avatar" src={props.auth.photoURL} onClick={() => props.firebase.auth().signOut()} />
 };
 
 export default enhance(Avatar);
