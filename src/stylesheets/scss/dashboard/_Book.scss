@@ -1,0 +1,94 @@
+.BookList {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+.Book {
+  margin: 0 5px;
+  height: $book-height;
+  width: $book-width-shelf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 400ms;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
+  cursor: pointer;
+  color: #444;
+  border: 2px solid rgba(68, 68, 68, 0.3);
+  .Book-content {
+    width: $book-height;
+    position: absolute;
+    text-align: left;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: rotate(90deg) scale(0.7);
+    transition: 300ms;
+    * {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  &:hover {
+    width: $book-width-open;
+    z-index: 5;
+    transform: scale(1.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-width: 5px;
+    border-style: outset;
+    .Book-content {
+      width: 90%;
+      text-align: center;
+      opacity: 1;
+      transform: rotate(0) scale(1);
+      align-items: center;
+      * {
+        white-space: normal;
+        text-overflow: initial;
+      }
+    }
+    .Book-send {
+      opacity: 0.8;
+    }
+  }
+}
+
+.Book-title {
+  @include textStyle(24px);
+}
+.Book-author {
+  @include textStyle(18px);
+}
+
+.Book-send {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: white;
+  font-size: 26px;
+  transition: 250ms;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  i {
+    position: absolute;
+  }
+  &:hover {
+    transform: scale(1.3);
+  }
+}

@@ -1,0 +1,11 @@
+.Journey {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Journey-header {
+  @include textStyle(30px);
+  text-align: center;
+}

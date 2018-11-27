@@ -1,0 +1,56 @@
+.StoryView {
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: $bg;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  animation: fadeIn 400ms ease-out;
+}
+
+.Story-indicator-map {
+  flex: 0 0 100px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Story-exit {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: $dark;
+    top: 0;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,82 @@
+.ModalBase {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: $modal-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.ModalBase-view {
+  box-sizing: border-box;
+  position: absolute;
+  height: 80%;
+  width: 90%;
+  max-height: 640px;
+  max-width: 900px;
+  background-color: $bg;
+  padding: 3%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-main;
+  box-shadow: $shadow;
+  border-radius: 2px;
+}
+
+.ModalBase-visuals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    $dark-blue,
+    $dark-blue 16.6%,
+    $light-blue 16.6%,
+    $light-blue 33.3%,
+    $red 33.3%,
+    $red 50%
+  );
+}
+
+.ModalBase-exit {
+  position: absolute;
+  top: 28px;
+  left: 20px;
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: $dark; 
+    top: 0;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.ModalBase-header {
+  font-size: $font-size-header;
+  text-align: center;
+  display: block;
+  margin: 25px 5px;
+  flex: 0 0;
+}
+
+.ModalBase-content {
+  flex: 1;
+  position: relative;
+}

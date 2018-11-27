@@ -1,0 +1,36 @@
+.BookSearchCard {
+  padding: 10px;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  background-color: white;
+  font-family: "Lato";
+  color: $text;
+  position: relative;
+}
+
+.BookSearchCard-cover {
+  display: flex;
+  align-items: center;
+  margin: 10px 30px;
+  flex: 0 0 100px;
+  padding: 5px;
+}
+
+.BookSearchCard-info {
+  @include textStyle(14px);
+  flex: 1 1 auto;
+  margin: 10px 40px 10px 15px;
+}
+
+.BookSearchCard-actions {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.BookSearchCard-add {
+}
