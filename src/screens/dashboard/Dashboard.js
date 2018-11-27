@@ -164,6 +164,7 @@ class Dashboard extends React.Component {
         <Navbar changeModal={this.changeModal} />
         {this.renderModal()}
         {this.renderStory()}
+        <ModalBase content={<SendModal />} />
       </div>
     );
   }
