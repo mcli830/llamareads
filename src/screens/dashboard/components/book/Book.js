@@ -16,7 +16,8 @@ const enhance = compose(
   firestoreConnect((props) => [
     {
       collection: 'books',
-      where: ['id', '==', 'Pax'],
+      where: ['id', '==', props.id],
+      limit: 1,
       storeAs: 'currentBook'
     },
   ]),
@@ -27,27 +28,29 @@ const enhance = compose(
   ) 
 )
 
-const Book = ({currentBook}) => {
+const Book = (props) => {
   return (
-    <div className="Book">
-      {
-        !isLoaded(currentBook)
-          ? console.log("LOAD")
-          : isEmpty(currentBook)
-            ? console.log("empty")
-            : currentBook.map((book) =>
-            <div className="Book-title">{book.title}</div>
-          )
-      }
-      {
-        !isLoaded(currentBook)
-          ? console.log("LOAD")
-          : isEmpty(currentBook)
-            ? console.log("empty")
-            : currentBook.map((book) =>
-            <div className="Book-author">{book.author}</div>
-          )
-      }
+    <div className="Book" style={{backgroundColor: props.color}}>
+      <div className="Book-content">
+        {
+          !isLoaded(props.currentBook)
+            ? ''
+            : isEmpty(props.currentBook)
+            ? ''
+              : props.currentBook.map((book) =>
+              <div className="Book-title">{book.title}</div>
+            )
+        }
+        {
+          !isLoaded(props.currentBook)
+          ? ''
+            : isEmpty(props.currentBook)
+            ? ''
+              : props.currentBook.map((book) =>
+              <div className="Book-author">{book.author}</div>
+            )
+        }
+      </div>
     </div>
   );
 };

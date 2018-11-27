@@ -29,6 +29,7 @@ $book-height: 320px;
 $book-width-shelf: 80px;
 $book-width-open: 320px;
 $shelf-height: 400px;
+$shelf-list-width: 70vw;
 
 @mixin textStyle($size) {
   font-family: "Lato";

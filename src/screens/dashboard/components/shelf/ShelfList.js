@@ -10,10 +10,10 @@ import Shelf from "./Shelf";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ShelfList = ({setModal}) => {
+const ShelfList = ({changeModal}) => {
   return (
     <div className="ShelfList">
-      <Shelf setModal={setModal}/>
+      <Shelf changeModal={changeModal}/>
     </div>
   );
 };

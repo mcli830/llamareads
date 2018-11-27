@@ -25,7 +25,8 @@ const enhance = compose(
   ),
   firestoreConnect(({ auth }) => [
     {
-      collection: "books"
+      collection: "books",
+      storeAs: 'addBooks'
     },
   ]),
   withStateHandlers(
@@ -44,13 +45,13 @@ const enhance = compose(
   ),
   connect(
     ({ firestore }) => ({
-      books: firestore.ordered.books,
+      addBooks: firestore.ordered.addBooks,
     })
   ) 
 )
 
 
-const AddModal = ({firestore, onSearchChange, books}) => {
+const AddModal = ({firestore, onSearchChange, books, addBooks}) => {
   return (
     <div className="AddModal">
       <div className="AddModal-search">
@@ -58,9 +59,16 @@ const AddModal = ({firestore, onSearchChange, books}) => {
       </div>
       <span>Results</span>
       <div className="AddModal-search-list">
-        {[1,2].map(i => (
-          <BookSearchCard key={i} />
-        ))}
+      {
+        !isLoaded(addBooks)
+          ? ''
+          : isEmpty(addBooks)
+            ? ''
+            : addBooks.map((book) =>
+                
+          <BookSearchCard key={book.id} book={book} />
+              )
+      }
       </div>
     </div>
   );

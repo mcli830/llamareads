@@ -106,6 +106,7 @@ class Dashboard extends React.Component {
           <ModalBase
             changeModal={this.changeModal}
             content={<AddModal />}
+            title="Add a book to your shelf"
           />
         );
       case 'send':
@@ -113,6 +114,7 @@ class Dashboard extends React.Component {
           <ModalBase
             changeModal={this.changeModal}
             content={<SendModal />}
+            title="Send"
           />
         );
       case 'receive':
@@ -122,6 +124,7 @@ class Dashboard extends React.Component {
             content={
               <ReceiveModal showStory={this.showStory} />
             }
+            title="Receive"
           />
         );
       default:
@@ -146,9 +149,9 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="Dashboard">
-        <ShelfList setModal={() => this.setModal.bind(this)} />
+      <button onClick={this.props.addBook}>Sample ADD BOOK</button>
+        <ShelfList changeModal={this.changeModal} />        
         <Navbar changeModal={this.changeModal} />
-        <button onClick={this.props.addBook}>Sample ADD BOOK</button>
         {this.renderModal()}
         {this.renderStory()}
       </div>

@@ -13,9 +13,9 @@ import "../../../../stylesheets/css/base.css";
 const BookSearchList = () => {
   return (
     <div className="BookSearchList">
-      {[1, 2, 3, 4].map(i => (
+      {/* {[1, 2, 3, 4].map(i => (
         <BookSearchCard key={i} />
-      ))}
+      ))} */}
     </div>
   );
 };

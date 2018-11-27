@@ -1,8 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { compose } from "redux";
-import { withHandlers, withStateHandlers, branch, renderNothing } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import { connect } from "react-redux";
+import {
+  withHandlers,
+  withStateHandlers,
+  withProps,
+  withPropsOnChange,
+  mapProps
+} from "recompose";
+import {
+  firebaseConnect,
+  firestoreConnect,
+  withFirestore,
+  isLoaded,
+  isEmpty
+} from "react-redux-firebase";
 
 // component
 import BookCardInfo from "../book/BookCardInfo";
@@ -10,7 +22,19 @@ import BookCardInfo from "../book/BookCardInfo";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const BookSearchCard = () => {
+const enhance = compose(
+  firebaseConnect(),
+  connect(({ firebase: { auth } }) => ({ auth })),
+  withHandlers({
+    addBook: props => ({ auth }) =>
+      props.firestore.add("booksList", {
+        bookFor: props.auth.uid,
+        book: ""
+      })
+  })
+);
+
+const BookSearchCard = (props) => {
   return (
     <div className="BookSearchCard">
       <div className="BookSearchCard-cover">
@@ -21,7 +45,7 @@ const BookSearchCard = () => {
         />
       </div>
       <div className="BookSearchCard-info">
-        <BookCardInfo />
+        <BookCardInfo book={props.book} />
       </div>
       <div className="BookSearchCard-actions">
         <button className="mbtn mbtn-confirm BookSearchCard-add">Add</button>
@@ -31,4 +55,4 @@ const BookSearchCard = () => {
   );
 };
 
-export default BookSearchCard;
+export default enhance(BookSearchCard);

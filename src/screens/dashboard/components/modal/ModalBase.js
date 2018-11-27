@@ -21,7 +21,7 @@ const ModalBase = props => {
       <div className="ModalBase-view">
         <div className="ModalBase-visuals" />
         <div className="ModalBase-exit" onClick={()=>props.changeModal('')} />
-        <div className="ModalBase-header">Modal Title Message</div>
+        <div className="ModalBase-header">{props.title}</div>
         <div className="ModalBase-content">{props.content}</div>
       </div>
     </div>

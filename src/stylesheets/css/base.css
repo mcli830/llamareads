@@ -29,11 +29,21 @@
     opacity: 1;
   }
 }
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .Navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: white;
   border-bottom: 1px solid #cbc9c2;
   font-family: "Lato";
@@ -50,6 +60,9 @@
 }
 
 .Brand-name {
+  margin-left: 40px;
+  font-size: 24px;
+  font-weight: bold;
   color: #f76f6f;
 }
 
@@ -86,6 +99,7 @@
   border-radius: 50%;
   height: 50px;
   width: 50px;
+  margin-right: 40px;
 }
 
 .Dashboard {
@@ -100,12 +114,18 @@
 .ShelfList {
   display: flex;
   flex-direction: column;
+  width: 70vw;
+}
+
+.Shelf-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .Shelf {
   position: relative;
-  height: 500px;
-  width: 820px;
+  height: 400px;
+  width: 100%;
   padding: 60px;
   display: flex;
   flex-direction: row;
@@ -115,19 +135,61 @@
   overflow: auto;
   position: relative;
 }
-.Shelf:before {
-  content: "";
-  position: absolute;
-  bottom: 30px;
-  border-bottom: 30px double #444;
-  width: 200%;
-}
 
 .ShelfHeader {
-  position: absolute;
+  font-size: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
   color: #484848;
-  bottom: calc(100% + 10px);
-  left: 10px;
+}
+
+.Shelf-platform {
+  position: absolute;
+  bottom: 30px;
+  height: 26px;
+  background-color: #cbc9c2;
+  border-bottom: 4px solid #484848;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.ShelfHeader-add-btn {
+  font-size: 40px;
+  margin-left: 20px;
+  color: #484848;
+  padding: auto;
+  padding-top: -10px;
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: #4e64bb;
+  position: relative;
+  transition: 300ms;
+}
+.ShelfHeader-add-btn:before, .ShelfHeader-add-btn:after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 50%;
+}
+.ShelfHeader-add-btn:before {
+  top: calc(50% - 1px);
+  left: 25%;
+  border-top: 2px solid #4e64bb;
+}
+.ShelfHeader-add-btn:after {
+  left: calc(50% - 1px);
+  top: 25%;
+  border-left: 2px solid #4e64bb;
+}
+.ShelfHeader-add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
 }
 
 .BookList {
@@ -153,7 +215,7 @@
   border: 2px solid rgba(68, 68, 68, 0.3);
 }
 .Book .Book-content {
-  width: 500px;
+  width: 320px;
   position: absolute;
   text-align: left;
   opacity: 0.7;
@@ -432,10 +494,11 @@
 }
 
 .BookSearchCard-cover {
+  display: flex;
+  align-items: center;
   margin: 10px 30px;
   flex: 0 0 100px;
   padding: 5px;
-  border: 1px solid rgba(68, 68, 68, 0.6);
 }
 
 .BookSearchCard-info {
