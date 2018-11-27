@@ -434,7 +434,8 @@
   width: 90%;
   background-color: white;
   font-family: "Lato";
-  color: #484848; }
+  color: #484848;
+  border: 1px solid #E0E0E0; }
 
 .BookCard-cover {
   margin: 10px 30px;
