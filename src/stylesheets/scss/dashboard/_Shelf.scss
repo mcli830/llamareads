@@ -1,13 +1,26 @@
 .ShelfList {
-  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
 .Shelf {
+  height: 500px;
+  width: 820px;
+  padding: 60px;
   display: flex;
   flex-direction: row;
-  width: 70%;
-  min-width: 500px;
-  border-bottom: 10px double $bookshelf;
+  justify-content: flex-start;
+  align-items: flex-end;
+  box-sizing: content-box;
+  overflow: auto;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    border-bottom: 30px double #444;
+    width: 200%;
+  }
 }
 
 .ShelfHeader {
