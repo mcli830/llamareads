@@ -1,7 +1,7 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { withHandlers, withStateHandlers } from "recompose";
+import { withHandlers, withStateHandlers, withProps, withPropsOnChange, mapProps } from "recompose";
 import {
   firebaseConnect,
   firestoreConnect,
@@ -21,6 +21,8 @@ import StoryView from "./components/storyView/StoryView";
 
 // css
 import "../../stylesheets/css/base.css";
+import Login from "../identity/Login";
+
 
 const enhance = compose(
   withFirestore,
@@ -34,8 +36,8 @@ const enhance = compose(
         inbox: true
       }),
     sendBook: props => e => {
-      props.firestore.add('booksList', { bookFor: e.target.value, book: "9xzHVb6LM4Cq67XUHFRF", inbox: true })
-      // props.firestore.add('journeyList', { sender: key, notes: e.target.value})
+      props.firestore.add('inboxList', { sender: props.auth.uid, inboxFor: e.target.value, book: "9xzHVb6LM4Cq67XUHFRF"})
+      props.firestore.add('journeyList', { sender: props.auth.uid, notes: "This is a note"})
     }
   }),
   firestoreConnect(({ auth }) => [
@@ -66,9 +68,62 @@ const Dashboard = ({
   return (
     <div className="Dashboard">
       <StoryView />
-    </div>
+      <ShelfList/>
+      <Navbar />
+      {!isLoaded(users)
+        ? ""
+        : isEmpty(users)
+        ? ""
+        : users.map(user => (
+            <button
+              onClick={sendBook}
+              key={user.uid}
+              value={user.uid}
+            >
+              Send Book to {user.displayName}
+            </button>
+          ))}
+      <button onClick={addBook} >Add book to your shelf</button>
+      <input value={searchVal} onChange={onSearchChange} type="text" />
+      {/* <ModalBase content={<SendModal />} /> */}
+      {/* <ModalBase content={<AddModal />} /> */}
+      </div>
   );
-};
+}
+
+// const other = ({
+//   modal
+// }) => {
+//   switch(modal){
+//     case 'add':
+//     return (
+//       <div className="Dashboard">
+//         <MainDashboard />
+//         { <ModalBase content={<AddModal />} /> }
+//       </div>
+//     )
+//   case 'send':
+//     return (
+//       <div className="Dashboard">
+//         <MainDashboard />
+//         { <ModalBase content={<AddModal />} /> }
+//       </div>
+//     )
+//   case 'receive':
+//     return (
+//       <div className="Dashboard">
+//         <MainDashboard />
+//         { <ModalBase content={<AddModal />} /> }
+//       </div>
+//     )
+//   default:
+//     return (
+//       <div className="Dashboard">
+//         <MainDashboard />
+//       </div>
+//     )
+//   }
+// };
 
 export default Dashboard;
 

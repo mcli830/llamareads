@@ -7,11 +7,11 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ShelfHeader = () => {
+const ShelfHeader = ({setModal}) => {
   return (
     <div className="ShelfHeader">
       <div>My Books</div>
-      <button>+</button>
+      <button onClick={()=>setModal("add")}>+</button>
     </div>
   );
 };
