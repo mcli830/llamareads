@@ -8,13 +8,26 @@
 
 .SendForm-search{
   flex: 0 0 80px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 #SendForm-search-input {
-  height: 50px;
+  @include textStyle(20px);
+  font-weight: 100;
+  height: 25px;
   display: block;
-  font-size: 30px;
-  width: 92%;
-  padding: 10;
+  width: 86%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+}
+
+.SendForm-note {
+
+}
+
+.SendForm-note-input {
+
 }
