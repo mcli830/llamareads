@@ -1,21 +1,59 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
+import { withHandlers, withStateHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
+import Modal from 'react-modal';
 
-const ListEntry = ({ book }) => {
+// components
+import ModalBase from "../modal/ModalBase";
+import ReceiveModal from "../receiveModal/ReceiveModal";
+
+const enhance = compose(
+  withStateHandlers(
+    {
+    }
+  ),
+);
+
+const ListEntry = ({ }) => {
   return (
-    <div className="ListEntry">
-      <div>Nov 22 2018</div>
-      <div>View</div>
-      <div>{book.title}</div>
-      <div>{book.author}</div>
-      <div>
-        {book.excerpt}
-      </div>
-    </div>
+  //   <div>
+  //   <button onClick={this.openModal}>Open Modal</button>
+  //   <Modal
+  //     isOpen={this.state.modalIsOpen}
+  //     onAfterOpen={this.afterOpenModal}
+  //     onRequestClose={this.closeModal}
+  //     style={customStyles}
+  //     contentLabel="Example Modal"
+  //   >
+
+  //     <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+  //     <button onClick={this.closeModal}>close</button>
+  //     <div>I am a modal</div>
+  //     <form>
+  //       <input />
+  //       <button>tab navigation</button>
+  //       <button>stays</button>
+  //       <button>inside</button>
+  //       <button>the modal</button>
+  //     </form>
+  //   </Modal>
+  // </div>
+  <div className="ListEntry">
+    <div>Nov 22 2018</div>
+    <a href="">View</a>
+    <button>Jordan sent you a book</button>
+    {/* <div>{book.title}</div>
+    <div>{book.author}</div>
+    <div>
+      {book.excerpt}
+    </div> */}
+  </div>
   );
 };
 
-export default ListEntry;
+ListEntry.propTypes = {
+}
+
+export default enhance(ListEntry);
