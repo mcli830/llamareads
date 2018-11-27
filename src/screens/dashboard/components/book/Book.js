@@ -29,7 +29,13 @@ const enhance = compose(
 
 const Book = props => {
   return (
-    <div className="Book" style={{ backgroundColor: props.color }}>
+    <div
+      className="Book"
+      style={{ backgroundColor: props.color }}
+      onClick={() => {
+        props.showStory(true, props.dataBook[0]);
+      }}
+    >
       <div className="Book-content">
         {!isLoaded(props.dataBook)
           ? ""

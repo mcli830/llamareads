@@ -10,11 +10,13 @@ import BookCardInfo from "../book/BookCardInfo";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const StoryWall = () => {
+const StoryWall = props => {
   return (
     <div className="StoryWall">
       <div className="StoryWall-text">
-        <BookCardInfo />
+        <div className="StoryWall-title">{props.book.title}</div>
+        <div className="StoryWall-author">{props.book.author}</div>
+        <div className="StoryWall-excerpt">{props.book.excerpt}</div>
       </div>
     </div>
   );

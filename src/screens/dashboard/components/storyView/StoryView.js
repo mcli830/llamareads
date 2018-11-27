@@ -12,20 +12,21 @@ import StoryWall from "./StoryWall";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const StoryView = () => {
+const StoryView = props => {
   return (
     <div className="StoryView">
       <div className="Story-indicator-map">
         {[
-          {ring: true, tail: false},
-          {ring: false, tail: true},
-          {ring: false, tail: true}
-        ].map(attr =>
+          { ring: true, tail: false },
+          { ring: false, tail: true },
+          { ring: false, tail: true }
+        ].map(attr => (
           <StoryIndicator ring={attr.ring} tail={attr.tail} />
-        )}
+        ))}
       </div>
-      <StoryRail cover={'https://images.gr-assets.com/books/1434493048l/22098550.jpg'} />
-      <StoryWall />
+      <StoryRail cover={props.book.cover} />
+      <StoryWall book={props.book} />
+      <div className="Story-exit" onClick={() => props.showStory(false)} />
     </div>
   );
 };
