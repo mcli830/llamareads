@@ -16,25 +16,23 @@ const enhance = compose(
   firestoreConnect((props) => [
     {
       collection: 'books',
-      where: ["title", '==', "PAX"],
-      storeAs: 'userBook'
+      where: ["title", '==', "Pax"]
     },
   ]),
   connect(({ firestore }) => ({
-    userBook: firestore.ordered.books
+    books: firestore.ordered.books
   })),
 )
 
-const Book = (props, userBook) => {
-  console.log(userBook)
+const Book = (props, books) => {
   return (
     <div className="Book" style={{backgroundColor: props.color}}>
       {
-        !isLoaded(userBook)
-          ? ''
-          : isEmpty(userBook)
+        !isLoaded(books)
+          ? console.log("LOAD")
+          : isEmpty(books)
             ? ''
-            : userBook.map((book) =>
+            : books.map((book) =>
                 <button value={book.title}/>
               )
       }

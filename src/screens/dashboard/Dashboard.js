@@ -46,7 +46,7 @@ const enhance = compose(
     addBook: props => ({ auth }) =>
       props.firestore.add("booksList", {
         bookFor: props.auth.uid,
-        book: [{ book: '9xzHVb6LM4Cq67XUHFRF' }]
+        book: "9xzHVb6LM4Cq67XUHFRF"
       }),
     sendBook: props => e => {
       props.firestore.add("inboxList", {
