@@ -41,7 +41,7 @@ const BookSearchCard = (props) => {
       <div className="BookSearchCard-cover">
         <img
           className="BookCard-cover-img"
-          src="https://images.gr-assets.com/books/1409595968l/929.jpg"
+          src={props.book.cover}
           alt=""
         />
       </div>
