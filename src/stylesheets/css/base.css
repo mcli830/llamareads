@@ -17,6 +17,14 @@
   .btn:hover {
     border-color: #484848; }
 
+.input-container {
+  width: 100%;
+  height: 50px; }
+
+.input-field {
+  width: 100%;
+  height: 100%; }
+
 @keyframes fadeIn {
   from {
     opacity: 0; }
@@ -99,12 +107,14 @@
 
 .Shelf-wrapper {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%; }
 
 .Shelf {
   position: absolute;
   height: 400px;
-  width: 100%;
   padding: 60px;
   display: flex;
   flex-direction: row;
@@ -112,7 +122,8 @@
   align-items: flex-end;
   box-sizing: content-box;
   overflow: auto;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 .ShelfHeader {
   font-size: 40px;
@@ -127,10 +138,21 @@
   position: absolute;
   bottom: 30px;
   height: 26px;
-  background-color: #cbc9c2;
-  border-bottom: 4px solid #484848;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px; }
+  width: calc(100% - 120px);
+  background-color: #e6bf83; }
+  .Shelf-platform:before, .Shelf-platform:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 6px;
+    background-color: #a0793d;
+    transform-origin: 50% 100%; }
+  .Shelf-platform:before {
+    transform: skew(60deg); }
+  .Shelf-platform:after {
+    transform: skew(-60deg); }
 
 .ShelfHeader-add-btn {
   font-size: 40px;
@@ -166,7 +188,9 @@
 
 .BookList {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  width: 800px;
+  box-sizing: border-box; }
 
 .Book {
   margin: 0 5px;
@@ -218,7 +242,7 @@
         white-space: normal;
         text-overflow: initial; }
     .Book:hover .Book-send {
-      opacity: 1; }
+      opacity: 0.8; }
 
 .Book-title {
   font-family: "Lato";
