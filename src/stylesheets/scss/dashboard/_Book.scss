@@ -4,12 +4,65 @@
 }
 
 .Book {
+  margin: 0 5px;
   height: $book-height;
-  width: $book-shelf-width;
-  background-color: dodgerblue;
-  border: 2px solid rgba(68, 68, 68, 0.4);
-  &:hover {
-    width: $book-open-width;
-    border-width: 6px;
+  width: $book-width-shelf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 400ms;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
+  cursor: pointer;
+  color: #444;
+  border: 2px solid rgba(68, 68, 68, 0.3);
+  .Book-content {
+    width: 500px;
+    position: absolute;
+    text-align: left;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: rotate(90deg) scale(0.7);
+    transition: 300ms;
+    * {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
+  &:hover {
+    width: $book-width-open;
+    z-index: 5;
+    transform: scale(1.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-width: 5px;
+    border-style: outset;
+    .Book-content {
+      width: 90%;
+      text-align: center;
+      opacity: 1;
+      transform: rotate(0) scale(1);
+      align-items: center;
+      * {
+        white-space: normal;
+        text-overflow: initial;
+      }
+    }
+  }
+}
+
+.Book-title {
+  font-family: 'Julius Sans One', 'Fredericka the Great', 'Libre Baskerville', 'serif';
+}
+
+.Book-author {
+  font-family: 'Metamorphous', 'Libre Baskerville', 'Fredericka the Great', 'serif';
 }

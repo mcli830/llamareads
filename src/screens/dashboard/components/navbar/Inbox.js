@@ -17,28 +17,32 @@ const enhance = compose(
   ),
   firestoreConnect(({ auth }) => [
     {
-      collection: 'booksList', where: ['bookFor', '==', auth.uid],
+      collection: 'inboxList', where: ['inboxFor', '==', auth.uid],
     },
   ]),
   connect(
     ({ firestore }) => ({
-      booksList: firestore.ordered.booksList,
+      inboxList: firestore.ordered.inboxList,
     })
   ) 
 )
 
-const Inbox = ({booksList}) => {
+const Inbox = ({inboxList, changeModal}) => {
   return (
     <div className="Inbox">
       <div className="Inbox-header">Inbox</div>
       <div className="Inbox-list">
       {
-        !isLoaded(booksList)
+        !isLoaded(inboxList)
           ? ''
-          : isEmpty(booksList)
+          : isEmpty(inboxList)
             ? ''
-            : booksList.map((book) =>
-              <ListEntry key={book && book.id} book={book} />
+            : inboxList.map((inbox) =>
+              <ListEntry
+                key={inbox && inbox.id}
+                inbox={inbox}
+                changeModal={changeModal}
+              />
               )
       }
       </div>

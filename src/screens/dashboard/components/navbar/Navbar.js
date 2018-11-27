@@ -17,10 +17,10 @@ const enhance = compose(
   connect(({ firebase: { auth } }) => ({ auth })),
 );
 
-const Navbar = ({ setModal, auth }) => (
+const Navbar = ({ setModal, auth, changeModal }) => (
   <div className="Navbar">
     <Brand />
-    <UserMenu setModal={setModal} auth={auth} />
+    <UserMenu setModal={setModal} auth={auth} changeModal={changeModal} />
   </div>
 );
 

@@ -11,7 +11,10 @@ const ShelfHeader = ({setModal}) => {
   return (
     <div className="ShelfHeader">
       <div>My Books</div>
-      <button onClick={()=>setModal("add")}>+</button>
+      <button 
+        onClick={()=>setModal("add")}
+        className="ShelfHeader-add-btn"
+        >+</button>
     </div>
   );
 };

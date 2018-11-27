@@ -25,9 +25,10 @@ $shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
 
 $bookshelf: $light-gray;
 
-$book-height: 400px;
-$book-shelf-width: 100px;
-$book-open-width: 450px;
+$book-height: 320px;
+$book-width-shelf: 80px;
+$book-width-open: 320px;
+$shelf-height: 400px;
 
 @mixin textStyle($size) {
   font-family: "Lato";

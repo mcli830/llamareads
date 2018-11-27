@@ -11,9 +11,16 @@ import "../../../../stylesheets/css/base.css";
 
 const ModalBase = props => {
   return (
-    <div className="ModalBase">
+    <div className="ModalBase" onClick={
+      function(e){
+        if (e.target == document.querySelector('.ModalBase')){
+          props.changeModal('');
+        }
+      }
+    }>
       <div className="ModalBase-view">
         <div className="ModalBase-visuals" />
+        <div className="ModalBase-exit" onClick={()=>props.changeModal('')} />
         <div className="ModalBase-header">Modal Title Message</div>
         <div className="ModalBase-content">{props.content}</div>
       </div>

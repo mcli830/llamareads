@@ -21,6 +21,14 @@
   border-color: #484848;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .Navbar {
   position: fixed;
   top: 0;
@@ -95,6 +103,7 @@
 }
 
 .Shelf {
+  position: relative;
   height: 500px;
   width: 820px;
   padding: 60px;
@@ -115,7 +124,10 @@
 }
 
 .ShelfHeader {
+  position: absolute;
   color: #484848;
+  bottom: calc(100% + 10px);
+  left: 10px;
 }
 
 .BookList {
@@ -124,14 +136,67 @@
 }
 
 .Book {
-  height: 400px;
-  width: 100px;
-  background-color: dodgerblue;
-  border: 2px solid rgba(68, 68, 68, 0.4);
+  margin: 0 5px;
+  height: 320px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 400ms;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
+  cursor: pointer;
+  color: #444;
+  border: 2px solid rgba(68, 68, 68, 0.3);
+}
+.Book .Book-content {
+  width: 500px;
+  position: absolute;
+  text-align: left;
+  opacity: 0.7;
+  overflow: hidden;
+  transition: 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transform: rotate(90deg) scale(0.7);
+  transition: 300ms;
+}
+.Book .Book-content * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .Book:hover {
-  width: 450px;
-  border-width: 6px;
+  width: 320px;
+  z-index: 5;
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-width: 5px;
+  border-style: outset;
+}
+.Book:hover .Book-content {
+  width: 90%;
+  text-align: center;
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  align-items: center;
+}
+.Book:hover .Book-content * {
+  white-space: normal;
+  text-overflow: initial;
+}
+
+.Book-title {
+  font-family: "Julius Sans One", "Fredericka the Great", "Libre Baskerville", "serif";
+}
+
+.Book-author {
+  font-family: "Metamorphous", "Libre Baskerville", "Fredericka the Great", "serif";
 }
 
 .ModalBase {
@@ -142,6 +207,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 .ModalBase-view {
@@ -168,15 +234,30 @@
   right: 0;
   width: 100%;
   height: 8px;
-  background: repeating-linear-gradient(
-    90deg,
-    #4e64bb,
-    #4e64bb 16.6%,
-    #a8d0e6 16.6%,
-    #a8d0e6 33.3%,
-    #f76f6f 33.3%,
-    #f76f6f 50%
-  );
+  background: repeating-linear-gradient(90deg, #4e64bb, #4e64bb 16.6%, #a8d0e6 16.6%, #a8d0e6 33.3%, #f76f6f 33.3%, #f76f6f 50%);
+}
+
+.ModalBase-exit {
+  position: absolute;
+  top: 28px;
+  left: 20px;
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+.ModalBase-exit:before, .ModalBase-exit:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #484848;
+  top: 0;
+}
+.ModalBase-exit:before {
+  transform: rotate(45deg);
+}
+.ModalBase-exit:after {
+  transform: rotate(-45deg);
 }
 
 .ModalBase-header {

@@ -15,10 +15,10 @@ import "../../../../stylesheets/css/base.css";
 const enhance = compose(
 )
 
-const UserMenu = ({auth}) => {
+const UserMenu = ({auth, changeModal}) => {
   return (
     <div className="UserMenu">
-      <Inbox  />
+      <Inbox changeModal={changeModal} />
       <Avatar />
     </div>
   );

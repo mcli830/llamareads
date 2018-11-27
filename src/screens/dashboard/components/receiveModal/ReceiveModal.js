@@ -12,10 +12,10 @@ import ModalActions from "../modal/ModalActions";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ReceiveModal = () => {
+const ReceiveModal = ({ showStory }) => {
   return (
     <div className="ReceiveModal">
-      <BookCard />
+      <BookCard showStory={showStory} />
       <SenderNote />
       <ModalActions />
     </div>

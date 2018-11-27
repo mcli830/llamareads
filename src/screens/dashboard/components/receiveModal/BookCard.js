@@ -9,7 +9,7 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const BookCard = () => {
+const BookCard = ({showStory}) => {
   return (
     <div className="BookCard">
       <div className="BookCard-cover">
@@ -32,7 +32,9 @@ const BookCard = () => {
           multi-award winner, Jon Klassen. Pax was only a kit when his family
           was killed and he was rescued by ‘his boy’, Peter…
         </div>
-        <button className="BookCard-details btn">Details</button>
+        <button className="BookCard-details btn" onClick={()=>showStory(true)}>
+          Details
+        </button>
       </div>
     </div>
   );

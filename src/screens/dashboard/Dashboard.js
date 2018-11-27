@@ -16,6 +16,8 @@ import {
   isEmpty
 } from "react-redux-firebase";
 
+import firebase from 'firebase';
+
 // components
 import Navbar from "./components/navbar/Navbar";
 import ShelfList from "./components/shelf/ShelfList";
@@ -29,7 +31,14 @@ import StoryView from "./components/storyView/StoryView";
 import "../../stylesheets/css/base.css";
 import Login from "../identity/Login";
 
+function setModal(newState){
+  console.log(newState);
+}
+
 const enhance = compose(
+  withProps({
+    modal: ""
+  }),
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
@@ -37,8 +46,7 @@ const enhance = compose(
     addBook: props => ({ auth }) =>
       props.firestore.add("booksList", {
         bookFor: props.auth.uid,
-        book: "9xzHVb6LM4Cq67XUHFRF",
-        inbox: true
+        book: [{ book: '9xzHVb6LM4Cq67XUHFRF' }]
       }),
     sendBook: props => e => {
       props.firestore.add("inboxList", {
@@ -70,63 +78,85 @@ const enhance = compose(
   )
 );
 
-const Dashboard = ({ users, addBook, onSearchChange, searchVal, sendBook }) => {
-  return (
-    <div className="Dashboard">
-      <ShelfList />
-      <Navbar />
-      {!isLoaded(users)
-        ? ""
-        : isEmpty(users)
-        ? ""
-        : users.map(user => (
-            <button onClick={sendBook} key={user.uid} value={user.uid}>
-              Send Book to {user.displayName}
-            </button>
-          ))}
-      <button onClick={addBook}>Add book to your shelf</button>
-      <input value={searchVal} onChange={onSearchChange} type="text" />
-      {/* <ModalBase content={<SendModal />} /> */}
-      {/* <ModalBase content={<AddModal />} /> */}
-    </div>
-  );
-};
+const DashboardContainer = ({ users, addBook, onSearchChange, searchVal, sendBook }) => (
+  <Dashboard 
+    users={users}
+    addBook={addBook}
+    onSearchChange={onSearchChange}
+    searchVal={searchVal}
+    sendBook={sendBook}    
+  />
+)
 
-// const other = ({
-//   modal
-// }) => {
-//   switch(modal){
-//     case 'add':
-//     return (
-//       <div className="Dashboard">
-//         <MainDashboard />
-//         { <ModalBase content={<AddModal />} /> }
-//       </div>
-//     )
-//   case 'send':
-//     return (
-//       <div className="Dashboard">
-//         <MainDashboard />
-//         { <ModalBase content={<AddModal />} /> }
-//       </div>
-//     )
-//   case 'receive':
-//     return (
-//       <div className="Dashboard">
-//         <MainDashboard />
-//         { <ModalBase content={<AddModal />} /> }
-//       </div>
-//     )
-//   default:
-//     return (
-//       <div className="Dashboard">
-//         <MainDashboard />
-//       </div>
-//     )
-//   }
-// };
+class Dashboard extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      modal: '',
+      story: false      
+    }
+    this.changeModal = this.changeModal.bind(this);
+    this.showStory = this.showStory.bind(this);
+  }
 
-export default enhance(Dashboard);
+  renderModal() {
+    switch(this.state.modal){
+      case 'add':
+        return (
+          <ModalBase
+            changeModal={this.changeModal}
+            content={<AddModal />}
+          />
+        );
+      case 'send':
+        return (
+          <ModalBase
+            changeModal={this.changeModal}
+            content={<SendModal />}
+          />
+        );
+      case 'receive':
+        return (
+          <ModalBase
+            changeModal={this.changeModal}
+            content={
+              <ReceiveModal showStory={this.showStory} />
+            }
+          />
+        );
+      default:
+        return '';
+    }
+  }
+
+  changeModal(modal) {
+    this.setState({ modal: modal });
+  }
+
+  renderStory(){
+    if (this.state.story) {
+      return <StoryView />
+    }
+  }
+
+  showStory(bool){
+    this.setState({ story: bool });
+  }
+
+  render() {
+    return (
+      <div className="Dashboard">
+        <ShelfList setModal={() => this.setModal.bind(this)} />
+        <Navbar changeModal={this.changeModal} />
+        <button onClick={this.props.addBook}>Sample ADD BOOK</button>
+        {this.renderModal()}
+        {this.renderStory()}
+      </div>
+    )
+  }
+}
+
+export default enhance(DashboardContainer);
 
 // <ShelfList />
 // <Navbar />

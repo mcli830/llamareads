@@ -16,7 +16,7 @@ const enhance = compose(
   ),
 );
 
-const ListEntry = ({ }) => {
+const ListEntry = ({ changeModal }) => {
   return (
   //   <div>
   //   <button onClick={this.openModal}>Open Modal</button>
@@ -42,8 +42,7 @@ const ListEntry = ({ }) => {
   // </div>
   <div className="ListEntry">
     <div>Nov 22 2018</div>
-    <a href="">View</a>
-    <button>Jordan sent you a book</button>
+    <button onClick={()=>changeModal('receive')}>Jordan sent you a book</button>
     {/* <div>{book.title}</div>
     <div>{book.author}</div>
     <div>

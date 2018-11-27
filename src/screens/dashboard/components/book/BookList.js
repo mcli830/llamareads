@@ -21,26 +21,35 @@ const enhance = compose(
   ),
   firestoreConnect(({ auth }) => [
     {
-      collection: 'booksList', where: ['bookFor', '==', auth.uid]
+      collection: 'booksList', where: ['bookFor', '==', auth.uid],
+      storeAs: 'userBooks'
     },
   ]),
   connect(
     ({ firestore }) => ({
-      booksList: firestore.ordered.booksList,
+      userBooks: firestore.ordered.userBooks,
     })
   ) 
 )
 
-const BookList = ({firestore, booksList, auth}) => {
+const BookList = ({firestore, userBooks, auth}) => {
   return (
     <div className="BookList">
       {
-        !isLoaded(booksList)
+        !isLoaded(userBooks)
           ? ''
-          : isEmpty(booksList)
+          : isEmpty(userBooks)
             ? ''
-            : booksList.map((book) =>
-                <Book key={book && book.id} book={book} />
+            : userBooks.map((book) =>
+                <Book 
+                  key={book.id}
+                  id={book.book}
+                  color={`hsl(${
+                    Math.floor(
+                      (Math.random() * 360) + 1
+                    )
+                  },70%,70%)`}
+                />
               )
       }
     </div>

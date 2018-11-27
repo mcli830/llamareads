@@ -3,8 +3,14 @@
   flex-direction: column;
 }
 
+.Shelf-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .Shelf {
-  height: 500px;
+  position: relative;
+  height: $shelf-height;
   width: 820px;
   padding: 60px;
   display: flex;
@@ -14,18 +20,31 @@
   box-sizing: content-box;
   overflow: auto;
   position: relative;
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: 30px;
-    border-bottom: 30px double #444;
-    width: 200%;
-  }
 }
 
 .ShelfHeader {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
   color: $text;
 }
 
-.ShelfPlatform {
+.Shelf-platform {
+  position: absolute;
+  bottom: 30px;
+  height: 26px;
+  background-color: $light-gray;
+  border-bottom: 4px solid $dark-gray;
+  border-bottom-left-radius: 8px;  
+  border-bottom-right-radius: 8px;  
+}
+
+.ShelfHeader-add-btn {
+  font-size: 20px;
+  font-weight: 400px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: $dark-blue;
 }
