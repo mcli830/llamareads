@@ -11,13 +11,13 @@ import BookList from "../book/BookList";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const Shelf = ({ changeModal }) => {
+const Shelf = ({ changeModal, sendBook }) => {
   return (
     <div className="Shelf-wrapper">
       <ShelfHeader changeModal={changeModal} />
       <div className="Shelf">
         <div className="Shelf-platform" />
-        <BookList changeModal={changeModal} />
+        <BookList changeModal={changeModal} sendBook={sendBook} />
       </div>
     </div>
   );

@@ -7,12 +7,14 @@
 .Shelf-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .Shelf {
   position: absolute;
   height: $shelf-height;
-  width: 100%;
   padding: 60px;
   display: flex;
   flex-direction: row;
@@ -21,6 +23,7 @@
   box-sizing: content-box;
   overflow: auto;
   position: relative;
+  width: 100%;
 }
 
 .ShelfHeader {
@@ -37,10 +40,25 @@
   position: absolute;
   bottom: 30px;
   height: 26px;
-  background-color: $light-gray;
-  border-bottom: 4px solid $dark;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  width: calc(100% - 120px);
+  background-color: #e6bf83;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 6px;
+    background-color: #a0793d;
+    transform-origin: 50% 100%;
+  }
+  &:before {
+    transform: skew(60deg);
+  }
+  &:after {
+    transform: skew(-60deg);
+  }
 }
 
 .ShelfHeader-add-btn {
