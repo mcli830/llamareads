@@ -67,6 +67,7 @@
 }
 
 .Book-author {
+<<<<<<< HEAD
   @include textStyle(18px);
 }
 
@@ -92,3 +93,7 @@
     transform: scale(1.3);
   }
 }
+=======
+  @include textStyle(24px);
+}
+>>>>>>> ebe69dc5c0ca9879d2dc19d6c625380c62cd3d7b

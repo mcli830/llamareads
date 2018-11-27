@@ -42,24 +42,6 @@ const enhance = compose(
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
-  withHandlers({
-    addBook: props => ({ auth }) =>
-      props.firestore.add("booksList", {
-        bookFor: props.auth.uid,
-        book: "9xzHVb6LM4Cq67XUHFRF"
-      }),
-    sendBook: props => e => {
-      props.firestore.add("inboxList", {
-        sender: props.auth.uid,
-        inboxFor: e.target.value,
-        book: "9xzHVb6LM4Cq67XUHFRF"
-      });
-      props.firestore.add("journeyList", {
-        sender: props.auth.uid,
-        notes: "This is a note"
-      });
-    }
-  }),
   firestoreConnect(({ auth }) => [
     {
       collection: "users"
@@ -149,7 +131,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="Dashboard">
-      <button onClick={this.props.addBook}>Sample ADD BOOK</button>
         <ShelfList changeModal={this.changeModal} />        
         <Navbar changeModal={this.changeModal} />
         {this.renderModal()}
