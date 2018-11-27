@@ -67,7 +67,6 @@ const Dashboard = ({
 }) => {
   return (
     <div className="Dashboard">
-      <StoryView />
       <ShelfList/>
       <Navbar />
       {!isLoaded(users)
