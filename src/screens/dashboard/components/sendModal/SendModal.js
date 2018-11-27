@@ -56,7 +56,7 @@ const SendModal = (props) => {
           <input id="SendForm-search-input" />
         </div>
         <div className="SendForm-note">
-          <textarea id="SendForm-note-input" value={props.noteValue} onChange={props.onNoteChange} />
+          <textarea placeholder="Add a short note" id="SendForm-note-input" value={props.noteValue} onChange={props.onNoteChange} />
         </div>
       </div>
       <div className="ReceiveModal-actions mbtn-container">

@@ -462,6 +462,21 @@
   bottom: 20px;
   right: 20px; }
 
+.SendForm {
+  display: flex;
+  flex-direction: column; }
+
+.SendForm-search {
+  flex: 0 0 80px;
+  margin-bottom: 30px; }
+
+#SendForm-search-input {
+  height: 50px;
+  display: block;
+  font-size: 30px;
+  width: 92%;
+  padding: 10; }
+
 .AddModal {
   display: flex;
   flex-direction: column; }
