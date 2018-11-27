@@ -53,7 +53,7 @@ const Book = props => {
             ? ''
               : props.currentBook.map((book) =>
               <div className="Book-author">{book.author}</div>
-            ))}
+            )}
       </div>
       <div onClick={() => props.changeModal("send")} className="Book-send">
         <i class="fas fa-paper-plane" />
