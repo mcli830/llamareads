@@ -99,14 +99,35 @@
   width: 100%;
   height: 80px;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  border: 1px solid #E0E0E0;
+  background-color: white;
+  padding: 15px 35px;
+  align-items: center;
+  justify-content: space-between; }
 
 .ListEntry-text {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-family: "Lato";
+  font-size: 20px;
+  color: #484848; }
+
+.ListEntry-text-date {
+  font-size: 16px;
+  color: #8D8D8D;
+  font-weight: 100px;
+  margin-bottom: 5px; }
 
 .ListEntry-action {
   flex: 0 0 40px; }
+
+.ListEntry-view-btn {
+  font-family: "Lato";
+  font-size: 22px;
+  color: #484848;
+  border: none;
+  padding-top: 22px; }
 
 .Avatar {
   background-color: #cbc9c2;
