@@ -20,16 +20,6 @@ export default (state = {
         book: action.payload.book,
         journey: action.payload.journey
       }
-    case 'SELECT_FRIEND':
-      return {
-        ...state,
-        friend: action.payload.friend
-      }
-    case 'WRITE_NOTE':
-      return {
-        ...state,
-        note: action.payload.note
-      }
     default:
       return state;
   }

@@ -20,15 +20,13 @@
 }
 
 .btn {
+  font-family: "Lato";
+  font-size: 16px;
+  color: #484848;
   padding: 6px 12px;
   font-weight: 500;
-  font-family: "Lato";
-  border: 1px solid #cbc9c2;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.btn:hover {
-  border-color: #484848;
+  border: none;
+  display: inline-block;
 }
 
 .btn-blue {
@@ -608,6 +606,9 @@
 }
 
 .BookCard-info {
+  font-family: "Lato";
+  font-size: 10px;
+  color: #484848;
   padding: 10px 20px;
   margin-left: 30px;
   flex: 0 0 50%;
@@ -615,11 +616,20 @@
 }
 
 .BookCard-title {
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 2px;
+  color: #979797;
 }
 
 .BookCard-author {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+  color: #979797;
+}
+
+.BookCard-description {
+  font-weight: lighter;
+  color: #979797;
 }
 
 .BookCard-details {
@@ -694,7 +704,6 @@
   margin: 0 auto;
   margin-top: 20px;
   border: 1px solid #E0E0E0;
-  border-radius: 3px;
 }
 
 .AddModal span {
@@ -702,7 +711,7 @@
   font-size: 20px;
   color: #484848;
   font-weight: 100;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   opacity: 0.7;
   margin-left: 6%;
 }
@@ -717,19 +726,22 @@
   flex: 0 1 auto;
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 86%;
   background-color: white;
   font-family: "Lato";
   color: #484848;
   position: relative;
+  margin: 0 auto;
+  border: 1px solid #E0E0E0;
+  height: 120px;
+  margin-bottom: 15px;
 }
 
 .BookSearchCard-cover {
   display: flex;
-  align-items: center;
-  margin: 10px 30px;
-  flex: 0 0 100px;
-  padding: 5px;
+  margin: 10px 15px;
+  flex: 0 1 250px;
+  box-shadow: 0 0 2px;
 }
 
 .BookSearchCard-info {
@@ -744,8 +756,13 @@
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+  padding: 10px;
+}
+
+.BookSearchCard-add {
+  width: 80px;
 }
 
 .StoryView {

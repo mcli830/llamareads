@@ -3,19 +3,22 @@
   flex: 0 1 auto;
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: $modal-content-width;
   background-color: white;
   font-family: "Lato";
   color: $text;
   position: relative;
+  margin: 0 auto;
+  border: 1px solid $book-card-border-color;
+  height: 120px;
+  margin-bottom: 15px;
 }
 
 .BookSearchCard-cover {
   display: flex;
-  align-items: center;
-  margin: 10px 30px;
-  flex: 0 0 100px;
-  padding: 5px;
+  margin: 10px 15px;
+  flex: 0 1 250px;
+  box-shadow: 0 0 2px;
 }
 
 .BookSearchCard-info {
@@ -28,9 +31,11 @@
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+  padding: 10px;
 }
 
 .BookSearchCard-add {
+  width: 80px;
 }
