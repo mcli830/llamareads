@@ -11,7 +11,6 @@ import {
   isEmpty
 } from "react-redux-firebase";
 
-
 // components
 import BookSearchCard from "./BookSearchCard";
 
@@ -49,9 +48,14 @@ const enhance = compose(
     })
   ) 
 )
-
+function fetchApi(word){
+  fetch('https://www.goodreads.com/search/index.xml?key=TfkFgljd4rldheKR1dWfZQ&q=PAX')
+  .then(response => response.json())
+  .then(data => this.setState({ data }));
+} 
 
 const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => {
+  console.log(fetchApi("PAX"))
   return (
     <div className="AddModal">
       <div className="AddModal-search">

@@ -1,22 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
+import { withStateHandlers, branch, renderNothing, withState } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ShelfHeader = ({changeModal}) => {
+
+const enhance = compose(
+  connect(
+    ({ app }) => ({ appState: app })
+  ),
+  withState('modal', 'viewModal', 'add')
+);
+
+const ShelfHeader = ({changeModal, viewModal}) => {
   return (
     <div className="ShelfHeader">
       <div>My Books</div>
       <button 
-        onClick={() => changeModal('add')}
+        onClick={() => viewModal('add')}
         className="ShelfHeader-add-btn"
         ></button>
     </div>
   );
 };
 
-export default ShelfHeader;
+export default enhance(ShelfHeader);

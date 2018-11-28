@@ -2,21 +2,19 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import {
-  withHandlers,
   withStateHandlers,
-  withProps,
-  withPropsOnChange,
-  mapProps
+  withState,
+  withProps
 } from "recompose";
 import {
   firebaseConnect,
   firestoreConnect,
-  withFirestore,
-  isLoaded,
-  isEmpty
+  withFirestore
 } from "react-redux-firebase";
 
-import firebase from "firebase";
+// redux actions
+import viewModal from "../../functions/configurations/reducer/action/viewModal";
+import viewStory from "../../functions/configurations/reducer/action/viewStory";
 
 // components
 import Navbar from "./components/navbar/Navbar";
@@ -29,16 +27,8 @@ import StoryView from "./components/storyView/StoryView";
 
 // css
 import "../../stylesheets/css/base.css";
-import Login from "../identity/Login";
-
-function setModal(newState) {
-  console.log(newState);
-}
 
 const enhance = compose(
-  withProps({
-    modal: ""
-  }),
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
@@ -47,9 +37,15 @@ const enhance = compose(
       collection: "users"
     }
   ]),
-  connect(({ firestore }) => ({
-    users: firestore.ordered.users
-  })),
+  connect(
+    ({ firestore }) => ({
+      users: firestore.ordered.users
+    })
+  ),
+  connect(
+    ({ app }) => ({ appState: app })
+  ),
+  withState('modal', 'viewModal', 'add'),
   withStateHandlers(
     ({ initialVal = "" }) => ({
       searchVal: initialVal
@@ -65,7 +61,10 @@ const DashboardContainer = ({
   addBook,
   onSearchChange,
   searchVal,
-  sendBook
+  sendBook,
+  appState,
+  modal,
+  viewModal
 }) => (
   <Dashboard
     users={users}
@@ -73,29 +72,21 @@ const DashboardContainer = ({
     onSearchChange={onSearchChange}
     searchVal={searchVal}
     sendBook={sendBook}
+    appState={appState}
+    modal={modal}
+    viewModal={viewModal}
   />
 );
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modal: "",
-      story: false,
-      sending: {
-        book: null
-      },
-      viewing: {
-        book: null
-      }
-    };
-    this.changeModal = this.changeModal.bind(this);
-    this.showStory = this.showStory.bind(this);
-    this.sendBook = this.sendBook.bind(this);
+    console.log(this.props.appState)
   }
 
+
   renderModal() {
-    switch (this.state.modal) {
+    switch (this.props.modal) {
       case "add":
         return (
           <ModalBase
@@ -127,41 +118,20 @@ class Dashboard extends React.Component {
     }
   }
 
-  changeModal(modal) {
-    this.setState({ modal: modal });
-  }
-
   renderStory() {
-    if (this.state.story) {
-      return (
-        <StoryView book={this.state.viewing.book} showStory={this.showStory} />
-      );
-    }
-  }
-
-  showStory(bool, book = null) {
-    this.setState({
-      story: bool,
-      viewing: { book }
-    });
-  }
-
-  sendBook(book) {
-    this.setState({
-      modal: "send",
-      sending: { book }
-    });
+    // if (this.state.story) {
+    //   return (
+    //     <StoryView book={this.state.viewing.book} showStory={this.showStory} />
+    //   );
+    // }
   }
 
   render() {
     return (
-      <div className="Dashboard">
-        <ShelfList
-          showStory={this.showStory}
-          changeModal={this.changeModal}
-          sendBook={this.sendBook}
-        />
-        <Navbar changeModal={this.changeModal} />
+      <div className="Dashboard" >
+        <ShelfList />
+        <Navbar dashState={this.props.modal} />
+        {console.log(this.props.appState)}
         {this.renderModal()}
         {this.renderStory()}
       </div>
