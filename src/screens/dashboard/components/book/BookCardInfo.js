@@ -11,10 +11,10 @@ const BookCardInfo = ({book}) => {
   return (
     <div className="BookCardInfo">
       <div className="BookCard-title">
-        Title: <strong>{book.title}</strong>
+        <p>{book.title}</p>
       </div>
       <div className="BookCard-author">
-        Author: <strong>{book.author}</strong>
+        <p>{book.author}</p>
       </div>
       <div className="BookCard-description">
       {book.excerpt}
