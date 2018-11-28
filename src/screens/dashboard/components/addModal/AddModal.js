@@ -46,7 +46,7 @@ const enhance = compose(
     ({ firestore }) => ({
       addBooks: firestore.ordered.addBooks,
     })
-  ) 
+  )
 )
 function fetchApi(word){
   fetch('https://www.goodreads.com/search/index.xml?key=TfkFgljd4rldheKR1dWfZQ&q=PAX')
@@ -54,8 +54,7 @@ function fetchApi(word){
   .then(data => this.setState({ data }));
 } 
 
-const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => {
-  console.log(fetchApi("PAX"))
+const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal, exit}) => {
   return (
     <div className="AddModal">
       <div className="AddModal-search">
@@ -69,7 +68,7 @@ const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => 
           : isEmpty(addBooks)
             ? ''
             : addBooks.map((book) =>
-                
+
           <BookSearchCard changeModal={changeModal} key={book.id} book={book} />
               )
       }

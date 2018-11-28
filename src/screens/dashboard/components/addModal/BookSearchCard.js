@@ -16,6 +16,10 @@ import {
   isEmpty
 } from "react-redux-firebase";
 
+//actions
+import viewModal from "../../../../functions/actions/viewModal";
+import viewStory from "../../../../functions/actions/viewStory";
+
 // component
 import BookCardInfo from "../book/BookCardInfo";
 
@@ -26,6 +30,7 @@ const enhance = compose(
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({view, dispatch}) => ({view, dispatch})),
   withHandlers({
     addBook: props => ({ auth }) =>
       props.firestore.add("booksList", {
@@ -49,8 +54,15 @@ const BookSearchCard = (props) => {
         <BookCardInfo book={props.book} />
       </div>
       <div className="BookSearchCard-actions">
-        <button className="mbtn mbtn-confirm BookSearchCard-add" onClick={props.addBook}>Add</button>
-        <button className="BookCard-details btn">Details</button>
+        <button
+          className="mbtn mbtn-confirm BookSearchCard-add"
+          onClick={(e)=>{
+            props.addBook(e);
+            props.dispatch(viewModal(''));
+          }}>
+          Add
+        </button>
+        <button className="BookCard-details btn" onClick={()=>props.dispatch(viewStory(props.book))}>Details</button>
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
+//actions
+import viewStory from "../../../../functions/actions/viewStory";
+
 // components
 import Story from "./Story";
 
@@ -19,7 +22,7 @@ const enhance = compose(
 
 const StoryContainer = props => (
   <div className="StoryContainer container-fixed">
-    {props.view.story ? <Story /> : ""}
+    {props.view.story ? <Story book={props.view.book} journey={props.view.journey} exit={()=>props.dispatch(viewStory())} /> : ""}
   </div>
 )
 

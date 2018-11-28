@@ -53,7 +53,7 @@ const Book = props => {
             ))}
       </div>
       <div onClick={() => props.sendBook(props.dataBook)} className="Book-send">
-        <i class="fas fa-paper-plane" />
+        <i className="fas fa-paper-plane" />
       </div>
     </div>
   );
