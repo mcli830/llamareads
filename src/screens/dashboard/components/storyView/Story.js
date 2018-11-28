@@ -12,7 +12,7 @@ import StoryWall from "./StoryWall";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const StoryView = props => {
+const Story = props => {
   return (
     <div className="StoryView">
       <div className="Story-indicator-map">
@@ -31,4 +31,4 @@ const StoryView = props => {
   );
 };
 
-export default StoryView;
+export default Story;
