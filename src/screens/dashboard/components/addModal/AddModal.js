@@ -47,11 +47,11 @@ const enhance = compose(
     ({ firestore }) => ({
       addBooks: firestore.ordered.addBooks,
     })
-  ) 
+  )
 )
 
 
-const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => {
+const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal, exit}) => {
   return (
     <div className="AddModal">
       <div className="AddModal-search">
@@ -65,7 +65,7 @@ const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => 
           : isEmpty(addBooks)
             ? ''
             : addBooks.map((book) =>
-                
+
           <BookSearchCard changeModal={changeModal} key={book.id} book={book} />
               )
       }

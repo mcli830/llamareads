@@ -35,7 +35,7 @@ class ModalContainer extends React.Component {
         return (
           <ModalBase
             exit={this.exitModal}
-            content={<AddModal />}
+            content={<AddModal exit={this.exitModal} />}
             title="Add a book to your shelf"
           />
         );
@@ -43,7 +43,7 @@ class ModalContainer extends React.Component {
         return (
           <ModalBase
             exit={this.exitModal}
-            content={<SendModal />}
+            content={<SendModal exit={this.exitModal} />}
             title="Send"
           />
         );
@@ -51,7 +51,7 @@ class ModalContainer extends React.Component {
         return (
           <ModalBase
             exit={this.exitModal}
-            content={<ReceiveModal />}
+            content={<ReceiveModal exit={this.exitModal} />}
             title="Receive"
           />
         );

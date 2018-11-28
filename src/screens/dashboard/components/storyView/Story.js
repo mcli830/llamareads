@@ -25,8 +25,8 @@ const Story = props => {
         ))}
       </div>
       <StoryRail cover={props.book.cover} />
-      <StoryWall book={props.book} />
-      <div className="Story-exit" onClick={() => props.showStory(false)} />
+      <StoryWall book={props.book} journey={props.journey} />
+      <div className="Story-exit" onClick={props.exit} />
     </div>
   );
 };
