@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
+import { withStateHandlers, branch, renderNothing, withState } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // css

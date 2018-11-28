@@ -5,6 +5,7 @@ $red: #f76f6f;
 $light-blue: #a8d0e6;
 $dark-blue: #4e64bb;
 
+$shadow-gray: #E0E0E0;
 $light-gray: #cbc9c2;
 $off-white: #faf8f3;
 $dark: #484848;
@@ -15,6 +16,8 @@ $primary: $red;
 $secondary: $dark-blue;
 $text: $dark;
 $bg: $off-white;
+$textbox-border-color: $shadow-gray;
+$textbox-border-radius: 3px;
 
 $modal-bg: rgba(68, 68, 68, 0.6);
 

@@ -4,7 +4,14 @@ import configureStore from "./functions/configurations/store";
 import Router from "./screens/router"
 
 const initialState = window.__INITIAL_STATE__ || {
-  firebase: { authError: null }
+  firebase: { authError: null },
+  app: {
+    view: {
+      modal: '',
+      story: false,
+    },
+    book: null
+  }
 };
 const store = configureStore(initialState);
 

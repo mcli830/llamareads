@@ -2,21 +2,15 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import {
-  withHandlers,
   withStateHandlers,
-  withProps,
-  withPropsOnChange,
-  mapProps
+  withState,
+  withProps
 } from "recompose";
 import {
   firebaseConnect,
   firestoreConnect,
-  withFirestore,
-  isLoaded,
-  isEmpty
+  withFirestore
 } from "react-redux-firebase";
-
-import firebase from "firebase";
 
 // actions
 import viewModal from "../../functions/actions/viewModal";
@@ -30,7 +24,6 @@ import StoryContainer from "./components/storyView/StoryContainer";
 
 // css
 import "../../stylesheets/css/base.css";
-import Login from "../identity/Login";
 
 const enhance = compose(
   withFirestore,
@@ -41,9 +34,15 @@ const enhance = compose(
       collection: "users"
     }
   ]),
-  connect(({ firestore }) => ({
-    users: firestore.ordered.users
-  })),
+  connect(
+    ({ firestore }) => ({
+      users: firestore.ordered.users
+    })
+  ),
+  connect(
+    ({ app }) => ({ appState: app })
+  ),
+  withState('modal', 'viewModal', 'add'),
   withStateHandlers(
     ({ initialVal = "" }) => ({
       searchVal: initialVal
@@ -64,24 +63,3 @@ const Dashboard = () => (
 )
 
 export default enhance(Dashboard);
-
-// <ShelfList />
-// <Navbar />
-// {!isLoaded(users)
-//   ? ""
-//   : isEmpty(users)
-//   ? ""
-//   : users.map(user => (
-//       <button
-//         onClick={sendBook}
-//         key={user.id}
-//         value={user.id}
-//       >
-//         Send Book
-//       </button>
-//     ))}
-// <button onClick={addBook} />
-// <input value={searchVal} onChange={onSearchChange} type="text" />
-// <ModalBase content={<SendModal />} />
-// <ModalBase content={<AddModal />} />
-// <ModalBase content={<ReceiveModal />} />
