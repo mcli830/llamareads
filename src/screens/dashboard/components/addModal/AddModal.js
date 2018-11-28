@@ -28,24 +28,24 @@ const enhance = compose(
       storeAs: 'addBooks'
     },
   ]),
+  connect(
+    ({ firestore }) => ({
+      addBooks: firestore.ordered.addBooks,
+    })
+  ),
   withStateHandlers(
     ({ initialVal = "" }) => ({
       searchVal: initialVal
     }),
     {
-      onSearchChange: ({ props }) => (e) => (
-        firestoreConnect(({ auth }) => [
-          {
-            collection: "books", where: ['title', "==", e.target.value]
-          },
-        ])
-      )
+    onSearchChange: ({ props }) => (e) => (
+      firestoreConnect(({ auth }) => [
+        {
+          collection: "books", where: ['title', "==", e.target.value]
+        },
+      ])
+    )
     }
-  ),
-  connect(
-    ({ firestore }) => ({
-      addBooks: firestore.ordered.addBooks,
-    })
   )
 )
 function fetchApi(word){

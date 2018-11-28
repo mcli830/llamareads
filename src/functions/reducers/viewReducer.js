@@ -2,7 +2,9 @@ export default (state = {
   modal: '',
   story: false,
   book: null,
-  journey: null
+  journey: null,
+  friend: null,
+  note: ""
 }, action) => {
   switch(action.type) {
     case 'VIEW_MODAL':
@@ -17,6 +19,16 @@ export default (state = {
         story: action.payload.story,
         book: action.payload.book,
         journey: action.payload.journey
+      }
+    case 'SELECT_FRIEND':
+      return {
+        ...state,
+        friend: action.payload.friend
+      }
+    case 'WRITE_NOTE':
+      return {
+        ...state,
+        note: action.payload.note
       }
     default:
       return state;

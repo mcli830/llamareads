@@ -37,27 +37,6 @@ const Book = (props) => {
     <div
       className="Book"
       style={{ backgroundColor: props.color }}
-<<<<<<< HEAD
-      onClick={() => {
-        props.showStory(true, props.book);
-      }}
-    >
-      <div className="Book-content">
-
-    { !isLoaded(props.currentBook)
-      ? ""
-        : isEmpty(props.currentBook)
-        ? ""
-          : <div className="Book-title">{props.currentBook.title}</div>
-          }
-
-    { !isLoaded(props.currentBook)
-      ? ""
-        : isEmpty(props.currentBook)
-        ? ""
-          : <div className="Book-author">{props.currentBook.author}</div>
-          }
-=======
       onClick={() => props.dispatch(viewStory(props.dataBook[0]))}>
       <div className="Book-content">
         {!isLoaded(props.dataBook)
@@ -70,11 +49,10 @@ const Book = (props) => {
           : isEmpty(props.dataBook)
           ? ""
           : <div className="Book-author">{props.dataBook[0].author}</div>}
->>>>>>> 1a51f56ee94a8fa1dbdd8c335d7280b14eb4fdcf
       </div>
       <div className="Book-send" onClick={(e) => {
           e.stopPropagation();
-          props.dispatch(viewModal('send', props.dataBook[0]))
+          props.dispatch(viewModal('send',  props.book))
         }}
       >
         <i className="fas fa-paper-plane no-click" />

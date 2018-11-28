@@ -5,6 +5,7 @@ import {
   withHandlers,
   withStateHandlers,
   withProps,
+  withState,
   withPropsOnChange,
   mapProps
 } from "recompose";
@@ -21,34 +22,27 @@ import viewModal from "../../../../functions/actions/viewModal";
 import viewStory from "../../../../functions/actions/viewStory";
 
 const enhance = compose(
-  withProps({
-    noteValue: "",
-  }),
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
-  connect(({view, dispatch}) => ({view, dispatch})),
+  connect(({ view, dispatch }) => ({ view, dispatch })),
+  withState('note', 'writeNote', ''),
   withHandlers({
     sendBook: props => {
       props.firestore.add("inboxList", {
         sender: props.auth.uid,
-        inboxFor: "4IGGkEDpmgbSq1jSsHfVhKHmCIH3",
-        book: props.book[0].id
+        inboxFor: "WxvM1ZBzWrcBb4NGbFMNAB0l4NX2",
+        book: props.view.book.book
       });
       props.firestore.add("journeyList", {
         sender: props.auth.uid,
-        notes: "Something"
+        notes: props.note
       });
     },
-  }),
-  withStateHandlers(
-    ({ initialVal = "" }) => ({
-      noteValue: initialVal
-    }),
-    {
-      onNoteChange: ({ props }) => e => ({ noteValue: e.target.value })
+    noteChange: props => event => {
+      props.writeNote(event.target.value)
     }
-  )
+  })
 );
 
 
@@ -60,14 +54,14 @@ const SendModal = (props) => {
           <input placeholder="Type in your friend’s name" id="SendForm-search-input" />
         </div>
         <div className="SendForm-note">
-          <textarea placeholder="Add a short note" id="SendForm-note-input" value={props.noteValue} onChange={props.onNoteChange} />
+          {console.log(props.note)}
+          <textarea placeholder="Add a short note" id="SendForm-note-input" value={props.note} onChange={(e)=>props.noteChange(e)} />
         </div>
       </div>
       <div className="ReceiveModal-actions mbtn-container">
       <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Cancel</button>
       <button className="mbtn mbtn-confirm" onClick={(e)=>{
           props.dispatch(viewModal());
-          props.sendBook(e);
         }}>Send</button>
     </div>
     </div>
