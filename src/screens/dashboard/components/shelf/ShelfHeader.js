@@ -11,11 +11,7 @@ import "../../../../stylesheets/css/base.css";
 const ShelfHeader = (props) => {
   return (
     <div className="ShelfHeader">
-      <div>My Books</div>
-      <button
-        onClick={props.add}
-        className="ShelfHeader-add-btn">
-      </button>
+      <div className="Shelf-name">My Books</div>
     </div>
   );
 };

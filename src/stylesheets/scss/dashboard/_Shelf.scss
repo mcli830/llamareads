@@ -28,8 +28,10 @@
 }
 
 .ShelfHeader {
-  font-size: 40px;
-  position: relative;
+  @include textStyle(28px);
+  position: absolute;
+  top: -8px;
+  left: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -37,10 +39,13 @@
   color: $text;
 }
 
+.Shelf-name {
+}
+
 .Shelf-platform {
   position: absolute;
-  bottom: 30px;
-  height: 26px;
+  bottom: 20px;
+  height: 36px;
   width: calc(100% - 120px);
   background-color: $light-gray;
   &:before,
@@ -48,9 +53,9 @@
     content: "";
     position: absolute;
     top: 100%;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: 6px;
+    left: 18px;
+    width: calc(100% - 36px);
+    height: 10px;
     background-color: $dark;
     transform-origin: 50% 100%;
   }
@@ -59,43 +64,5 @@
   }
   &:after {
     transform: skew(-60deg);
-  }
-}
-
-.ShelfHeader-add-btn {
-  font-size: 40px;
-  margin-left: 20px;
-  color: $text;
-  padding: auto;
-  padding-top: -10px;
-  background-color: transparent;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border-width: 2px;
-  border-color: $dark-blue;
-  position: relative;
-  transition: 300ms;
-  cursor: pointer;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    height: 50%;
-    width: 50%;
-  }
-  &:before {
-    top: calc(50% - 1px);
-    left: 25%;
-    border-top: 2px solid $dark-blue;
-  }
-  &:after {
-    left: calc(50% - 1px);
-    top: 25%;
-    border-left: 2px solid $dark-blue;
-  }
-  &:hover {
-    box-shadow: 0 0 20px $light-blue;
-    transform: scale(1.1);
   }
 }

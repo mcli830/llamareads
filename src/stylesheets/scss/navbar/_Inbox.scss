@@ -2,6 +2,7 @@
   text-align: left;
   opacity: 0;
   display: block;
+  width: 100%;
   transition: 300ms;
   box-shadow: 1px 1px 5px $light-gray;
   border-top: none;
@@ -12,16 +13,16 @@
   justify-content: center;
   align-items: center;
   height: 50px;
+  margin-left: 30px;
 }
 
 .Inbox {
   @include textStyle(20px);
-  width: 300px;
   color: $secondary;
   text-align: right;
-  right: 200px;
+  width: 400px;
+  right: 160px;
   position: absolute;
-
   cursor: pointer;
   &:hover .Inbox-list {
     max-height: 400px;
@@ -31,6 +32,7 @@
 }
 
 .ListEntry {
+  box-sizing: border-box;
   width: 100%;
   height: 80px;
   display: flex;
@@ -46,6 +48,7 @@
   display: flex;
   flex-direction: column;
   @include textStyle(20px);
+  flex: 1 1;
 }
 
 .ListEntry-text-date {
@@ -53,7 +56,7 @@
   color: #8D8D8D;
   font-weight: 100px;
   margin-bottom: 5px;
-
+  flex: 0 0 40px;
 }
 
 .ListEntry-action {

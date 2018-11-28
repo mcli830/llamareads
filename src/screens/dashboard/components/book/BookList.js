@@ -7,6 +7,7 @@ import { firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 
 // components
 import Book from "./Book";
+import BookPlaceholder from "./BookPlaceholder"
 
 // css
 import "../../../../stylesheets/css/base.css";
@@ -15,9 +16,11 @@ const enhance = compose(
   connect(({ firebase: { auth } }) => ({ auth })),
   firestoreConnect(({ auth }) => [
     {
-      collection: "booksList",
-      where: ["bookFor", "==", auth.uid],
-      storeAs: "userBooks"
+      collection: 'userBooks',
+      where: [
+        ['inbox', '==', false],
+        ['user', '==', auth.uid]
+      ]
     }
   ]),
   connect(({ firestore }) => ({
@@ -35,13 +38,11 @@ const BookList = (props) => (
           : props.userBooks.map(book => (
             <Book
               key={book.id}
-              bookId={book.book}
-              title={book.title}
-              author={book.author}
-              book={book}
+              book={book.book}
               color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
             />
           ))}
+    <BookPlaceholder />
   </div>
 )
 

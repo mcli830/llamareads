@@ -16,40 +16,22 @@ import ReceiveModal from "../receiveModal/ReceiveModal";
 
 const enhance = compose(withStateHandlers({}));
 
-const ListEntry = ({ changeModal }) => {
+const ListEntry = (props) => {
   return (
-    //   <div>
-    //   <button onClick={this.openModal}>Open Modal</button>
-    //   <Modal
-    //     isOpen={this.state.modalIsOpen}
-    //     onAfterOpen={this.afterOpenModal}
-    //     onRequestClose={this.closeModal}
-    //     style={customStyles}
-    //     contentLabel="Example Modal"
-    //   >
-
-    //     <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-    //     <button onClick={this.closeModal}>close</button>
-    //     <div>I am a modal</div>
-    //     <form>
-    //       <input />
-    //       <button>tab navigation</button>
-    //       <button>stays</button>
-    //       <button>inside</button>
-    //       <button>the modal</button>
-    //     </form>
-    //   </Modal>
-    // </div>
     <div className="ListEntry">
       <div className="ListEntry-text">
         <div className="ListEntry-text-date">Nov 22 2018</div>
-        <div className="ListEntry-text-message">{/* sender */} (Placeholder) sent you a book</div>
+        <div className="ListEntry-text-message">
+          sent you a book
+        </div>
       </div>
       <div className="ListEntry-action">
-        <button className="ListEntry-view-btn" onClick={() => changeModal("receive")}>View</button>
+        <button className="ListEntry-view-btn">
+          <i className="far fa-eye" />
+        </button>
       </div>
     </div>
-  );
+  )
 };
 
 ListEntry.propTypes = {};

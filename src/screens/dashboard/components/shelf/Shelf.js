@@ -21,13 +21,15 @@ const enhance = compose(
   connect(({ firebase: { auth } }) => ({ auth })),
   firestoreConnect(({ auth }) => [
     {
-      collection: "booksList",
-      where: ["bookFor", "==", auth.uid],
-      storeAs: "userBooks"
+      collection: 'usersBooks',
+      where: [
+        ['inbox', '==', false],
+        ['user', '==', auth.uid]
+      ]
     }
   ]),
   connect(({ firestore }) => ({
-    userBooks: firestore.ordered.userBooks
+    usersBooks: firestore.ordered.usersBooks
   })),
   connect(({dispatch}) => ({dispatch}))
 );
@@ -35,9 +37,8 @@ const enhance = compose(
 const Shelf = (props) => {
   return (
     <div className="Shelf-wrapper">
-      <ShelfHeader add={()=>props.dispatch(viewModal('add'))} />
       <div className="Shelf">
-        <div className="Shelf-platform" />
+        <div className="Shelf-platform"><ShelfHeader add={() => props.dispatch(viewModal('add'))} /></div>
             <BookList />
       </div>
     </div>

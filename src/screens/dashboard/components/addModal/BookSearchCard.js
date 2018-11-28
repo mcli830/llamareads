@@ -33,9 +33,10 @@ const enhance = compose(
   connect(({view, dispatch}) => ({view, dispatch})),
   withHandlers({
     addBook: props => ({ auth }) =>
-      props.firestore.add("booksList", {
-        bookFor: props.auth.uid,
-        book: props.book.id
+      props.firestore.add("userBooks", {
+        book: props.book,
+        user: props.auth.uid,
+        inbox: false
       })
   })
 );
