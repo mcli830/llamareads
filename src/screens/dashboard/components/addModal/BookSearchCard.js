@@ -62,7 +62,7 @@ const BookSearchCard = (props) => {
           }}>
           Add
         </button>
-        <button className="BookCard-details btn" onClick={()=>props.dispatch(viewStory(props.book))}>Details</button>
+        <button style={{paddingRight: 5}}className="BookCard-details btn" onClick={()=>props.dispatch(viewStory(props.book))}>Details</button>
       </div>
     </div>
   );
