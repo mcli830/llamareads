@@ -1,9 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import {
+  withHandlers,
+  withStateHandlers,
+  withProps,
+  withState,
+  withPropsOnChange,
+  mapProps
+} from "recompose";
+import {
+  firebaseConnect,
+  firestoreConnect,
+  withFirestore,
+  isLoaded,
+  isEmpty
+} from "react-redux-firebase";
 
 //actions
 import viewModal from "../../../../functions/actions/viewModal";
@@ -18,15 +30,33 @@ import ModalActions from "../modal/ModalActions";
 import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
-  connect(({view,dispatch}) => ({view,dispatch}))
-)
+  withFirestore,
+  firebaseConnect(),
+  connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({ view, dispatch }) => ({ view, dispatch })),
+  withHandlers({
+    receiveBook: props => {
+      props.firestore.update({ collection: 'userBooks', doc: props.view.book.id }, {inbox: false})
+    }
+  })
+);
 
 const ReceiveModal = (props) => {
   return (
     <div className="ReceiveModal">
-      <BookCard viewStory={()=>props.dispatch(viewStory(props.view.book, props.view.journey))} />
-      <SenderNote />
-      <ModalActions exit={()=>props.dispatch(viewModal())} />
+      <BookCard book={props.view.book.book} viewStory={()=>props.dispatch(viewStory(props.view.book.book, props.view.journey))} />
+      <SenderNote book={props.view.book} />
+      <div className="ReceiveModal-actions mbtn-container">
+        <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Later</button>
+        <button className="mbtn mbtn-confirm" onClick={(e)=>{
+          if (props.note != "") {
+            props.receiveBook();
+            props.dispatch(viewModal());
+          }
+        }}>
+          Accept
+        </button>
+      </div>
     </div>
   );
 };

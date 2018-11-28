@@ -36,6 +36,7 @@ const enhance = compose(
         inbox: true,
         book: props.view.book,
         user: props.receiver,
+        note: props.note,
         sendDate: props.firestore.FieldValue.serverTimestamp()
       });
     },
@@ -50,7 +51,6 @@ const enhance = compose(
 
 
 const SendModal = (props) => {
-  console.log(props)
   return (
     <div className="SendModal">
       <div className="SendForm">
