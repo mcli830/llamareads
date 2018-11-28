@@ -9,19 +9,19 @@
 }
 
 .Inbox-header {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-left: 30px;
+  margin-right: 50px;
 }
 
 .Inbox {
   @include textStyle(20px);
-  color: $secondary;
+  color: $dark;
   text-align: right;
   width: 400px;
-  right: 160px;
+  right: 200px;
   position: absolute;
   cursor: pointer;
   &:hover .Inbox-list {

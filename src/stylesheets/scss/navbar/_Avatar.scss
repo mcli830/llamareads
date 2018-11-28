@@ -1,7 +1,8 @@
 .Avatar {
   background-color: $light-gray;
   border-radius: 50%;
+  border:1px solid $shadow-gray;
   height: 50px;
   width: 50px;
-  margin-right: 40px;
+  margin-right: 100px;
 }
