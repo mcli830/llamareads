@@ -577,11 +577,12 @@
   flex: 0 1 auto;
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 86%;
   background-color: white;
   font-family: "Lato";
   color: #484848;
-  position: relative; }
+  position: relative;
+  margin: 0 auto; }
 
 .BookSearchCard-cover {
   display: flex;

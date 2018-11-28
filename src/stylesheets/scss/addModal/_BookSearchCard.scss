@@ -3,11 +3,12 @@
   flex: 0 1 auto;
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: $modal-content-width;
   background-color: white;
   font-family: "Lato";
   color: $text;
   position: relative;
+  margin: 0 auto;
 }
 
 .BookSearchCard-cover {
