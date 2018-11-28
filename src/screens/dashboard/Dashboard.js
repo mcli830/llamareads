@@ -25,6 +25,9 @@ import SendModal from "./components/sendModal/SendModal";
 import AddModal from "./components/addModal/AddModal";
 import StoryView from "./components/storyView/StoryView";
 
+// for styling inbox (can remove)
+import ListEntry from "./components/navbar/ListEntry";
+
 // css
 import "../../stylesheets/css/base.css";
 
@@ -132,8 +135,9 @@ class Dashboard extends React.Component {
         <ShelfList />
         <Navbar dashState={this.props.modal} />
         {console.log(this.props.appState)}
-        {this.renderModal()}
+        {/* {this.renderModal()} */}
         {this.renderStory()}
+        <ListEntry />
       </div>
     );
   }
