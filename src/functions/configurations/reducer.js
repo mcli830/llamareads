@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import { firebaseReducer } from 'react-redux-firebase'
 import { firestoreReducer } from 'redux-firestore'
-import { appReducer } from './reducer/appReducer'
+import viewReducer from '../reducers/viewReducer'
 
 const rootReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
-  app: appReducer,
+  view: viewReducer
 })
 
 export default rootReducer

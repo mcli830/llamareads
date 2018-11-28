@@ -16,14 +16,15 @@ import {
 import viewModal from "../../functions/configurations/reducer/action/viewModal";
 import viewStory from "../../functions/configurations/reducer/action/viewStory";
 
+// actions
+import viewModal from "../../functions/actions/viewModal";
+import viewStory from "../../functions/actions/viewStory";
+
 // components
 import Navbar from "./components/navbar/Navbar";
 import ShelfList from "./components/shelf/ShelfList";
-import ModalBase from "./components/modal/ModalBase";
-import ReceiveModal from "./components/receiveModal/ReceiveModal";
-import SendModal from "./components/sendModal/SendModal";
-import AddModal from "./components/addModal/AddModal";
-import StoryView from "./components/storyView/StoryView";
+import ModalContainer from "./components/modal/ModalContainer";
+import StoryContainer from "./components/storyView/StoryContainer";
 
 // css
 import "../../stylesheets/css/base.css";
@@ -56,108 +57,13 @@ const enhance = compose(
   )
 );
 
-const DashboardContainer = ({
-  users,
-  addBook,
-  onSearchChange,
-  searchVal,
-  sendBook,
-  appState,
-  modal,
-  viewModal
-}) => (
-  <Dashboard
-    users={users}
-    addBook={addBook}
-    onSearchChange={onSearchChange}
-    searchVal={searchVal}
-    sendBook={sendBook}
-    appState={appState}
-    modal={modal}
-    viewModal={viewModal}
-  />
-);
+const Dashboard = () => (
+  <div className="Dashboard">
+    <ShelfList />
+    <Navbar />
+    <ModalContainer />
+    <StoryContainer />
+  </div>
+)
 
-class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props.appState)
-  }
-
-
-  renderModal() {
-    switch (this.props.modal) {
-      case "add":
-        return (
-          <ModalBase
-            changeModal={this.changeModal}
-            content={<AddModal 
-              changeModal={this.changeModal}
-            />}
-            title="Add a book to your shelf"
-          />
-        );
-      case "send":
-        return (
-          <ModalBase
-            changeModal={this.changeModal}
-            content={<SendModal book={this.state.sending.book} />}
-            title="Send"
-          />
-        );
-      case "receive":
-        return (
-          <ModalBase
-            changeModal={this.changeModal}
-            content={<ReceiveModal showStory={this.showStory} />}
-            title="Receive"
-          />
-        );
-      default:
-        return "";
-    }
-  }
-
-  renderStory() {
-    // if (this.state.story) {
-    //   return (
-    //     <StoryView book={this.state.viewing.book} showStory={this.showStory} />
-    //   );
-    // }
-  }
-
-  render() {
-    return (
-      <div className="Dashboard" >
-        <ShelfList />
-        <Navbar dashState={this.props.modal} />
-        {console.log(this.props.appState)}
-        {this.renderModal()}
-        {this.renderStory()}
-      </div>
-    );
-  }
-}
-
-export default enhance(DashboardContainer);
-
-// <ShelfList />
-// <Navbar />
-// {!isLoaded(users)
-//   ? ""
-//   : isEmpty(users)
-//   ? ""
-//   : users.map(user => (
-//       <button
-//         onClick={sendBook}
-//         key={user.id}
-//         value={user.id}
-//       >
-//         Send Book
-//       </button>
-//     ))}
-// <button onClick={addBook} />
-// <input value={searchVal} onChange={onSearchChange} type="text" />
-// <ModalBase content={<SendModal />} />
-// <ModalBase content={<AddModal />} />
-// <ModalBase content={<ReceiveModal />} />
+export default enhance(Dashboard);
