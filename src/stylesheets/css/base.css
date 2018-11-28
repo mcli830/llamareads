@@ -1,13 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .fill-container {
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
+
+.container-fixed {
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 .btn {
   padding: 6px 12px;
@@ -15,40 +18,30 @@
   font-family: "Lato";
   border: 1px solid #cbc9c2;
   border-radius: 5px;
-  cursor: pointer;
-}
-.btn:hover {
-  border-color: #484848;
-}
+  cursor: pointer; }
+  .btn:hover {
+    border-color: #484848; }
 
 .input-container {
   width: 100%;
-  height: 50px;
-}
+  height: 50px; }
 
 .input-field {
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
-  }
+    opacity: 0; }
   to {
-    opacity: 1;
-  }
-}
+    opacity: 1; } }
 @keyframes popIn {
   from {
     opacity: 0;
-    transform: scale(0.1);
-  }
+    transform: scale(0.1); }
   to {
     opacity: 1;
-    transform: scale(1);
-  }
-}
+    transform: scale(1); } }
 .Navbar {
   position: fixed;
   top: 0;
@@ -61,20 +54,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-}
+  padding: 10px; }
 
 .UserMenu {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 .Brand-name {
   margin-left: 40px;
   font-size: 24px;
   font-weight: bold;
-  color: #f76f6f;
-}
+  color: #f76f6f; }
 
 .Inbox-list {
   text-align: left;
@@ -82,15 +72,13 @@
   display: block;
   transition: 300ms;
   box-shadow: 1px 1px 5px #cbc9c2;
-  border-top: none;
-}
+  border-top: none; }
 
 .Inbox-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-}
+  height: 50px; }
 
 .Inbox {
   font-family: "Lato";
@@ -101,37 +89,31 @@
   text-align: right;
   right: 200px;
   position: absolute;
-  cursor: pointer;
-}
-.Inbox:hover .Inbox-list {
-  max-height: 400px;
-  opacity: 1;
-  overflow-y: auto;
-}
+  cursor: pointer; }
+  .Inbox:hover .Inbox-list {
+    max-height: 400px;
+    opacity: 1;
+    overflow-y: auto; }
 
 .ListEntry {
   width: 100%;
   height: 80px;
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 .ListEntry-text {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .ListEntry-action {
-  flex: 0 0 40px;
-}
+  flex: 0 0 40px; }
 
 .Avatar {
   background-color: #cbc9c2;
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  margin-right: 40px;
-}
+  margin-right: 40px; }
 
 .Dashboard {
   width: 100vw;
@@ -139,24 +121,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #faf8f3;
-}
+  background-color: #faf8f3; }
 
 .ShelfList {
   display: flex;
   flex-direction: column;
-  width: 70vw;
-}
+  width: 70vw; }
 
 .Shelf-wrapper {
   display: flex;
   flex-direction: column;
-}
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%; }
 
 .Shelf {
-  position: relative;
+  position: absolute;
   height: 400px;
-  width: 100%;
   padding: 60px;
   display: flex;
   flex-direction: row;
@@ -165,7 +146,7 @@
   box-sizing: content-box;
   overflow: auto;
   position: relative;
-}
+  width: 100%; }
 
 .ShelfHeader {
   font-size: 40px;
@@ -174,18 +155,27 @@
   flex-direction: row;
   align-items: center;
   height: 50px;
-  color: #484848;
-}
+  color: #484848; }
 
 .Shelf-platform {
   position: absolute;
   bottom: 30px;
   height: 26px;
-  background-color: #cbc9c2;
-  border-bottom: 4px solid #484848;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
+  width: calc(100% - 120px);
+  background-color: #cbc9c2; }
+  .Shelf-platform:before, .Shelf-platform:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 6px;
+    background-color: #484848;
+    transform-origin: 50% 100%; }
+  .Shelf-platform:before {
+    transform: skew(60deg); }
+  .Shelf-platform:after {
+    transform: skew(-60deg); }
 
 .ShelfHeader-add-btn {
   font-size: 40px;
@@ -201,34 +191,29 @@
   border-color: #4e64bb;
   position: relative;
   transition: 300ms;
-}
-.ShelfHeader-add-btn:before, .ShelfHeader-add-btn:after {
-  content: "";
-  position: absolute;
-  height: 50%;
-  width: 50%;
-}
-.ShelfHeader-add-btn:before {
-  top: calc(50% - 1px);
-  left: 25%;
-  border-top: 2px solid #4e64bb;
-}
-.ShelfHeader-add-btn:after {
-  left: calc(50% - 1px);
-  top: 25%;
-  border-left: 2px solid #4e64bb;
-}
-.ShelfHeader-add-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
-}
+  cursor: pointer; }
+  .ShelfHeader-add-btn:before, .ShelfHeader-add-btn:after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 50%; }
+  .ShelfHeader-add-btn:before {
+    top: calc(50% - 1px);
+    left: 25%;
+    border-top: 2px solid #4e64bb; }
+  .ShelfHeader-add-btn:after {
+    left: calc(50% - 1px);
+    top: 25%;
+    border-left: 2px solid #4e64bb; }
+  .ShelfHeader-add-btn:hover {
+    box-shadow: 0 0 20px #a8d0e6;
+    transform: scale(1.1); }
 
 .BookList {
   display: flex;
   flex-direction: row;
   width: 800px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .Book {
   margin: 0 5px;
@@ -245,61 +230,52 @@
   padding: 5px;
   cursor: pointer;
   color: #444;
-  border: 2px solid rgba(68, 68, 68, 0.3);
-}
-.Book .Book-content {
-  width: 320px;
-  position: absolute;
-  text-align: left;
-  opacity: 0.7;
-  overflow: hidden;
-  transition: 400ms;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  transform: rotate(90deg) scale(0.7);
-  transition: 300ms;
-}
-.Book .Book-content * {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.Book:hover {
-  width: 320px;
-  z-index: 5;
-  transform: scale(1.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border-width: 5px;
-  border-style: outset;
-}
-.Book:hover .Book-content {
-  width: 90%;
-  text-align: center;
-  opacity: 1;
-  transform: rotate(0) scale(1);
-  align-items: center;
-}
-.Book:hover .Book-content * {
-  white-space: normal;
-  text-overflow: initial;
-}
-.Book:hover .Book-send {
-  opacity: 0.8;
-}
+  border: 2px solid rgba(68, 68, 68, 0.3); }
+  .Book .Book-content {
+    width: 320px;
+    position: absolute;
+    text-align: left;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: rotate(90deg) scale(0.7);
+    transition: 300ms; }
+    .Book .Book-content * {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .Book:hover {
+    width: 320px;
+    z-index: 5;
+    transform: scale(1.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-width: 5px;
+    border-style: outset; }
+    .Book:hover .Book-content {
+      width: 90%;
+      text-align: center;
+      opacity: 1;
+      transform: rotate(0) scale(1);
+      align-items: center; }
+      .Book:hover .Book-content * {
+        white-space: normal;
+        text-overflow: initial; }
+    .Book:hover .Book-send {
+      opacity: 0.8; }
 
 .Book-title {
   font-family: "Lato";
   font-size: 24px;
-  color: #484848;
-}
+  color: #484848; }
 
 .Book-author {
   font-family: "Lato";
   font-size: 18px;
-  color: #484848;
-}
+  color: #484848; }
 
 .Book-send {
   position: absolute;
@@ -314,14 +290,11 @@
   align-items: center;
   border-radius: 50%;
   height: 42px;
-  width: 42px;
-}
-.Book-send i {
-  position: absolute;
-}
-.Book-send:hover {
-  transform: scale(1.3);
-}
+  width: 42px; }
+  .Book-send i {
+    position: absolute; }
+  .Book-send:hover {
+    transform: scale(1.3); }
 
 .ModalBase {
   position: absolute;
@@ -331,8 +304,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
-}
+  z-index: 5; }
 
 .ModalBase-view {
   box-sizing: border-box;
@@ -348,8 +320,7 @@
   flex-direction: column;
   font-family: "Lato";
   box-shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
-  border-radius: 2px;
-}
+  border-radius: 2px; }
 
 .ModalBase-visuals {
   position: absolute;
@@ -358,8 +329,7 @@
   right: 0;
   width: 100%;
   height: 8px;
-  background: repeating-linear-gradient(90deg, #4e64bb, #4e64bb 16.6%, #a8d0e6 16.6%, #a8d0e6 33.3%, #f76f6f 33.3%, #f76f6f 50%);
-}
+  background: repeating-linear-gradient(90deg, #4e64bb, #4e64bb 16.6%, #a8d0e6 16.6%, #a8d0e6 33.3%, #f76f6f 33.3%, #f76f6f 50%); }
 
 .ModalBase-exit {
   position: absolute;
@@ -367,46 +337,37 @@
   left: 20px;
   height: 18px;
   width: 18px;
-  cursor: pointer;
-}
-.ModalBase-exit:before, .ModalBase-exit:after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  background-color: #484848;
-  top: 0;
-}
-.ModalBase-exit:before {
-  transform: rotate(45deg);
-}
-.ModalBase-exit:after {
-  transform: rotate(-45deg);
-}
+  cursor: pointer; }
+  .ModalBase-exit:before, .ModalBase-exit:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #484848;
+    top: 0; }
+  .ModalBase-exit:before {
+    transform: rotate(45deg); }
+  .ModalBase-exit:after {
+    transform: rotate(-45deg); }
 
 .ModalBase-header {
   font-size: 30px;
   text-align: center;
   display: block;
   margin: 25px 5px;
-  flex: 0 0;
-}
+  flex: 0 0; }
 
 .ModalBase-content {
   flex: 1;
-  position: relative;
-}
+  position: relative; }
 
 .mbtn-container {
   display: flex;
-  flex-direction: row;
-}
-.mbtn-container .mbtn {
-  margin-right: 25px;
-}
-.mbtn-container .mbtn:last-child {
-  margin-right: 0;
-}
+  flex-direction: row; }
+  .mbtn-container .mbtn {
+    margin-right: 25px; }
+  .mbtn-container .mbtn:last-child {
+    margin-right: 0; }
 
 .mbtn {
   position: relative;
@@ -419,48 +380,41 @@
   border-radius: 5px;
   font-weight: 500;
   letter-spacing: 1px;
-  cursor: pointer;
-}
-.mbtn:after {
-  content: "";
-  position: absolute;
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.mbtn:hover:after {
-  opacity: 1;
-}
+  cursor: pointer; }
+  .mbtn:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .mbtn:hover:after {
+    opacity: 1; }
 
 .mbtn-cancel {
   background-color: transparent;
-  color: #4e64bb;
-}
+  color: #4e64bb; }
 
 .mbtn-confirm {
   background-color: #4e64bb;
-  color: #faf8f3;
-}
+  color: #faf8f3; }
 
 .ReceiveModal {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-}
+  height: 100%; }
 
 .ReceiveModal-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
-  width: 100%;
-}
+  width: 100%; }
 
 .SenderNote {
   padding: 40px 0;
@@ -470,14 +424,12 @@
   width: 100%;
   background-color: transparent;
   justify-content: center;
-  align-content: center;
-}
+  align-content: center; }
 
 .SenderNote-text {
   font-family: "Lato";
   font-size: 20px;
-  color: #484848;
-}
+  color: #484848; }
 
 .BookCard {
   padding: 10px;
@@ -487,69 +439,57 @@
   width: 90%;
   background-color: white;
   font-family: "Lato";
-  color: #484848;
-}
+  color: #484848; }
 
 .BookCard-cover {
   margin: 10px 30px;
   flex: 0 1 160px;
   padding: 5px;
-  border: 1px solid rgba(68, 68, 68, 0.6);
-}
+  border: 1px solid rgba(68, 68, 68, 0.6); }
 
 .BookCard-cover-img {
-  width: 100%;
-}
+  width: 100%; }
 
 .BookCard-info {
   padding: 10px 20px;
   margin-left: 30px;
   flex: 0 0 50%;
-  position: relative;
-}
+  position: relative; }
 
 .BookCard-title {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .BookCard-author {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .BookCard-details {
   position: absolute;
   bottom: 20px;
-  right: 20px;
-}
+  right: 20px; }
 
 .AddModal {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .AddModal-search {
   flex: 0 0 80px;
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
 .AddModal-search-input {
   height: 50px;
   display: block;
   font-size: 30px;
   width: 92%;
-  padding: 10;
-}
+  padding: 10; }
 
 .AddModal span {
   font-size: 20px;
   margin-bottom: 10px;
-  opacity: 0.7;
-}
+  opacity: 0.7; }
 
 .AddModal-search-list {
   flex: 1 1 300px;
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
 
 .BookSearchCard {
   padding: 10px;
@@ -560,32 +500,28 @@
   background-color: white;
   font-family: "Lato";
   color: #484848;
-  position: relative;
-}
+  position: relative; }
 
 .BookSearchCard-cover {
   display: flex;
   align-items: center;
   margin: 10px 30px;
   flex: 0 0 100px;
-  padding: 5px;
-}
+  padding: 5px; }
 
 .BookSearchCard-info {
   font-family: "Lato";
   font-size: 14px;
   color: #484848;
   flex: 1 1 auto;
-  margin: 10px 40px 10px 15px;
-}
+  margin: 10px 40px 10px 15px; }
 
 .BookSearchCard-actions {
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-}
+  align-items: flex-end; }
 
 .StoryView {
   width: 100vw;
@@ -598,8 +534,7 @@
   top: 0;
   left: 0;
   overflow: hidden;
-  animation: fadeIn 400ms ease-out;
-}
+  animation: fadeIn 400ms ease-out; }
 
 .Story-indicator-map {
   flex: 0 0 100px;
@@ -608,8 +543,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-}
+  align-items: center; }
 
 .Story-exit {
   position: absolute;
@@ -617,39 +551,31 @@
   right: 30px;
   height: 30px;
   width: 30px;
-  cursor: pointer;
-}
-.Story-exit:before, .Story-exit:after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  background-color: #484848;
-  top: 0;
-}
-.Story-exit:before {
-  transform: rotate(45deg);
-}
-.Story-exit:after {
-  transform: rotate(-45deg);
-}
+  cursor: pointer; }
+  .Story-exit:before, .Story-exit:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #484848;
+    top: 0; }
+  .Story-exit:before {
+    transform: rotate(45deg); }
+  .Story-exit:after {
+    transform: rotate(-45deg); }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
-  }
+    opacity: 0; }
   to {
-    opacity: 1;
-  }
-}
+    opacity: 1; } }
 .StoryIndicator {
   position: relative;
   margin-top: 60px;
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  background-color: #484848;
-}
+  background-color: #484848; }
 
 .StoryIndicator-tail {
   position: absolute;
@@ -657,8 +583,7 @@
   left: calc(50% - 1px);
   height: 70px;
   width: 2px;
-  background-color: #484848;
-}
+  background-color: #484848; }
 
 .StoryIndicator-ring {
   height: 30px;
@@ -667,8 +592,7 @@
   left: -11px;
   top: -11px;
   border-radius: 50%;
-  border: 1px solid #484848;
-}
+  border: 1px solid #484848; }
 
 .StoryRail {
   flex: 0 0 500px;
@@ -678,8 +602,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 60px;
-}
+  padding-top: 60px; }
 
 .StoryRail-rail {
   position: absolute;
@@ -687,8 +610,7 @@
   height: 100vh;
   background-color: #484848;
   border-radius: 5px;
-  z-index: -1;
-}
+  z-index: -1; }
 
 .StoryRail-cover {
   margin-top: 100px;
@@ -700,25 +622,21 @@
   height: 600px;
   box-shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
   transition: 400ms;
-  transform-origin: 50% 0;
-}
-.StoryRail-cover:hover {
-  margin-top: 0;
-  transform: scale(0.7);
-}
+  transform-origin: 50% 0; }
+  .StoryRail-cover:hover {
+    margin-top: 0;
+    transform: scale(0.7); }
 
 .StoryWall {
   flex: 1 1 auto;
   padding: 160px 80px 60px 40px;
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
 
 .StoryWall-text {
   font-family: "Lato";
   font-size: 24;
   color: #484848;
-  min-height: 600px;
-}
+  min-height: 600px; }
 
 .StoryWall-title {
   font-family: "Lato";
@@ -726,8 +644,7 @@
   color: #484848;
   font-weight: 600;
   text-align: center;
-  margin: 30px 0 0;
-}
+  margin: 30px 0 0; }
 
 .StoryWall-author {
   font-family: "Lato";
@@ -735,27 +652,23 @@
   color: #484848;
   text-align: center;
   font-style: italic;
-  margin: 10px 0 30px;
-}
+  margin: 10px 0 30px; }
 
 .StoryWall-excerpt {
   font-family: "Lato";
   font-size: 20px;
-  color: #484848;
-}
+  color: #484848; }
 
 .Journey {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 .Journey-header {
   font-family: "Lato";
   font-size: 30px;
   color: #484848;
-  text-align: center;
-}
+  text-align: center; }
 
 /*# sourceMappingURL=base.css.map */
