@@ -38,12 +38,7 @@ const Shelf = (props) => {
       <ShelfHeader add={()=>props.dispatch(viewModal('add'))} />
       <div className="Shelf">
         <div className="Shelf-platform" />
-          {!isLoaded(props.userBooks)
-            ? ""
-            : isEmpty(props.userBooks)
-            ? ""
-            : <BookList books={props.userBooks} />
-          }
+            <BookList />
       </div>
     </div>
   );

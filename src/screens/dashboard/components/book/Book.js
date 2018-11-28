@@ -12,7 +12,7 @@ const enhance = compose(
   firestoreConnect(props => [
     {
       collection: "books",
-      where: ["id", "==", props.bookId],
+      where: ["id", "==", props.book.book],
       limit: 1,
       storeAs: "currentBook"
     }
@@ -27,30 +27,30 @@ const enhance = compose(
   })
 );
 
-const Book = props => {
+const Book = (props) => {
   return (
     <div
       className="Book"
       style={{ backgroundColor: props.color }}
       onClick={() => {
-        props.showStory(true, props.dataBook[0]);
+        props.showStory(true, props.book);
       }}
     >
       <div className="Book-content">
-        {!isLoaded(props.dataBook)
-          ? ""
-          : isEmpty(props.dataBook)
-          ? ""
-          : props.dataBook.map(book => (
-              <div className="Book-title">{book.title}</div>
-            ))}
-        {!isLoaded(props.dataBook)
-          ? ""
-          : isEmpty(props.dataBook)
-          ? ""
-          : props.currentBook.map(book => (
-              <div className="Book-author">{book.author}</div>
-            ))}
+
+    { !isLoaded(props.currentBook)
+      ? ""
+        : isEmpty(props.currentBook)
+        ? ""
+          : <div className="Book-title">{props.currentBook.title}</div>
+          }
+
+    { !isLoaded(props.currentBook)
+      ? ""
+        : isEmpty(props.currentBook)
+        ? ""
+          : <div className="Book-author">{props.currentBook.author}</div>
+          }
       </div>
       <div onClick={() => props.sendBook(props.dataBook)} className="Book-send">
         <i className="fas fa-paper-plane" />
