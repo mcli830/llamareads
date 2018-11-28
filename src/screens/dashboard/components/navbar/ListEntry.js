@@ -43,10 +43,10 @@ const ListEntry = ({ changeModal }) => {
     <div className="ListEntry">
       <div className="ListEntry-text">
         <div className="ListEntry-text-date">Nov 22 2018</div>
-        <div className="ListEntry-text-message">{/* sender */} Jordan sent you a book</div>
+        <div className="ListEntry-text-message">{/* sender */} (Placeholder) sent you a book</div>
       </div>
       <div className="ListEntry-action">
-        <button onClick={() => changeModal("receive")}>View</button>
+        <button className="ListEntry-view-btn" onClick={() => changeModal("receive")}>View</button>
       </div>
     </div>
   );
