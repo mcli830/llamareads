@@ -1,33 +1,45 @@
-$node: 10px;
-$node-ring: $node * 3;
-$node-ring-offset: (($node - $node-ring) / 2) - 1;
-$node-dist: 60px;
-$node-tail: $node + $node-dist;
+$inode-ring: $inode * 3;
+$inode-ring-offset: (($inode - $inode-ring) / 2) - 1;
+$inode-dist: $inode * 6;
+$inode-tail: $inode + $inode-dist;
+
+$itext: 16px;
+$itext-half: $itext / 2;
 
 .StoryIndicator {
   position: relative;
-  margin-top: $node-dist;
-  height: $node;
-  width: $node;
+  margin-top: $inode-dist;
+  height: $inode;
+  width: $inode;
   border-radius: 50%;
   background-color: $dark;
+  margin-left: 50px;
 }
 
 .StoryIndicator-tail {
   position: absolute;
   bottom: 50%;
   left: calc(50% - 1px);
-  height: $node-tail;
+  height: $inode-tail;
   width: 2px;
   background-color: $dark;
 }
 
 .StoryIndicator-ring {
-  height: $node-ring;
-  width: $node-ring;
+  height: $inode-ring;
+  width: $inode-ring;
   position: absolute;
-  left: $node-ring-offset;
-  top: $node-ring-offset;
+  left: $inode-ring-offset;
+  top: $inode-ring-offset;
   border-radius: 50%;
   border: 1px solid $dark;
+}
+
+.StoryIndicator-text {
+  @include textStyle(16px);
+  position: absolute;
+  left: 50px;
+  bottom: calc(50% - 8px);
+  color: $dark;
+  opacity: 0.2;
 }

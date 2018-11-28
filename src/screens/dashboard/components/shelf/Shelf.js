@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore, firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
+import { withFirestore, withProps, firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 
 //actions
 import viewModal from "../../../../functions/actions/viewModal";
@@ -29,7 +29,7 @@ const enhance = compose(
     }
   ]),
   connect(({ firestore }) => ({
-    usersBooks: firestore.ordered.usersBooks
+    userBooks: firestore.ordered.usersBooks
   })),
   connect(({dispatch}) => ({dispatch}))
 );
@@ -38,15 +38,17 @@ const Shelf = (props) => {
   return (
     <div className="Shelf-wrapper">
       <div className="Shelf">
-        <div className="Shelf-platform"><ShelfHeader add={() => props.dispatch(viewModal('add'))} /></div>
-            <BookList />
+        <div
+          className="Shelf-platform"
+          style={{width: (!isLoaded(props.userBooks) ? "calc(100% - 20px)" : (Array.from(document.querySelectorAll('.Book')).length * 94) + 600 )
+          }}
+        >
+          <ShelfHeader add={() => props.dispatch(viewModal('add'))} />
+        </div>
+        <BookList />
       </div>
     </div>
   );
-};
-
-Shelf.propTypes = {
-  books: PropTypes.array
 };
 
 export default enhance(Shelf);

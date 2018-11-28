@@ -7,6 +7,7 @@ $dark-blue: #4e64bb;
 
 $shadow-gray: #E0E0E0;
 $light-gray: #cbc9c2;
+$light-gray-shadow: #a09f9a;
 $off-white: #faf8f3;
 $dark: #484848;
 $alpha-mask: rgba(255, 255, 255, 0.1);
@@ -38,6 +39,9 @@ $book-width-shelf: 80px;
 $book-width-open: 320px;
 $shelf-height: 400px;
 $shelf-list-width: 70vw;
+
+$inode: 10px;
+$jnode: 100px;
 
 @mixin textStyle($size) {
   font-family: "Lato";

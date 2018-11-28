@@ -1,11 +1,77 @@
+$jnode-dist: $jnode * 2;
+$jnode-tail: $jnode-dist + $jnode;
+$jnode-stagger: $jnode / 8;
+
+.Journey-container {
+  width: 100%;
+}
+
 .Journey {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .Journey-header {
   @include textStyle(30px);
   text-align: center;
+}
+
+.JourneyNode-tail {
+  position: absolute;
+  border-radius: 10px;
+  bottom: 50%;
+  left: calc(50% - 2px);
+  width: 4px;
+  height: $jnode-tail;
+  background-color: $dark;
+  z-index: -1;
+}
+
+.JourneyNode {
+  position: relative;
+  margin-top: $jnode-dist;
+  height: $jnode;
+  width: $jnode;
+  &:first-child {
+    margin-top: $jnode;
+    .JourneyNode-tail {
+      height: 0;
+    }
+  }
+}
+
+.JourneyNode-username {
+  @include textStyle(16px);
+  color: $light-blue;
+  position: absolute;
+  right: 200%;
+  top: 50%;
+  height: 20px;
+  width: auto;
+}
+
+.JourneyNode-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $jnode;
+  height: $jnode;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid $light-gray;
+  transition: 250ms;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://source.unsplash.com/random/200x200);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+.JourneyNode:last-child {
+  margin-bottom: $jnode-dist;
 }
