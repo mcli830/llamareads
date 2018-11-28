@@ -31,7 +31,7 @@ const enhance = compose(
   withHandlers({
     sendBook: props => {
       props.firestore.add("userBooks", {
-        sender: props.auth,
+        sender: props.auth.uid,
         inbox: true,
         book: props.view.book,
         user: props.receiver
