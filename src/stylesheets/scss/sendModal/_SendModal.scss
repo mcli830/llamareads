@@ -1,0 +1,39 @@
+.SendForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.SendForm-search{
+  flex: 0 0 80px;
+  margin-bottom: 20px;
+}
+
+#SendForm-search-input {
+  @include textStyle(20px);
+  font-weight: 100;
+  height: 25px;
+  display: block;
+  width: 86%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid $textbox-border-color;
+  border-radius: $textbox-border-radius;
+}
+
+.SendForm-note {
+  flex: 0 0 80px;
+  margin-bottom: 40px;
+}
+
+#SendForm-note-input {
+  @include textStyle(20px);
+  font-weight: 100;
+  height: 280px;
+  display: block;
+  width: 86%;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid $textbox-border-color;
+  border-radius: $textbox-border-radius;
+}
