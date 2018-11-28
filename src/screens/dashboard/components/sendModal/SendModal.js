@@ -32,9 +32,11 @@ const enhance = compose(
     sendBook: props => {
       props.firestore.add("userBooks", {
         sender: props.auth.uid,
+        senderName: props.auth.displayName,
         inbox: true,
         book: props.view.book,
-        user: props.receiver
+        user: props.receiver,
+        sendDate: props.firestore.FieldValue.serverTimestamp()
       });
     },
     noteChange: props => event => {
