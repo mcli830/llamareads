@@ -10,15 +10,17 @@
 }
 
 .btn {
+  @include textStyle(16px);
   padding: 6px 12px;
   font-weight: 500;
-  font-family: $font-main;
-  border: 1px solid $light-gray;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    border-color: $dark;
-  }
+  border: none;
+  display: inline-block;
+  // border: 1px solid $light-gray;
+  // border-radius: 5px;
+  // cursor: pointer;
+  // &:hover {
+    // border-color: $dark;
+  // }
 }
 
 .btn-blue {

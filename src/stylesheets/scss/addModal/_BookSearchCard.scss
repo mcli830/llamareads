@@ -9,6 +9,9 @@
   color: $text;
   position: relative;
   margin: 0 auto;
+  border: 1px solid $book-card-border-color;
+  height: 120px;
+  margin-bottom: 15px;
 }
 
 .BookSearchCard-cover {
@@ -29,9 +32,11 @@
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+  padding: 10px;
 }
 
 .BookSearchCard-add {
+  width: 80px;
 }
