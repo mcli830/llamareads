@@ -20,4 +20,4 @@ const ShelfHeader = (props) => {
   );
 };
 
-export default enhance(ShelfHeader);
+export default ShelfHeader;

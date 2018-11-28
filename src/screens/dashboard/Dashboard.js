@@ -12,10 +12,6 @@ import {
   withFirestore
 } from "react-redux-firebase";
 
-// redux actions
-import viewModal from "../../functions/configurations/reducer/action/viewModal";
-import viewStory from "../../functions/configurations/reducer/action/viewStory";
-
 // actions
 import viewModal from "../../functions/actions/viewModal";
 import viewStory from "../../functions/actions/viewStory";
