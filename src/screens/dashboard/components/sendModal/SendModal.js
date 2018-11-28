@@ -16,6 +16,9 @@ import {
   isEmpty
 } from "react-redux-firebase";
 
+//actions
+import viewModal from "../../../../functions/actions/viewModal";
+import viewStory from "../../../../functions/actions/viewStory";
 
 const enhance = compose(
   withProps({
@@ -24,6 +27,7 @@ const enhance = compose(
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({view, dispatch}) => ({view, dispatch})),
   withHandlers({
     sendBook: props => {
       props.firestore.add("inboxList", {
@@ -60,8 +64,11 @@ const SendModal = (props) => {
         </div>
       </div>
       <div className="ReceiveModal-actions mbtn-container">
-      <button className="mbtn mbtn-cancel" >Cancel</button>
-      <button className="mbtn mbtn-confirm" onClick={props.sendBook}>Send</button>
+      <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Cancel</button>
+      <button className="mbtn mbtn-confirm" onClick={(e)=>{
+          props.dispatch(viewModal());
+          props.sendBook(e);
+        }}>Send</button>
     </div>
     </div>
   );

@@ -9,6 +9,10 @@
   left:0;
 }
 
+.no-click {
+  pointer-events: none;
+}
+
 .btn {
   padding: 6px 12px;
   font-weight: 500;
