@@ -12,6 +12,10 @@
   top: 0;
   left: 0; }
 
+.no-click {
+  pointer-events: none;
+}
+
 .btn {
   font-family: "Lato";
   font-size: 16px;
@@ -24,12 +28,14 @@
 .btn-blue {
   border: 1px solid #4e64bb;
   background-color: #4e64bb;
-  color: #cbc9c2; }
+  color: #cbc9c2;
+}
 
 .btn-white {
   border: 1px solid #4e64bb;
   background-color: #cbc9c2;
-  color: #4e64bb; }
+  color: #4e64bb;
+}
 
 .input-container {
   width: 100%;
@@ -176,7 +182,13 @@
   box-sizing: content-box;
   overflow: auto;
   position: relative;
+<<<<<<< HEAD
   width: 100%; }
+=======
+  width: 100%;
+  z-index: 0;
+}
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 
 .ShelfHeader {
   font-size: 40px;
@@ -259,6 +271,7 @@
   padding: 5px;
   cursor: pointer;
   color: #444;
+<<<<<<< HEAD
   border: 2px solid rgba(68, 68, 68, 0.3); }
   .Book .Book-content {
     width: 320px;
@@ -295,6 +308,52 @@
         text-overflow: initial; }
     .Book:hover .Book-send {
       opacity: 0.8; }
+=======
+  border: 2px solid rgba(68, 68, 68, 0.3);
+  z-index: 1;
+}
+.Book .Book-content {
+  width: 320px;
+  position: absolute;
+  text-align: left;
+  opacity: 0.7;
+  overflow: hidden;
+  transition: 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transform: rotate(90deg) scale(0.7);
+  transition: 300ms;
+}
+.Book .Book-content * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.Book:hover {
+  width: 320px;
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-width: 5px;
+  border-style: outset;
+  z-index: 2;
+}
+.Book:hover .Book-content {
+  width: 90%;
+  text-align: center;
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  align-items: center;
+}
+.Book:hover .Book-content * {
+  white-space: normal;
+  text-overflow: initial;
+}
+.Book:hover .Book-send {
+  opacity: 0.8;
+}
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 
 .Book-title {
   font-family: "Lato";
@@ -333,7 +392,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   z-index: 5; }
+=======
+  z-index: 5;
+  animation: fadeIn 300ms ease-out;
+}
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 
 .ModalBase-view {
   box-sizing: border-box;
@@ -366,6 +431,7 @@
   left: 20px;
   height: 18px;
   width: 18px;
+<<<<<<< HEAD
   cursor: pointer; }
   .ModalBase-exit:before, .ModalBase-exit:after {
     content: "";
@@ -378,6 +444,33 @@
     transform: rotate(45deg); }
   .ModalBase-exit:after {
     transform: rotate(-45deg); }
+=======
+  cursor: pointer;
+  transition: 300ms;
+}
+.ModalBase-exit:before, .ModalBase-exit:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #484848;
+  top: 50%;
+  border-radius: 5px;
+  transition: height 300ms;
+}
+.ModalBase-exit:before {
+  transform: rotate(45deg);
+}
+.ModalBase-exit:after {
+  transform: rotate(-45deg);
+}
+.ModalBase-exit:hover {
+  transform: scale(1.3);
+}
+.ModalBase-exit:hover:before, .ModalBase-exit:hover:after {
+  height: 2px;
+}
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 
 .ModalBase-header {
   font-size: 30px;
@@ -621,7 +714,12 @@
   top: 0;
   left: 0;
   overflow: hidden;
+<<<<<<< HEAD
   animation: fadeIn 400ms ease-out; }
+=======
+  animation: fadeIn 300ms ease-out;
+}
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 
 .Story-indicator-map {
   flex: 0 0 100px;
@@ -638,6 +736,7 @@
   right: 30px;
   height: 30px;
   width: 30px;
+<<<<<<< HEAD
   cursor: pointer; }
   .Story-exit:before, .Story-exit:after {
     content: "";
@@ -656,6 +755,34 @@
     opacity: 0; }
   to {
     opacity: 1; } }
+=======
+  transition: 300ms;
+  cursor: pointer;
+}
+.Story-exit:before, .Story-exit:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #484848;
+  top: 50%;
+  border-radius: 5px;
+  transition: height 300ms;
+}
+.Story-exit:before {
+  transform: rotate(45deg);
+}
+.Story-exit:after {
+  transform: rotate(-45deg);
+}
+.Story-exit:hover {
+  transform: scale(1.3);
+}
+.Story-exit:hover:before, .Story-exit:hover:after {
+  height: 2px;
+}
+
+>>>>>>> eae3aa22f4cf053df370c3ba05beb012b0fc56d5
 .StoryIndicator {
   position: relative;
   margin-top: 60px;

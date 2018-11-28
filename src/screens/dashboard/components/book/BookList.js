@@ -11,16 +11,38 @@ import Book from "./Book";
 // css
 import "../../../../stylesheets/css/base.css";
 
+const enhance = compose(
+  connect(({ firebase: { auth } }) => ({ auth })),
+  firestoreConnect(({ auth }) => [
+    {
+      collection: "booksList",
+      where: ["bookFor", "==", auth.uid],
+      storeAs: "userBooks"
+    }
+  ]),
+  connect(({ firestore }) => ({
+    userBooks: firestore.ordered.userBooks
+  })),
+  connect(({dispatch}) => ({dispatch}))
+);
+
 const BookList = (props) => (
   <div className="BookList">
-    {props.books.map(book => (
-      <Book
-        key={book.id}
-        bookId={book.book}
-        color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
-      />
-    ))}
+    { !isLoaded(props.userBooks)
+      ? ""
+        : isEmpty(props.userBooks)
+        ? ""
+          : props.userBooks.map(book => (
+            <Book
+              key={book.id}
+              bookId={book.book}
+              title={book.title}
+              author={book.author}
+              book={book}
+              color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
+            />
+          ))}
   </div>
 )
 
-export default BookList;
+export default enhance(BookList);

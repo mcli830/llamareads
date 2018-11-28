@@ -20,6 +20,7 @@
   cursor: pointer;
   color: #444;
   border: 2px solid rgba(68, 68, 68, 0.3);
+  z-index: 1;
   .Book-content {
     width: $book-height;
     position: absolute;
@@ -41,11 +42,11 @@
   }
   &:hover {
     width: $book-width-open;
-    z-index: 5;
     transform: scale(1.15);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border-width: 5px;
     border-style: outset;
+    z-index: 2;
     .Book-content {
       width: 90%;
       text-align: center;
