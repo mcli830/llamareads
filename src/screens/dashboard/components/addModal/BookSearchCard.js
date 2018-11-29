@@ -27,18 +27,37 @@ import BookCardInfo from "../book/BookCardInfo";
 import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
+  withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   connect(({view, dispatch}) => ({view, dispatch})),
   withHandlers({
-    addBook: props => ({ auth }) =>
+    addBook: props => ({ auth }) => {
+      let uuid = create_UUID()
       props.firestore.add("userBooks", {
         book: props.book,
         user: props.auth.uid,
+        journey: uuid,
+        status: 'to_read',
         inbox: false
       })
+      props.firestore.add("journey", {
+        id: uuid,
+        timeline: [{user: props.auth.displayName, note: 'Journey Begin'}]
+      })
+    }
   })
 );
+
+function create_UUID(){
+  var dt = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = (dt + Math.random()*16)%16 | 0;
+      dt = Math.floor(dt/16);
+      return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+  });
+  return uuid;
+}
 
 const BookSearchCard = (props) => {
   return (

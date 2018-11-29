@@ -40,11 +40,6 @@ const enhance = compose(
     )
   })
 )
-// function fetchApi(word){
-//   fetch('https://www.goodreads.com/search/index.xml?key=TfkFgljd4rldheKR1dWfZQ&q=')
-//   .then(response => response.json())
-//   .then(data => this.setState({ data }));
-// } 
 
 const AddModal = (props) => {
   return (

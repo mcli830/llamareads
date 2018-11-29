@@ -22,27 +22,8 @@
   justify-content: flex-start;
   align-items: flex-end;
   box-sizing: content-box;
-  overflow: auto;
   position: relative;
   width: 100%;
-}
-
-.ShelfHeader {
-  // @include textStyle(22px);
-  // position: absolute;
-  font-size: 24px;
-  font-family: $font-logo;
-  top: -6px;
-  left: 10px;
-  // display: flex;
-  // flex-direction: row;
-  // align-items: center;
-  height: 50px;
-  color: $shelf-shadow-gray;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 120px;
 }
 
 .Shelf-name {
@@ -54,10 +35,14 @@
 
 .Shelf-platform {
   position: absolute;
-  bottom: 20px;
+  bottom: 26px;
   height: 34px;
   width: calc(100% - 120px);
   background-color: $light-gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   &:before,
   &:after {
     content: "";
@@ -77,12 +62,60 @@
   }
 }
 
-.Llama-container {
-  width: 380px;
-  height: 380px;
-  margin-bottom: -45px;
-  img{
-    height: 100%;
-    width: auto;
+.Shelf-header {
+  font-size: 24px;
+  font-family: $font-logo;
+  color: $shelf-shadow-gray;
+  margin: 0 20px;
+}
+
+.BookList {
+  flex: 1 0 auto;
+  max-width: 70%;
+  transition: 300ms;
+}
+
+.Shelf-right {
+  height: 100%;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.Book-placeholder {
+  margin: 0 5px;
+  height: $book-height;
+  width: $book-width-shelf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 400ms;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
+  cursor: pointer;
+  color: #444;
+  border: 2px dashed $dark;
+  z-index: 1;
+  opacity: 0.3;
+  transform-origin: 50% 90%;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 10px $alpha-light;
+    border-width: 4px;
+    z-index: 2;
+    opacity: 0.8;
   }
+}
+
+.Llama-container {
+  height: 380px;
+  width: 380px;
+  margin-bottom: -48px;
+  background-image: url('../../images/Llama_drawing_light.png');
+  background-size: cover;
+  background-position: center;
 }
