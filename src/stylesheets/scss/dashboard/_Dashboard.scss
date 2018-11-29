@@ -5,4 +5,19 @@
   justify-content: center;
   align-items: center;
   background-color: $bg;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.Llama-container {
+  position: absolute;
+  height: 30vh;
+  width: 30vh;
+  margin-bottom: -20px;
+  background-image: url('../../images/Llama_drawing_light.png');
+  background-size: cover;
+  background-position: center;
+  bottom: 0;
+  left: 2vh;
 }

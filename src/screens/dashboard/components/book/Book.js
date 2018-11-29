@@ -20,9 +20,10 @@ const Book = (props) => {
   return (
     <div
       className="Book"
-      style={{ backgroundColor: props.color }}
       onClick={() => props.dispatch(viewStory(props.book))}>
-      <div className="Book-cover" style={{backgroundImage: `url(${props.book.cover})`}}></div>
+      <div className="Book-cover" style={{backgroundImage: `url(${props.book.cover})`}}>
+        <div className="Book-cover-overlay"></div>
+      </div>
       <div className="Book-content">
         <div className="Book-title">{props.book.title}</div>
         <div className="Book-author">{props.book.author}</div>
