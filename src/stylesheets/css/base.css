@@ -947,11 +947,11 @@
 .JourneyNode-user-container {
   flex: 0 0 40%; }
 
-.JourneyNode-avatar-container {
-  flex: 0 0 150px; }
-
-.JourneyNode-note-container {
-  flex: 1 1 auto; }
+.JourneyNode-right-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .JourneyNode-username {
   font-family: "Lato";
@@ -963,12 +963,34 @@
   font-family: "Lato";
   font-size: 16px;
   color: #484848;
-  opacity: 0.1;
-  background-color: #cbc9c2;
-  transition: 300ms; }
+  flex: 1 1 auto;
+  opacity: 0;
+  background-color: #f8e9a1;
+  transition: 300ms;
+  height: 70%;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(68, 68, 68, 0.4);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-align: cneter; }
+  .JourneyNode-note:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 100%;
+    height: 0;
+    width: 0;
+    border-right: 16px solid #f8e9a1;
+    border-top: 16px solid transparent;
+    border-left: 16px solid transparent;
+    border-bottom: 16px solid transparent; }
 
 .JourneyNode-avatar {
-  width: 100px;
+  flex: 0 0 100px;
+  margin: 0 25px;
   height: 100px;
   border-radius: 50%;
   box-sizing: border-box;

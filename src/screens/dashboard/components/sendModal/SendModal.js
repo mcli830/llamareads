@@ -40,7 +40,7 @@ const enhance = compose(
   withState('receiver', 'changeReceiver', ''),
   withState('uid', 'uidChange', ''),
   withHandlers({
-    sendBook: props => {
+    sendBook:  props => ({ auth }) =>
       props.firestore.add("userBooks", {
         sender: props.auth.uid,
         senderName: props.auth.displayName,
@@ -50,8 +50,7 @@ const enhance = compose(
         note: props.note,
         sendDate: props.firestore.FieldValue.serverTimestamp(),
         journeyBook: {sender: props.auth.displayName, note: props.note}
-      });
-    },
+      }),
     noteChange: props => event => {
       props.writeNote(event.target.value)
     },
@@ -93,7 +92,7 @@ const SendModal = (props) => {
         <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Cancel</button>
         <button className="mbtn mbtn-confirm" onClick={(e)=>{
           if (props.note != "") {
-            props.sendBook();
+            props.sendBook(e);
             props.dispatch(viewModal());
           }
         }}>
