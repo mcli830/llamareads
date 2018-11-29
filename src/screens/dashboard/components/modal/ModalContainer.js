@@ -30,6 +30,7 @@ class ModalContainer extends React.Component {
   }
 
   renderModal() {
+    console.log(this.props)
     switch (this.props.view.modal) {
       case "add":
         return (
@@ -44,8 +45,8 @@ class ModalContainer extends React.Component {
           <ModalBase
             exit={this.exitModal}
             content={<SendModal exit={this.exitModal} />}
-            title="Send"
-          />
+            title={"Send " + this.props.view.book.book.title + " to..."}
+          /> 
         );
       case "receive":
         return (
