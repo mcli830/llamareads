@@ -21,8 +21,12 @@ const enhance = compose(
 );
 
 const Avatar = (props) => {
-  return <img  className="Avatar" src={props.auth.photoURL} onClick={() => props.firebase.auth().signOut()} />
-
+  return (
+    <div className="Avatar-text">
+      <div className="Avatar-text-content">Hi {props.auth.displayName.split(" ")[0]}</div>
+      {/* <img  className="Avatar" src={props.auth.photoURL} onClick={() => props.firebase.auth().signOut()} /> */}
+    </div>
+  )
 };
 
 export default enhance(Avatar);
