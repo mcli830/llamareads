@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 70vw;
+  z-index: 0;
 }
 
 .Shelf-wrapper {
@@ -24,7 +25,6 @@
   overflow: auto;
   position: relative;
   width: 100%;
-  z-index: 0;
 }
 
 .ShelfHeader {

@@ -17,3 +17,12 @@
     transform: scale(1);
   }
 }
+
+@keyframes drop {
+  from {
+    margin-bottom: 300px;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
