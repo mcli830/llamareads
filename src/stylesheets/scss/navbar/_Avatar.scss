@@ -6,3 +6,17 @@
   width: 50px;
   margin-right: 100px;
 }
+
+.Avatar-text {
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-right: 50px;
+  padding-bottom: 10px;
+}
+
+.Avatar-text-content {
+  @include textStyle(28px);
+}
