@@ -34,8 +34,10 @@ const ListEntry = (props) => {
         </div>
       </div>
       <div className="ListEntry-action">
-        <button className="ListEntry-view-btn">
-          <i onClick={() => props.dispatch(viewModal('receive', props.inbox))} className="far fa-eye" />
+        <button className="ListEntry-view-btn"
+                onClick={() => props.dispatch(viewModal('receive', props.inbox))}
+        >
+                View
         </button>
       </div>
     </div>
