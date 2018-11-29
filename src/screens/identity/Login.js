@@ -6,19 +6,21 @@ import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import GoogleButton from 'react-google-button'
 
 export const LoginPage = ({ firebase, auth }) => (
-  <div>
-    <GoogleButton
-      onClick={() => firebase.login({ provider: 'google', type: 'popup' })}
-    >Login With Google</GoogleButton>
-    <div>
-      <h2>Auth</h2>
-      {
-        !isLoaded(auth)
-        ? <span>Loading...</span>
-        : isEmpty(auth)
-          ? <span>Not Authed</span>
-          : <pre>{JSON.stringify(auth, null, 2)}</pre>
-      }
+  <div className="LoginPage">
+    <div className="Login-form">
+      <div className="Login-brand">
+        <span className="red">L</span>
+        <span className="red">l</span>
+        <span className="yellow">a</span>
+        <span className="dark-blue">m</span>
+        <span className="light-blue">a</span>
+      </div>
+      <div className="Login-logo" />
+      <div className="GoogleButton-wrapper">
+        <GoogleButton
+          onClick={() => firebase.login({ provider: 'google', type: 'popup' })}
+        >Login With Google</GoogleButton>
+      </div>
     </div>
   </div>
 )

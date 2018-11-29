@@ -49,6 +49,18 @@
   justify-content: center;
   align-items: center; }
 
+.red {
+  color: #f76f6f; }
+
+.yellow {
+  color: #f8e9a1; }
+
+.light-blue {
+  color: #a8d0e6; }
+
+.dark-blue {
+  color: #4e64bb; }
+
 @keyframes fadeIn {
   from {
     opacity: 0; }
@@ -66,6 +78,42 @@
     margin-bottom: 300px; }
   to {
     margin-bottom: 0; } }
+.LoginPage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/Llama_background.png"); }
+
+.Login-form {
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .Login-form > * {
+    margin: 10px 0; }
+
+.Login-brand {
+  font-family: "Karla";
+  font-size: 40px;
+  font-weight: bold;
+  color: #f76f6f; }
+
+.Login-logo {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/llama-logo.png"); }
+
+.GoogleButton-wrapper {
+  margin-left: -10px; }
+
 .Navbar {
   position: fixed;
   top: 0;
