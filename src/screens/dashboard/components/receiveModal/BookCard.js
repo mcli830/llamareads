@@ -41,7 +41,7 @@ const BookCard = (props) => {
         <div className="BookCard-description">
           {props.book.excerpt}
         </div>
-        <button className="BookCard-details btn" onClick={()=>props.showStory(true)}>
+        <button className="BookCard-details btn" onClick={()=>props.viewStory(props.book)}>
           Details
         </button>
       </div>

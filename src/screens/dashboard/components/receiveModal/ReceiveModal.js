@@ -43,8 +43,12 @@ const enhance = compose(
 const ReceiveModal = (props) => {
   return (
     <div className="ReceiveModal">
-      <BookCard book={props.view.book.book} viewStory={()=>props.dispatch(viewStory(props.view.book.book, props.view.journey))} />
-      <SenderNote book={props.view.book} />
+      <BookCard book={props.view.book} viewStory={()=>props.dispatch(viewStory(props.view.book, props.view.journey))} />
+      <div className="SenderNote">
+        <div className="SenderNote-text">
+          <em>{props.view.note}</em>
+        </div>
+      </div>
       <div className="ReceiveModal-actions mbtn-container">
         <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Later</button>
         <button className="mbtn mbtn-confirm" onClick={(e)=>{
