@@ -18,6 +18,16 @@
   font-size: 24px;
 }
 
+.Inbox-notification-dot {
+  width: 10px;
+  height: 10px;
+  background-color: $dark-blue;
+  border-radius: 50%;
+  position: absolute;
+  right: 35px;
+  top: 10px;
+}
+
 .Inbox {
   @include textStyle(20px);
   color: $dark;
