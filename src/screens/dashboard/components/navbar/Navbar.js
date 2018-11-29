@@ -14,13 +14,13 @@ import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
   firebaseConnect(),
-  connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({ firebase: { auth } }) => ({ auth }))
 );
 
-const Navbar = ({ setModal, auth, changeModal }) => (
+const Navbar = ({ auth, modal, viewModal, dashState }) => (
   <div className="Navbar">
     <Brand />
-    <UserMenu setModal={setModal} auth={auth} changeModal={changeModal} />
+    <UserMenu auth={auth} />
   </div>
 );
 

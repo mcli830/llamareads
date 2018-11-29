@@ -4,19 +4,36 @@ import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
+// components
+import JourneyNode from "./JourneyNode";
+
 // css
 import "../../../../stylesheets/css/base.css";
 
-const Journey = () => {
-  return (
-    <div className="Journey">
-      <div className="Journey-header">Journey</div>
-      <div className="Journey-timeline">
-        <div className="Journey-timeline-path" />
-        
+const Journey = (props) => (
+  <div className="Journey">
+    <div className="Journey-timeline">
+      <svg
+        className="Journey-timeline-svg"
+        width="10"
+        height="100%"
+        viewBox="0 0 10 10"
+        preserveAspectRatio="none">
+        <path stroke="#484848"
+              stroke-width="2"
+              fill="none"
+              d="M0 0 v10" />
+      </svg>
+      <div className="JourneyNode-container">
+        {props.journey.history.map((node, index) => <JourneyNode key={index} node={node} />)}
       </div>
     </div>
-  );
-};
+    <div
+      id="Journey-impact"
+      className="Journey-impact"
+      data-impact={props.journey.impact}
+    />
+  </div>
+);
 
 export default Journey;

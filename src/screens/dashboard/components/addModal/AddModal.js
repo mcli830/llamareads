@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from 'react-redux'
-import { withHandlers, withStateHandlers, branch, renderNothing } from "recompose";
+import { withHandlers, withState, withStateHandlers, branch, renderNothing } from "recompose";
 import {
   firebaseConnect,
   firestoreConnect,
@@ -10,7 +10,6 @@ import {
   isLoaded,
   isEmpty
 } from "react-redux-firebase";
-
 
 // components
 import BookSearchCard from "./BookSearchCard";
@@ -29,45 +28,39 @@ const enhance = compose(
       storeAs: 'addBooks'
     },
   ]),
-  withStateHandlers(
-    ({ initialVal = "" }) => ({
-      searchVal: initialVal
-    }),
-    {
-      onSearchChange: ({ props }) => (e) => (
-        firestoreConnect(({ auth }) => [
-          {
-            collection: "books", where: ['title', "==", e.target.value]
-          },
-        ])
-      )
-    }
-  ),
   connect(
     ({ firestore }) => ({
       addBooks: firestore.ordered.addBooks,
     })
-  ) 
+  ),
+  withState('search', 'changeSearch', ''),
+  withHandlers({
+    onSearchChange: props => e => (
+      props.changeSearch(e.target.value)
+    )
+  })
 )
 
-
-const AddModal = ({firestore, onSearchChange, books, addBooks, changeModal}) => {
+const AddModal = (props) => {
   return (
     <div className="AddModal">
       <div className="AddModal-search">
-        <input onChange={onSearchChange} id="AddModal-search-input" className="AddModal-search-input" />
+        <input placeholder="Type in bookname or author" value={props.search} onChange={(e)=>props.onSearchChange(e)} id="AddModal-search-input" className="AddModal-search-input" />
       </div>
       <span>Results</span>
       <div className="AddModal-search-list">
       {
-        !isLoaded(addBooks)
+        !isLoaded(props.addBooks)
           ? ''
-          : isEmpty(addBooks)
+          : isEmpty(props.addBooks)
             ? ''
-            : addBooks.map((book) =>
-                
-          <BookSearchCard changeModal={changeModal} key={book.id} book={book} />
+            : (
+              
+              props.addBooks.filter(search => search.title.toLowerCase().includes(props.search.toLowerCase()) || search.author.toLowerCase().includes(props.search.toLowerCase())).map((book) =>
+
+          <BookSearchCard changeModal={props.changeModal} key={book.id} book={book} />
               )
+            )
       }
       </div>
     </div>

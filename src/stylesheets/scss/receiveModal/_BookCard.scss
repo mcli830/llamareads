@@ -7,6 +7,7 @@
   background-color: white;
   font-family: "Lato";
   color: $text;
+  border: 1px solid $book-card-border-color;
 }
 
 .BookCard-cover {
@@ -21,6 +22,7 @@
 }
 
 .BookCard-info {
+  @include textStyle(10px);
   padding: 10px 20px;
   margin-left: 30px;
   flex: 0 0 50%;
@@ -28,14 +30,20 @@
 }
 
 .BookCard-title {
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 2px;
+  color: #979797;
 }
 
 .BookCard-author {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+  color: #979797;
 }
 
 .BookCard-description {
+  font-weight: lighter;
+  color: #979797;
 }
 
 .BookCard-details {

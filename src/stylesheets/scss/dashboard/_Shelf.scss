@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 70vw;
+  z-index: 0;
 }
 
 .Shelf-wrapper {
@@ -21,36 +22,36 @@
   justify-content: flex-start;
   align-items: flex-end;
   box-sizing: content-box;
-  overflow: auto;
   position: relative;
   width: 100%;
 }
 
-.ShelfHeader {
-  font-size: 40px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 50px;
-  color: $text;
+.Shelf-name {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
 }
 
 .Shelf-platform {
   position: absolute;
-  bottom: 30px;
-  height: 26px;
+  bottom: 26px;
+  height: 34px;
   width: calc(100% - 120px);
   background-color: $light-gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   &:before,
   &:after {
     content: "";
     position: absolute;
     top: 100%;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: 6px;
-    background-color: $dark;
+    left: 18px;
+    width: calc(100% - 36px);
+    height: 10px;
+    background-color: $shelf-shadow-gray;
     transform-origin: 50% 100%;
   }
   &:before {
@@ -61,40 +62,60 @@
   }
 }
 
-.ShelfHeader-add-btn {
-  font-size: 40px;
-  margin-left: 20px;
-  color: $text;
-  padding: auto;
-  padding-top: -10px;
-  background-color: transparent;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border-width: 2px;
-  border-color: $dark-blue;
-  position: relative;
+.Shelf-header {
+  font-size: 24px;
+  font-family: $font-logo;
+  color: $shelf-shadow-gray;
+  margin: 0 20px;
+}
+
+.BookList {
+  flex: 1 0 auto;
+  max-width: 70%;
   transition: 300ms;
+}
+
+.Shelf-right {
+  height: 100%;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.Book-placeholder {
+  margin: 0 5px;
+  height: $book-height;
+  width: $book-width-shelf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 400ms;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
   cursor: pointer;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    height: 50%;
-    width: 50%;
-  }
-  &:before {
-    top: calc(50% - 1px);
-    left: 25%;
-    border-top: 2px solid $dark-blue;
-  }
-  &:after {
-    left: calc(50% - 1px);
-    top: 25%;
-    border-left: 2px solid $dark-blue;
-  }
+  color: #444;
+  border: 2px dashed $dark;
+  z-index: 1;
+  opacity: 0.3;
+  transform-origin: 50% 90%;
   &:hover {
-    box-shadow: 0 0 20px $light-blue;
-    transform: scale(1.1);
+    transform: scale(1.02);
+    box-shadow: 0 2px 10px $alpha-light;
+    border-width: 4px;
+    z-index: 2;
+    opacity: 0.8;
   }
+}
+
+.Llama-container {
+  height: 380px;
+  width: 380px;
+  margin-bottom: -48px;
+  background-image: url('../../images/Llama_drawing_light.png');
+  background-size: cover;
+  background-position: center;
 }

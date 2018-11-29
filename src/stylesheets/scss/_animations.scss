@@ -1,6 +1,10 @@
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popIn {
@@ -11,5 +15,14 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes drop {
+  from {
+    margin-bottom: 300px;
+  }
+  to {
+    margin-bottom: 0;
   }
 }

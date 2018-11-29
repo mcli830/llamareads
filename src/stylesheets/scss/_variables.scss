@@ -1,38 +1,70 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-
+@import url('https://fonts.googleapis.com/css?family=Lato|Karla|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua');
+// Lato
+// Karla
+// Fredericka the Great
+// Gentium Book Basic
+// Goudy Bookletter 1911
+// Julius Sans One
+// Libre Baskerville
+// Metamorphous
+// Raleway
+// Uncial Antiqua
 $yellow: #f8e9a1;
 $red: #f76f6f;
 $light-blue: #a8d0e6;
 $dark-blue: #4e64bb;
 
+$shadow-gray: #E0E0E0;
+$shadow-alpha: rgba(68, 68, 68, 0.7);
+$shadow-alpha-light: rgba(68,68,68,0.4);
 $light-gray: #cbc9c2;
+$light-gray-shadow: #a09f9a;
 $off-white: #faf8f3;
+$shelf-shadow-gray: #888888;
 $dark: #484848;
 $alpha-mask: rgba(255, 255, 255, 0.1);
+$alpha-light: rgba(255, 255, 255, 0.3);
+$alpha-strong: rgba(255,255,255,0.5);
 
 $primary: $red;
 $secondary: $dark-blue;
 $text: $dark;
 $bg: $off-white;
+$textbox-border-color: $shadow-gray;
+$textbox-border-radius: 3px;
+
+$book-card-border-color: $shadow-gray;
 
 $modal-bg: rgba(68, 68, 68, 0.6);
+$modal-content-width: 86%;
 
 $font-main: "Lato";
 $font-size-header: 30px;
 $font-size-button: 20px;
+$font-logo: 'Karla';
 
-$shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
+$shadow: 4px 6px 30px $shadow-alpha;
+$shadow-sm: 2px 2px 5px $shadow-alpha-light;
 
 $bookshelf: $light-gray;
 
 $book-height: 320px;
 $book-width-shelf: 80px;
-$book-width-open: 320px;
+$book-width-open: $book-height * (2/3);
 $shelf-height: 400px;
 $shelf-list-width: 70vw;
 
-@mixin textStyle($size) {
-  font-family: "Lato";
+$inode: 10px;
+$jnode: 100px;
+
+@mixin textStyle($size, $font: $font-main) {
+  font-family: $font;
   font-size: $size;
   color: $text;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

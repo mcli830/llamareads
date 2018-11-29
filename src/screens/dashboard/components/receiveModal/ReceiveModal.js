@@ -1,8 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import { connect } from "react-redux";
+import {
+  withHandlers,
+  withStateHandlers,
+  withProps,
+  withState,
+  withPropsOnChange,
+  mapProps
+} from "recompose";
+import {
+  firebaseConnect,
+  firestoreConnect,
+  withFirestore,
+  isLoaded,
+  isEmpty
+} from "react-redux-firebase";
+
+//actions
+import viewModal from "../../../../functions/actions/viewModal";
+import viewStory from "../../../../functions/actions/viewStory";
 
 // components
 import BookCard from "./BookCard";
@@ -12,14 +29,39 @@ import ModalActions from "../modal/ModalActions";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const ReceiveModal = ({ showStory }) => {
+const enhance = compose(
+  withFirestore,
+  firebaseConnect(),
+  connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({ view, dispatch }) => ({ view, dispatch })),
+  withHandlers({
+    receiveBook:  props => ({ auth }) =>
+      props.firestore.update({ collection: 'userBooks', doc: props.view.book.id }, {inbox: false})
+  })
+);
+
+const ReceiveModal = (props) => {
   return (
     <div className="ReceiveModal">
-      <BookCard showStory={showStory} />
-      <SenderNote />
-      <ModalActions />
+      <BookCard book={props.view.book} viewStory={()=>props.dispatch(viewStory(props.view.book, props.view.journey))} />
+      <div className="SenderNote">
+        <div className="SenderNote-text">
+          <em>{props.view.note}</em>
+        </div>
+      </div>
+      <div className="ReceiveModal-actions mbtn-container">
+        <button className="mbtn mbtn-cancel" onClick={()=>props.dispatch(viewModal())} >Later</button>
+        <button className="mbtn mbtn-confirm" onClick={(e)=>{
+          if (props.note != "") {
+            props.receiveBook(e);
+            props.dispatch(viewModal());
+          }
+        }}>
+          Accept
+        </button>
+      </div>
     </div>
   );
 };
 
-export default ReceiveModal;
+export default enhance(ReceiveModal);

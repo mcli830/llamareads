@@ -1,11 +1,119 @@
+$jnode-dist: $jnode * 2;
+$jnode-tail: $jnode-dist + $jnode;
+$jnode-stagger: $jnode / 8;
+
+.Journey-container {
+  width: 100%;
+}
+
+.Journey-header {
+  @include textStyle(40px, "Julius Sans One");
+  text-align: center;
+  margin: 50px 16% 20px 0;
+}
+
 .Journey {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 50px 0;
 }
 
-.Journey-header {
-  @include textStyle(30px);
-  text-align: center;
+.Journey-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Journey-timeline-svg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 40%;
+}
+
+.JourneyNode-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.JourneyNode {
+  width: 100%;
+  position: relative;
+  height: $jnode-dist;
+  display: flex;
+  flex-direction: row;
+}
+
+.JourneyNode-user-container {
+  flex: 0 0 40%;
+}
+
+.JourneyNode-right-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.JourneyNode-username {
+  @include textStyle(16px);
+  position: absolute;
+}
+
+.JourneyNode-note {
+  @include textStyle(16px);
+  flex: 1 1 auto;
+  opacity: 0;
+  background-color: $yellow;
+  transition: 300ms;
+  height: 70%;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: $shadow-sm;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-align: cneter;
+  &:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 100%;
+    height: 0;
+    width: 0;
+    border-right: 16px solid $yellow;
+    border-top: 16px solid transparent;
+    border-left: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+  }
+}
+
+.JourneyNode-avatar {
+  flex: 0 0 $jnode;
+  margin: 0 25px;
+  height: $jnode;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid $light-gray;
+  transition: 250ms;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://source.unsplash.com/random/200x200);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.3);
+    ~ {
+      .JourneyNode-note {
+        opacity: 1;
+      }
+    }
+  }
 }

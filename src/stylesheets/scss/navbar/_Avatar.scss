@@ -1,7 +1,23 @@
 .Avatar {
   background-color: $light-gray;
   border-radius: 50%;
+  border:1px solid $shadow-gray;
   height: 50px;
   width: 50px;
-  margin-right: 40px;
+  margin-right: 100px;
+}
+
+.Avatar-text {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-right: 50px;
+  padding-top: 2px;
+}
+
+.Avatar-text-content {
+  @include textStyle(28px);
+  font-style: italic;
+  font-weight: 300;
 }
