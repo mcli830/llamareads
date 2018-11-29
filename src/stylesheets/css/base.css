@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Karla|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua");
-
 * {
   margin: 0;
   padding: 0; }
@@ -70,7 +69,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 10px; }
 
 .UserMenu {
@@ -163,18 +162,19 @@
   margin-right: 100px; }
 
 .Avatar-text {
-  height: 40px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 50px;
   margin-right: 50px;
-  padding-bottom: 10px; }
+  padding-top: 2px; }
 
 .Avatar-text-content {
   font-family: "Lato";
   font-size: 28px;
-  color: #484848; }
+  color: #484848;
+  font-style: italic;
+  font-weight: 300; }
 
 .Dashboard {
   width: 100vw;
@@ -873,6 +873,7 @@
   font-family: "Lato";
   font-size: 20px;
   color: #484848; }
+
 .Journey-container {
   width: 100%; }
 
