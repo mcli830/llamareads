@@ -15,6 +15,8 @@ $light-blue: #a8d0e6;
 $dark-blue: #4e64bb;
 
 $shadow-gray: #E0E0E0;
+$shadow-alpha: rgba(68, 68, 68, 0.7);
+$shadow-alpha-light: rgba(68,68,68,0.4);
 $light-gray: #cbc9c2;
 $light-gray-shadow: #a09f9a;
 $off-white: #faf8f3;
@@ -41,7 +43,8 @@ $font-size-header: 30px;
 $font-size-button: 20px;
 $font-logo: 'Karla';
 
-$shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
+$shadow: 4px 6px 30px $shadow-alpha;
+$shadow-sm: 2px 2px 5px $shadow-alpha-light;
 
 $bookshelf: $light-gray;
 
