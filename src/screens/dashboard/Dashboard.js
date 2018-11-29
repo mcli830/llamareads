@@ -24,6 +24,7 @@ import StoryContainer from "./components/storyView/StoryContainer";
 
 // css
 import "../../stylesheets/css/base.css";
+import Background from '../../images/Llama_background.png';
 
 const enhance = compose(
   withFirestore,
@@ -54,7 +55,7 @@ const enhance = compose(
 );
 
 const Dashboard = () => (
-  <div className="Dashboard">
+  <div className="Dashboard" style={{backgroundImage: `url(${Background})`}}>
     <ShelfList />
     <Navbar />
     <ModalContainer />

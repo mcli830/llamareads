@@ -11,10 +11,11 @@ import StoryWall from "./StoryWall";
 
 // css
 import "../../../../stylesheets/css/base.css";
+import JourneyBackground from '../../../../images/Journey_background.png';
 
 const Story = props => {
   return (
-    <div className="StoryView">
+    <div className="StoryView" style={{backgroundImage: `url(${JourneyBackground})`, backgroundRepeat  : 'repeat-y'}}>
       <div className="Story-indicator-map">
         {[
           { ring: true, tail: false, text: 'Details' },

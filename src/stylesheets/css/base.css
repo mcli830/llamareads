@@ -74,7 +74,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 10px; }
 
 .UserMenu {
@@ -84,7 +84,7 @@
 .Brand-name {
   font-family: "Karla";
   margin-left: 40px;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   color: #f76f6f; }
 
@@ -102,7 +102,9 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-right: 50px; }
+  margin-right: 50px;
+  font-weight: 100;
+  font-size: 24px; }
 
 .Inbox {
   font-family: "Lato";
@@ -163,6 +165,21 @@
   height: 50px;
   width: 50px;
   margin-right: 100px; }
+
+.Avatar-text {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-right: 50px;
+  padding-top: 2px; }
+
+.Avatar-text-content {
+  font-family: "Lato";
+  font-size: 28px;
+  color: #484848;
+  font-style: italic;
+  font-weight: 300; }
 
 .Dashboard {
   width: 100vw;
