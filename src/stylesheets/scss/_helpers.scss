@@ -5,8 +5,8 @@
 
 .container-fixed {
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 }
 
 .no-click {
@@ -24,7 +24,7 @@
   // border-radius: 5px;
   // cursor: pointer;
   // &:hover {
-    // border-color: $dark;
+  // border-color: $dark;
   // }
 }
 
@@ -70,4 +70,17 @@
 
 .dark-blue {
   color: $dark-blue;
+}
+
+.text-light {
+  font-weight: 100;
+}
+
+.quote-left {
+  position: absolute;
+  top: 3px;
+  left: -10px;
+}
+
+.quote-right {
 }

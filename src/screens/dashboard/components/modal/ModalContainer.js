@@ -9,28 +9,28 @@ import { withFirestore } from "react-redux-firebase";
 import viewModal from "../../../../functions/actions/viewModal";
 
 // components
-import ModalBase from "./ModalBase"
+import ModalBase from "./ModalBase";
+import ModalBaseTitle from "./ModalBaseTitle";
 import ReceiveModal from "../receiveModal/ReceiveModal";
 import SendModal from "../sendModal/SendModal";
 import AddModal from "../addModal/AddModal";
 
 // css
 import "../../../../stylesheets/css/base.css";
+import { spawn } from "child_process";
 
 // redux
 
-const enhance = compose(
-  connect(({view, dispatch}) => ({view, dispatch}))
-)
+const enhance = compose(connect(({ view, dispatch }) => ({ view, dispatch })));
 
 class ModalContainer extends React.Component {
   constructor(props) {
-    super(props)
-    this.exitModal = this.exitModal.bind(this)
+    super(props);
+    this.exitModal = this.exitModal.bind(this);
   }
 
   renderModal() {
-    console.log(this.props)
+    console.log(this.props);
     switch (this.props.view.modal) {
       case "add":
         return (
@@ -45,8 +45,14 @@ class ModalContainer extends React.Component {
           <ModalBase
             exit={this.exitModal}
             content={<SendModal exit={this.exitModal} />}
-            title={"Send " + this.props.view.book.book.title + " to..."}
-          /> 
+            title={
+              <ModalBaseTitle
+                title={this.props.view.book.book.title}
+                prefix="Send   "
+                suffix="   to..."
+              />
+            }
+          />
         );
       case "receive":
         return (
@@ -57,19 +63,17 @@ class ModalContainer extends React.Component {
           />
         );
       default:
-        return '';
+        return "";
     }
   }
 
   exitModal() {
-    this.props.dispatch(viewModal(''));
+    this.props.dispatch(viewModal(""));
   }
 
   render() {
     return (
-      <div className="ModalContainer container-fixed">
-        {this.renderModal()}
-      </div>
+      <div className="ModalContainer container-fixed">{this.renderModal()}</div>
     );
   }
 }

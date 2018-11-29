@@ -61,6 +61,14 @@
 .dark-blue {
   color: #4e64bb; }
 
+.text-light {
+  font-weight: 100; }
+
+.quote-left {
+  position: absolute;
+  top: 3px;
+  left: -10px; }
+
 @keyframes fadeIn {
   from {
     opacity: 0; }
@@ -565,6 +573,13 @@
 .ModalBase-content {
   flex: 1;
   position: relative; }
+
+.ModalBaseTitle-book-title {
+  position: relative; }
+
+.ModalBaseTitle-book-title i {
+  position: absolute;
+  font-size: 8px; }
 
 .mbtn-container {
   display: flex;
