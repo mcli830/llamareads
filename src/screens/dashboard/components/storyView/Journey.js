@@ -12,8 +12,22 @@ import "../../../../stylesheets/css/base.css";
 
 const Journey = (props) => (
   <div className="Journey">
-    {props.journey.history.map((node, index) => <JourneyNode key={index} node={node} />)}
-    <JourneyNode node={props.journey.here} />
+    <div className="Journey-timeline">
+      <svg
+        className="Journey-timeline-svg"
+        width="10"
+        height="100%"
+        viewBox="0 0 10 10"
+        preserveAspectRatio="none">
+        <path stroke="#484848"
+              stroke-width="2"
+              fill="none"
+              d="M0 0 v10" />
+      </svg>
+      <div className="JourneyNode-container">
+        {props.journey.history.map((node, index) => <JourneyNode key={index} node={node} />)}
+      </div>
+    </div>
     <div
       id="Journey-impact"
       className="Journey-impact"

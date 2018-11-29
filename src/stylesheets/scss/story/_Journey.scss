@@ -1,9 +1,16 @@
 $jnode-dist: $jnode * 2;
+$jnode-avatar: $jnode + 50px;
 $jnode-tail: $jnode-dist + $jnode;
 $jnode-stagger: $jnode / 8;
 
 .Journey-container {
   width: 100%;
+}
+
+.Journey-header {
+  @include textStyle(40px, "Julius Sans One");
+  text-align: center;
+  margin: 50px 16% 20px 0;
 }
 
 .Journey {
@@ -13,52 +20,71 @@ $jnode-stagger: $jnode / 8;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  padding: 50px 0;
 }
 
-.Journey-header {
-  @include textStyle(40px, "Julius Sans One");
-  text-align: center;
-  margin-top: 50px;
+.Journey-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.JourneyNode-tail {
+.Journey-timeline-svg {
   position: absolute;
-  border-radius: 10px;
-  bottom: 50%;
-  left: calc(50% - 2px);
-  width: 4px;
-  height: $jnode-tail;
-  background-color: $dark;
-  z-index: -1;
+  top: 0;
+  height: 100%;
+  left: 40%;
+}
+
+.JourneyNode-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .JourneyNode {
+  width: 100%;
   position: relative;
-  margin-top: $jnode-dist;
-  height: $jnode;
-  width: $jnode;
-  &:first-child {
-    margin-top: $jnode;
-    .JourneyNode-tail {
-      height: 0;
-    }
-  }
+  height: $jnode-dist;
+  display: flex;
+  flex-direction: row;
+}
+
+.JourneyNode-user-container {
+  flex: 0 0 40%;
+}
+
+.JourneyNode-avatar-container {
+  flex: 0 0 $jnode-avatar;
+}
+
+.JourneyNode-note-container {
+  flex: 1 1 auto;
 }
 
 .JourneyNode-username {
   @include textStyle(16px);
-  color: $light-blue;
   position: absolute;
   right: 200%;
   top: 50%;
-  height: 20px;
-  width: auto;
+}
+
+.JourneyNode-note {
+  @include textStyle(16px);
+  position: absolute;
+  left: 150%;
+  top: -50%;
+  height: 200%;
+  opacity: 0.1;
+  background-color: $light-gray;
+  transition: 300ms;
+  display: flex;
+  align-items: center;
 }
 
 .JourneyNode-avatar {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: $jnode;
   height: $jnode;
   border-radius: 50%;
@@ -71,8 +97,10 @@ $jnode-stagger: $jnode / 8;
   cursor: pointer;
   &:hover {
     transform: scale(1.3);
+    ~ {
+      .JourneyNode-note {
+        opacity: 1;
+      }
+    }
   }
-}
-.JourneyNode:last-child {
-  margin-bottom: $jnode-dist;
 }

@@ -14,6 +14,7 @@ $itext-half: $itext / 2;
   border-radius: 50%;
   background-color: $dark;
   margin-left: 50px;
+  transition: 300ms;
 }
 
 .StoryIndicator-tail {
@@ -24,6 +25,7 @@ $itext-half: $itext / 2;
   width: 2px;
   background-color: $dark;
   z-index: -1;
+  opacity: 0.6;
 }
 
 .StoryIndicator-ring {
@@ -34,6 +36,7 @@ $itext-half: $itext / 2;
   top: $inode-ring-offset;
   border-radius: 50%;
   border: 1px solid $red;
+  transition: 300ms;
 }
 
 .StoryIndicator-text {
@@ -41,6 +44,5 @@ $itext-half: $itext / 2;
   position: absolute;
   left: 50px;
   bottom: calc(50% - 8px);
-  color: $dark;
-  opacity: 0.2;
+  transition: 300ms;
 }

@@ -10,9 +10,15 @@ import "../../../../stylesheets/css/base.css";
 const JourneyNode = (props) => {
   return (
     <div className="JourneyNode">
-      <div className="JourneyNode-tail" />
-      <div className="JourneyNode-avatar" />
-      <div className="JourneyNode-username">{props.user}</div>
+      <div className="JourneyNode-user-container flex-center-single">
+        <div className="JourneyNode-user">{props.node.user}</div>
+      </div>
+      <div className="JourneyNode-avatar-container flex-center-single">
+        <div className="JourneyNode-avatar" />
+      </div>
+      <div className="JourneyNode-note-container flex-center-single">
+        <div className="JourneyNode-note">{props.node.note}</div>
+      </div>
     </div>
   );
 };
