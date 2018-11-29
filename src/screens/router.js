@@ -13,7 +13,7 @@ export const Router = ({ firebase, auth }) => (
   <div>
       {
         !isLoaded(auth)
-        ? <div className="loader"><div className="lds-ripple"><div></div><div></div></div></div>
+        ? <div className="loader"><div className="spinner-square"><div></div><div></div></div></div>
         : isEmpty(auth)
           ? <Identity />
           : <Dashboard />

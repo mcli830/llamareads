@@ -20,8 +20,10 @@ const Book = (props) => {
   return (
     <div
       className="Book"
-      onClick={() => props.dispatch(viewStory(props.book))}>
-      <div className="Book-cover" style={{backgroundImage: `url(${props.book.cover})`}}>
+      onClick={() => props.dispatch(viewStory(props.book))}
+      style={props.style}>
+      <div className={`${props.coverflow}`}>
+        <img src={props.book.cover} />
         <div className="Book-cover-overlay"></div>
       </div>
       <div className="Book-content">
@@ -32,8 +34,7 @@ const Book = (props) => {
           e.stopPropagation();
           props.dispatch(viewModal('send',  props))
         }}
-      >
-        <i className="fas fa-paper-plane no-click" />
+      ><i className="fas fa-paper-plane no-click" />
       </div>
     </div>
   );
