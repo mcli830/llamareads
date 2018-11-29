@@ -1,33 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
+import { connect } from "react-redux";
 import {
   withHandlers,
   withStateHandlers,
   branch,
   renderNothing
 } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import { withFirestore, firestoreConnect, firebaseConnect } from "react-redux-firebase";
 import Modal from "react-modal";
 
 // components
 import ModalBase from "../modal/ModalBase";
 import ReceiveModal from "../receiveModal/ReceiveModal";
 
-const enhance = compose(withStateHandlers({}));
+//actions
+import viewModal from "../../../../functions/actions/viewModal";
+
+const enhance = compose(
+  firebaseConnect(),
+  connect(({ firebase: { auth } }) => ({ auth })),
+  connect(({ view, dispatch }) => ({ view, dispatch })),
+);
 
 const ListEntry = (props) => {
   return (
     <div className="ListEntry">
       <div className="ListEntry-text">
-        <div className="ListEntry-text-date">Nov 22 2018</div>
+        <div className="ListEntry-text-date">DATE PLACEHOLDER</div>
         <div className="ListEntry-text-message">
-          sent you a book
+          {props.inbox.senderName} sent you a book
         </div>
       </div>
       <div className="ListEntry-action">
         <button className="ListEntry-view-btn">
-          <i className="far fa-eye" />
+          <i onClick={() => props.dispatch(viewModal('receive', props.inbox))} className="far fa-eye" />
         </button>
       </div>
     </div>

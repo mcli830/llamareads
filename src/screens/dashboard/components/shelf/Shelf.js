@@ -46,6 +46,7 @@ const Shelf = (props) => {
           <ShelfHeader add={() => props.dispatch(viewModal('add'))} />
         </div>
         <BookList />
+        <div className="Llama-container"><img src={require('../../../../images/Llama_drawing_light.png')}/></div>
       </div>
     </div>
   );

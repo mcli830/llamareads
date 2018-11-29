@@ -31,10 +31,13 @@ const enhance = compose(
   withHandlers({
     sendBook: props => {
       props.firestore.add("userBooks", {
-        sender: props.auth,
+        sender: props.auth.uid,
+        senderName: props.auth.displayName,
         inbox: true,
         book: props.view.book,
-        user: props.receiver
+        user: props.receiver,
+        note: props.note,
+        sendDate: props.firestore.FieldValue.serverTimestamp()
       });
     },
     noteChange: props => event => {
@@ -48,7 +51,6 @@ const enhance = compose(
 
 
 const SendModal = (props) => {
-  console.log(props)
   return (
     <div className="SendModal">
       <div className="SendForm">

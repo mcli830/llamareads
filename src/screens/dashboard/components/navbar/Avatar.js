@@ -22,6 +22,7 @@ const enhance = compose(
 
 const Avatar = (props) => {
   return <img  className="Avatar" src={props.auth.photoURL} onClick={() => props.firebase.auth().signOut()} />
+
 };
 
 export default enhance(Avatar);

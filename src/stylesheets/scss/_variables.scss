@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua');
+@import url('https://fonts.googleapis.com/css?family=Lato|Karla|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua');
 // Lato
+// Karla
 // Fredericka the Great
 // Gentium Book Basic
 // Goudy Bookletter 1911
@@ -8,7 +9,6 @@
 // Metamorphous
 // Raleway
 // Uncial Antiqua
-
 $yellow: #f8e9a1;
 $red: #f76f6f;
 $light-blue: #a8d0e6;
@@ -18,6 +18,7 @@ $shadow-gray: #E0E0E0;
 $light-gray: #cbc9c2;
 $light-gray-shadow: #a09f9a;
 $off-white: #faf8f3;
+$shelf-shadow-gray: #888888;
 $dark: #484848;
 $alpha-mask: rgba(255, 255, 255, 0.1);
 $alpha-light: rgba(255, 255, 255, 0.3);
@@ -38,6 +39,7 @@ $modal-content-width: 86%;
 $font-main: "Lato";
 $font-size-header: 30px;
 $font-size-button: 20px;
+$font-logo: 'Karla';
 
 $shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
 

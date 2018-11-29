@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lato|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua");
+@import url("https://fonts.googleapis.com/css?family=Lato|Karla|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua");
+
 * {
   margin: 0;
   padding: 0; }
@@ -65,8 +66,6 @@
   top: 0;
   width: 100%;
   height: 50px;
-  background-color: white;
-  border-bottom: 1px solid #cbc9c2;
   font-family: "Lato";
   display: flex;
   flex-direction: row;
@@ -79,8 +78,9 @@
   flex-direction: row; }
 
 .Brand-name {
+  font-family: "Karla";
   margin-left: 40px;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   color: #f76f6f; }
 
@@ -94,20 +94,20 @@
   border-top: none; }
 
 .Inbox-header {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-left: 30px; }
+  margin-right: 50px; }
 
 .Inbox {
   font-family: "Lato";
   font-size: 20px;
   color: #484848;
-  color: #4e64bb;
+  color: #484848;
   text-align: right;
   width: 400px;
-  right: 160px;
+  right: 200px;
   position: absolute;
   cursor: pointer; }
   .Inbox:hover .Inbox-list {
@@ -155,9 +155,10 @@
 .Avatar {
   background-color: #cbc9c2;
   border-radius: 50%;
+  border: 1px solid #E0E0E0;
   height: 50px;
   width: 50px;
-  margin-right: 40px; }
+  margin-right: 100px; }
 
 .Dashboard {
   width: 100vw;
@@ -194,22 +195,27 @@
   width: 100%; }
 
 .ShelfHeader {
-  font-family: "Lato";
-  font-size: 28px;
-  color: #484848;
-  position: absolute;
-  top: -8px;
+  font-size: 24px;
+  font-family: "Karla";
+  top: -6px;
   left: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   height: 50px;
-  color: #484848; }
+  color: #888888;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px; }
+
+.Shelf-name {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px; }
 
 .Shelf-platform {
   position: absolute;
   bottom: 20px;
-  height: 36px;
+  height: 34px;
   width: calc(100% - 120px);
   background-color: #cbc9c2; }
   .Shelf-platform:before, .Shelf-platform:after {
@@ -219,12 +225,20 @@
     left: 18px;
     width: calc(100% - 36px);
     height: 10px;
-    background-color: #a09f9a;
+    background-color: #888888;
     transform-origin: 50% 100%; }
   .Shelf-platform:before {
     transform: skew(60deg); }
   .Shelf-platform:after {
     transform: skew(-60deg); }
+
+.Llama-container {
+  width: 380px;
+  height: 380px;
+  margin-bottom: -45px; }
+  .Llama-container img {
+    height: 100%;
+    width: auto; }
 
 .BookList {
   display: flex;
@@ -843,7 +857,6 @@
   font-family: "Lato";
   font-size: 20px;
   color: #484848; }
-
 .Journey-container {
   width: 100%; }
 

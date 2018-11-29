@@ -28,24 +28,34 @@
 }
 
 .ShelfHeader {
-  @include textStyle(28px);
-  position: absolute;
-  top: -8px;
+  // @include textStyle(22px);
+  // position: absolute;
+  font-size: 24px;
+  font-family: $font-logo;
+  top: -6px;
   left: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
   height: 50px;
-  color: $text;
+  color: $shelf-shadow-gray;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
 }
 
 .Shelf-name {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
 }
 
 .Shelf-platform {
   position: absolute;
   bottom: 20px;
-  height: 36px;
+  height: 34px;
   width: calc(100% - 120px);
   background-color: $light-gray;
   &:before,
@@ -56,7 +66,7 @@
     left: 18px;
     width: calc(100% - 36px);
     height: 10px;
-    background-color: $light-gray-shadow;
+    background-color: $shelf-shadow-gray;
     transform-origin: 50% 100%;
   }
   &:before {
@@ -64,5 +74,15 @@
   }
   &:after {
     transform: skew(-60deg);
+  }
+}
+
+.Llama-container {
+  width: 380px;
+  height: 380px;
+  margin-bottom: -45px;
+  img{
+    height: 100%;
+    width: auto;
   }
 }

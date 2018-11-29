@@ -9,12 +9,12 @@ import { withFirestore } from "react-redux-firebase";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const SenderNote = () => {
+const SenderNote = (props) => {
   return (
     <div className="SenderNote">
       <div className="SenderNote-text">
         <em>
-          “Hey Sam, I really enjoyed this book. Hope you like it too!” - Jordan
+          {props.book.note}
         </em>
       </div>
     </div>
