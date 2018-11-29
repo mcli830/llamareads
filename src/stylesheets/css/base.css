@@ -223,7 +223,8 @@
   height: 50px;
   color: #888888;
   display: block;
-  margin-left: auto;
+  margin-left: 10px;
+  padding-top: 2px;
   margin-right: auto;
   width: 120px; }
 
