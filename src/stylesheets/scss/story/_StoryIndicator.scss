@@ -23,6 +23,7 @@ $itext-half: $itext / 2;
   height: $inode-tail;
   width: 2px;
   background-color: $dark;
+  z-index: -1;
 }
 
 .StoryIndicator-ring {
@@ -32,7 +33,7 @@ $itext-half: $itext / 2;
   left: $inode-ring-offset;
   top: $inode-ring-offset;
   border-radius: 50%;
-  border: 1px solid $dark;
+  border: 1px solid $red;
 }
 
 .StoryIndicator-text {

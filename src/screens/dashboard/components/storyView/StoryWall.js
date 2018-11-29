@@ -15,8 +15,10 @@ const StoryWall = props => {
   return (
     <div className="StoryWall">
       <div className="StoryWall-text">
-        <div className="StoryWall-title">{props.book.title}</div>
-        <div className="StoryWall-author">{props.book.author}</div>
+        <div className="StoryWall-main-info">
+          <div className="StoryWall-title">{props.book.title}</div>
+          <div className="StoryWall-author">{props.book.author}</div>
+        </div>
         <div className="StoryWall-excerpt">{props.book.excerpt}</div>
       </div>
 

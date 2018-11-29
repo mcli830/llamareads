@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Lato|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua");
 * {
   margin: 0;
   padding: 0; }
@@ -170,7 +170,8 @@
 .ShelfList {
   display: flex;
   flex-direction: column;
-  width: 70vw; }
+  width: 70vw;
+  z-index: 0; }
 
 .Shelf-wrapper {
   display: flex;
@@ -264,10 +265,6 @@
     flex-direction: column;
     transform: rotate(90deg) scale(0.7);
     transition: 300ms; }
-    .Book .Book-content * {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis; }
   .Book:hover {
     width: 320px;
     transform: scale(1.15);
@@ -288,14 +285,21 @@
       opacity: 0.8; }
 
 .Book-title {
-  font-family: "Lato";
+  font-family: "Libre Baskerville";
   font-size: 24px;
-  color: #484848; }
+  color: #484848;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .Book-author {
   font-family: "Lato";
-  font-size: 18px;
-  color: #484848; }
+  font-size: 20px;
+  color: #484848;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .Book-placeholder {
   margin: 0 5px;
@@ -313,14 +317,14 @@
   color: #444;
   border: 2px dashed #484848;
   z-index: 1;
-  opacity: 0.1;
+  opacity: 0.3;
   transform-origin: 50% 90%; }
   .Book-placeholder:hover {
     transform: scale(1.02);
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
     border-width: 4px;
     z-index: 2;
-    opacity: 0.7; }
+    opacity: 0.8; }
 
 .Book-send {
   position: absolute;
@@ -749,7 +753,8 @@
   left: calc(50% - 1px);
   height: 70px;
   width: 2px;
-  background-color: #484848; }
+  background-color: #484848;
+  z-index: -1; }
 
 .StoryIndicator-ring {
   height: 30px;
@@ -758,7 +763,7 @@
   left: -11px;
   top: -11px;
   border-radius: 50%;
-  border: 1px solid #484848; }
+  border: 1px solid #f76f6f; }
 
 .StoryIndicator-text {
   font-family: "Lato";
@@ -776,9 +781,10 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-top: 60px; }
+  padding-top: 60px;
+  height: 100vh; }
 
 .StoryRail-rail {
   position: absolute;
@@ -790,7 +796,6 @@
 
 .StoryRail-cover {
   background-color: #faf8f3;
-  margin-top: 100px;
   position: absolute;
   background-size: cover;
   background-position: center;
@@ -813,15 +818,18 @@
   font-family: "Lato";
   font-size: 24;
   color: #484848;
-  min-height: 600px; }
+  min-height: 65vh; }
+
+.StoryWall-main-info {
+  position: sticky;
+  top: 0; }
 
 .StoryWall-title {
   font-family: "Lato";
   font-size: 40px;
   color: #484848;
   font-weight: 600;
-  text-align: center;
-  margin: 30px 0 0; }
+  text-align: center; }
 
 .StoryWall-author {
   font-family: "Lato";
@@ -848,10 +856,11 @@
   width: 100%; }
 
 .Journey-header {
-  font-family: "Lato";
-  font-size: 30px;
+  font-family: "Julius Sans One";
+  font-size: 40px;
   color: #484848;
-  text-align: center; }
+  text-align: center;
+  margin-top: 50px; }
 
 .JourneyNode-tail {
   position: absolute;

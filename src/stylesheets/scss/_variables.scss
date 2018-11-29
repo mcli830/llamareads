@@ -1,4 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url('https://fonts.googleapis.com/css?family=Lato|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua');
+// Lato
+// Fredericka the Great
+// Gentium Book Basic
+// Goudy Bookletter 1911
+// Julius Sans One
+// Libre Baskerville
+// Metamorphous
+// Raleway
+// Uncial Antiqua
 
 $yellow: #f8e9a1;
 $red: #f76f6f;
@@ -43,8 +52,14 @@ $shelf-list-width: 70vw;
 $inode: 10px;
 $jnode: 100px;
 
-@mixin textStyle($size) {
-  font-family: "Lato";
+@mixin textStyle($size, $font: $font-main) {
+  font-family: $font;
   font-size: $size;
   color: $text;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

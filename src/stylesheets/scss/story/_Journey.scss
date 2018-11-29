@@ -16,8 +16,9 @@ $jnode-stagger: $jnode / 8;
 }
 
 .Journey-header {
-  @include textStyle(30px);
+  @include textStyle(40px, "Julius Sans One");
   text-align: center;
+  margin-top: 50px;
 }
 
 .JourneyNode-tail {
