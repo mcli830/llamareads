@@ -10,6 +10,7 @@
 
 #SendForm-search-input {
   @include textStyle(20px);
+  position: relative;
   font-weight: 100;
   height: 25px;
   display: block;
@@ -19,6 +20,12 @@
   margin-top: 20px;
   border: 1px solid $textbox-border-color;
   border-radius: $textbox-border-radius;
+}
+
+.divUsername {
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
 
 .SendForm-note {

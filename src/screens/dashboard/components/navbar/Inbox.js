@@ -35,6 +35,15 @@ const enhance = compose(
 const Inbox = ({inboxBooks, changeModal}) => {
   return (
     <div className="Inbox">
+          {
+        !isLoaded(inboxBooks)
+          ? ''
+          : isEmpty(inboxBooks)
+              ? ''
+            : 
+            <div className="Inbox-notification-dot"></div>
+              
+      }
       <div className="Inbox-header">Inbox</div>
       <div className="Inbox-list">
       {
