@@ -27,6 +27,7 @@ import BookCardInfo from "../book/BookCardInfo";
 import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
+  withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   connect(({view, dispatch}) => ({view, dispatch})),
