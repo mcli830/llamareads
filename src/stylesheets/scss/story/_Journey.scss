@@ -1,5 +1,4 @@
 $jnode-dist: $jnode * 2;
-$jnode-avatar: $jnode + 50px;
 $jnode-tail: $jnode-dist + $jnode;
 $jnode-stagger: $jnode / 8;
 
@@ -56,12 +55,11 @@ $jnode-stagger: $jnode / 8;
   flex: 0 0 40%;
 }
 
-.JourneyNode-avatar-container {
-  flex: 0 0 $jnode-avatar;
-}
-
-.JourneyNode-note-container {
+.JourneyNode-right-container {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .JourneyNode-username {
@@ -71,13 +69,36 @@ $jnode-stagger: $jnode / 8;
 
 .JourneyNode-note {
   @include textStyle(16px);
-  opacity: 0.1;
-  background-color: $light-gray;
+  flex: 1 1 auto;
+  opacity: 0;
+  background-color: $yellow;
   transition: 300ms;
+  height: 70%;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: $shadow-sm;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-align: cneter;
+  &:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 100%;
+    height: 0;
+    width: 0;
+    border-right: 16px solid $yellow;
+    border-top: 16px solid transparent;
+    border-left: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+  }
 }
 
 .JourneyNode-avatar {
-  width: $jnode;
+  flex: 0 0 $jnode;
+  margin: 0 25px;
   height: $jnode;
   border-radius: 50%;
   box-sizing: border-box;
