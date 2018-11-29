@@ -103,7 +103,7 @@ const SendModal = props => {
                       value={user.id}
                     />
                     <div className="Search-friend-results">
-                      {user.displayName}
+                      <i className="fas fa-paper-plane"></i> {user.displayName}
                     </div>
                   </div>
                 ))[0]}
