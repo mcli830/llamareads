@@ -77,7 +77,6 @@ const SendModal = props => {
       <div className="SendForm">
         <div className="SendForm-search">
           <input
-            id="send-friend-input"
             placeholder="Type in your friend’s name"
             id="SendForm-search-input"
             value={props.receiver}
