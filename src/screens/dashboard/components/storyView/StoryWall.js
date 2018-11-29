@@ -22,7 +22,7 @@ const StoryWall = props => {
         <div className="StoryWall-excerpt">{props.book.excerpt}</div>
       </div>
 
-      <div className="Journey-container" />
+      <div className="Journey-container">
         <div className="Journey-header">Journey</div>
         <Journey journey={{
             history: [

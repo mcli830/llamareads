@@ -718,7 +718,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   animation: fadeIn 300ms ease-out; }
 
 .Story-indicator-map {
@@ -838,8 +838,7 @@
     height: 300px; } }
 .StoryWall {
   flex: 1 1 auto;
-  padding: 160px 80px 60px 40px;
-  overflow-y: scroll; }
+  padding: 160px 80px 60px 40px; }
 
 .StoryWall-text {
   font-family: "Lato";
@@ -928,23 +927,15 @@
   font-family: "Lato";
   font-size: 16px;
   color: #484848;
-  position: absolute;
-  right: 200%;
-  top: 50%; }
+  position: absolute; }
 
 .JourneyNode-note {
   font-family: "Lato";
   font-size: 16px;
   color: #484848;
-  position: absolute;
-  left: 150%;
-  top: -50%;
-  height: 200%;
   opacity: 0.1;
   background-color: #cbc9c2;
-  transition: 300ms;
-  display: flex;
-  align-items: center; }
+  transition: 300ms; }
 
 .JourneyNode-avatar {
   width: 100px;
