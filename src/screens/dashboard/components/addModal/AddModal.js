@@ -34,13 +34,11 @@ const enhance = compose(
     })
   ),
   withState('search', 'changeSearch', ''),
-  withHandlers(
-    {
+  withHandlers({
     onSearchChange: props => e => (
       props.changeSearch(e.target.value)
     )
-    }
-  )
+  })
 )
 // function fetchApi(word){
 //   fetch('https://www.goodreads.com/search/index.xml?key=TfkFgljd4rldheKR1dWfZQ&q=')

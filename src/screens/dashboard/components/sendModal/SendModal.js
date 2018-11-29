@@ -19,24 +19,22 @@ import {
 
 //actions
 import viewModal from "../../../../functions/actions/viewModal";
-import viewStory from "../../../../functions/actions/viewStory";
-
-function create_UUID(){
-  var dt = new Date().getTime();
-  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = (dt + Math.random()*16)%16 | 0;
-      dt = Math.floor(dt/16);
-      return (c=='x' ? r :(r&0x3|0x8)).toString(16);
-  });
-  return uuid;
-}
 
 
 const enhance = compose(
   withFirestore,
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
-  connect(({ view, dispatch }) => ({ view, dispatch })),
+  firestoreConnect(({ auth }) => [
+    {
+      collection: "users"
+    },
+  ]),
+  connect(
+    ({ firestore }) => ({
+      users: firestore.ordered.users,
+    })
+  ),
   withState('note', 'writeNote', ''),
   withState('receiver', 'changeReceiver', ''),
   withHandlers({
@@ -55,21 +53,31 @@ const enhance = compose(
     noteChange: props => event => {
       props.writeNote(event.target.value)
     },
-    receiverChange: props => event => {
-      props.changeReceiver(event.target.value)
-    }
-  })
+    receiverChange: props => e => (
+      props.changeReceiver(e.target.value)
+    )
+  }),
 );
 
 
 const SendModal = (props) => {
-  console.log(props)
   return (
     <div className="SendModal">
       <div className="SendForm">
         <div className="SendForm-search">
           <input id="send-friend-input" placeholder="Type in your friend’s name" id="SendForm-search-input" value={props.receiver} onChange={(e)=>props.receiverChange(e)} />
         </div>
+        {
+        !isLoaded(props.users)
+          ? 'LOAD'
+          : isEmpty(props.users)
+            ? 'EMPTY'
+            : (
+              props.users.filter(receiver => receiver.displayName.toLowerCase().includes(props.receiver.toLowerCase())).map((user) =>
+              
+              console.log(user)            )
+            )
+        }
         <div className="SendForm-note">
           <textarea id="send-note-input" placeholder="Add a short note" id="SendForm-note-input" value={props.note} onChange={(e)=>props.noteChange(e)} />
         </div>
