@@ -130,16 +130,19 @@
   border: 1px solid #E0E0E0;
   background-color: white;
   padding: 15px 35px;
-  align-items: center;
-  justify-content: space-between; }
+  align-items: center; }
 
 .ListEntry-text {
   display: flex;
   flex-direction: column;
   font-family: "Lato";
-  font-size: 20px;
+  font-size: 18px;
   color: #484848;
   flex: 1 1; }
+
+.ListEntry-text-message {
+  margin-top: -20px;
+  padding-left: 10px; }
 
 .ListEntry-text-date {
   font-size: 16px;
@@ -153,10 +156,10 @@
 
 .ListEntry-view-btn {
   font-family: "Lato";
-  font-size: 22px;
+  font-size: 18px;
   color: #484848;
   border: none;
-  padding-top: 22px; }
+  padding-top: 14px; }
 
 .Avatar {
   background-color: #cbc9c2;
@@ -223,7 +226,8 @@
   height: 50px;
   color: #888888;
   display: block;
-  margin-left: auto;
+  margin-left: 10px;
+  padding-top: 2px;
   margin-right: auto;
   width: 120px; }
 
@@ -301,16 +305,21 @@
     transform: rotate(90deg) scale(0.7);
     transition: 300ms; }
   .Book:hover {
-    width: 320px;
+    width: 213.3333333333px;
     transform: scale(1.15);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border-width: 5px;
+    border-width: 2px;
+    border-color: #cbc9c2;
     border-style: outset;
     z-index: 2; }
+    .Book:hover .Book-cover {
+      width: 213.3333333333px;
+      transform: scale(1.15);
+      opacity: 1; }
     .Book:hover .Book-content {
       width: 90%;
       text-align: center;
-      opacity: 1;
+      opacity: 0;
       transform: rotate(0) scale(1);
       align-items: center; }
       .Book:hover .Book-content * {
@@ -318,6 +327,14 @@
         text-overflow: initial; }
     .Book:hover .Book-send {
       opacity: 0.8; }
+
+.Book-cover {
+  height: 320px;
+  width: 80px;
+  opacity: 0;
+  transition: 400ms;
+  background-size: cover;
+  background-position: center; }
 
 .Book-title {
   font-family: "Libre Baskerville";
@@ -362,6 +379,7 @@
     opacity: 0.8; }
 
 .Book-send {
+  background-color: rgba(68, 68, 68, 0.7);
   position: absolute;
   top: 16px;
   right: 20px;
@@ -376,7 +394,8 @@
   height: 42px;
   width: 42px; }
   .Book-send i {
-    position: absolute; }
+    position: absolute;
+    margin-left: -2px; }
   .Book-send:hover {
     transform: scale(1.3); }
 
