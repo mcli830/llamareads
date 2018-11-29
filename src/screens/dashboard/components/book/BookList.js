@@ -31,12 +31,7 @@ const enhance = compose(
 
 const BookList = (props) => (
   <div className="BookList">
-      { !isLoaded(props.userBooks)
-      ? ""
-        : isEmpty(props.userBooks)
-        ? ""
-          : console.log(props.userBooks.length)
-          }
+      { !isLoaded(props.userBooks) && isEmpty(props.userBooks) ? '' : console.log(props.userBooks.length) s}
     { !isLoaded(props.userBooks)
       ? ""
         : isEmpty(props.userBooks)
