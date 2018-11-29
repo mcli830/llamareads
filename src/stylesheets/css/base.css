@@ -375,6 +375,7 @@
     opacity: 0.8; }
 
 .Book-send {
+  background-color: rgba(68, 68, 68, 0.7);
   position: absolute;
   top: 16px;
   right: 20px;
@@ -389,7 +390,8 @@
   height: 42px;
   width: 42px; }
   .Book-send i {
-    position: absolute; }
+    position: absolute;
+    margin-left: -2px; }
   .Book-send:hover {
     transform: scale(1.3); }
 

@@ -119,6 +119,7 @@ $book-transition: 400ms;
 }
 
 .Book-send {
+  background-color: $shadow-alpha;
   position: absolute;
   top: 16px;
   right: 20px;
@@ -134,6 +135,7 @@ $book-transition: 400ms;
   width: 42px;
   i {
     position: absolute;
+    margin-left: -2px;
   }
   &:hover {
     transform: scale(1.3);
