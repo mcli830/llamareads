@@ -280,10 +280,6 @@
   position: absolute;
   height: 400px;
   padding: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
   box-sizing: content-box;
   position: relative;
   width: 100%; }
@@ -325,8 +321,8 @@
   margin: 0 20px; }
 
 .BookList {
-  flex: 1 0 auto;
-  max-width: 70%;
+  height: 100%;
+  width: 100%;
   transition: 300ms; }
 
 .Shelf-right {
@@ -366,8 +362,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  width: 800px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  width: 100%; }
 
 .Book {
   margin: 0 5px;
@@ -918,7 +914,7 @@
   transition: 300ms; }
 
 .StoryRail {
-  flex: 0 0 500px;
+  flex: 0 0 400px;
   position: sticky;
   top: 0;
   display: flex;
@@ -942,8 +938,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: none;
-  width: 400px;
-  height: 600px;
+  width: 260px;
+  height: 390px;
   box-shadow: 4px 6px 30px rgba(68, 68, 68, 0.7);
   transition: 400ms;
   transform-origin: 50% 0; }
@@ -953,11 +949,11 @@
 
 @media only screen and (max-width: 1200px) {
   .StoryRail {
-    flex: 0 0 250px; }
+    flex: 0 0 200px; }
 
   .StoryRail-cover {
-    width: 200px;
-    height: 300px; } }
+    width: 160px;
+    height: 240px; } }
 .StoryWall {
   flex: 1 1 auto;
   padding: 160px 80px 60px 40px; }
@@ -1141,5 +1137,100 @@
     transform: rotate(270deg); }
   100% {
     transform: rotate(360deg); } }
+.spinner-square {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out; }
+
+@-webkit-keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(120px); }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg); }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+.carousel {
+  position: relative;
+  height: 400px;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden; }
+
+.carousel .Book-cover {
+  position: absolute;
+  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+  opacity: 1; }
+
+.carousel .Book-cover img {
+  width: 400px;
+  transition: width 1s; }
+
+.carousel .Book-cover.hideLeft {
+  left: 0%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%); }
+
+.carousel .Book-cover.hideLeft img {
+  width: 200px; }
+
+.carousel .Book-cover.hideRight {
+  left: 100%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%); }
+
+.carousel .Book-cover.hideRight img {
+  width: 200px; }
+
+.carousel .Book-cover.prev {
+  z-index: 5;
+  left: 30%;
+  transform: translateY(50px) translateX(-50%); }
+
+.carousel .Book-cover.prev img {
+  width: 300px; }
+
+.carousel .Book-cover.prevLeftSecond {
+  z-index: 4;
+  left: 15%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: .7; }
+
+.carousel .Book-cover.prevLeftSecond img {
+  width: 200px; }
+
+.carousel .Book-cover.selected {
+  z-index: 10;
+  left: 50%;
+  transform: translateY(0px) translateX(-50%); }
+
+.carousel .Book-cover.next {
+  z-index: 5;
+  left: 70%;
+  transform: translateY(50px) translateX(-50%); }
+
+.carousel .Book-cover.next img {
+  width: 300px; }
+
+.carousel .Book-cover.nextRightSecond {
+  z-index: 4;
+  left: 85%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: .7; }
+
+.carousel .Book-cover.nextRightSecond img {
+  width: 200px; }
 
 /*# sourceMappingURL=base.css.map */

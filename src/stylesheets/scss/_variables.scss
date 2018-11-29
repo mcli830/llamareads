@@ -56,6 +56,9 @@ $shelf-list-width: 70vw;
 $inode: 10px;
 $jnode: 100px;
 
+$jhead-push: 16%;
+$jsvg-push: 40%;
+
 @mixin textStyle($size, $font: $font-main) {
   font-family: $font;
   font-size: $size;
