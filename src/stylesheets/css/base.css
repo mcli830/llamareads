@@ -301,16 +301,21 @@
     transform: rotate(90deg) scale(0.7);
     transition: 300ms; }
   .Book:hover {
-    width: 320px;
+    width: 213.3333333333px;
     transform: scale(1.15);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border-width: 5px;
+    border-width: 2px;
+    border-color: #cbc9c2;
     border-style: outset;
     z-index: 2; }
+    .Book:hover .Book-cover {
+      width: 213.3333333333px;
+      transform: scale(1.15);
+      opacity: 1; }
     .Book:hover .Book-content {
       width: 90%;
       text-align: center;
-      opacity: 1;
+      opacity: 0;
       transform: rotate(0) scale(1);
       align-items: center; }
       .Book:hover .Book-content * {
@@ -318,6 +323,14 @@
         text-overflow: initial; }
     .Book:hover .Book-send {
       opacity: 0.8; }
+
+.Book-cover {
+  height: 320px;
+  width: 80px;
+  opacity: 0;
+  transition: 400ms;
+  background-size: cover;
+  background-position: center; }
 
 .Book-title {
   font-family: "Libre Baskerville";

@@ -47,7 +47,7 @@ $bookshelf: $light-gray;
 
 $book-height: 320px;
 $book-width-shelf: 80px;
-$book-width-open: 320px;
+$book-width-open: $book-height * (2/3);
 $shelf-height: 400px;
 $shelf-list-width: 70vw;
 
