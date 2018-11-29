@@ -10,15 +10,21 @@
   position: relative;
   margin: 0 auto;
   border: 1px solid $book-card-border-color;
-  height: 120px;
+  height: 250px;
   margin-bottom: 15px;
 }
 
 .BookSearchCard-cover {
   display: flex;
   margin: 10px 15px;
-  flex: 0 1 250px;
-  box-shadow: 0 0 2px;
+  flex: 0 0 120px;
+  align-items: center;
+  .BookSearchCard-image {
+    width: 120px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .BookSearchCard-info {
@@ -31,11 +37,24 @@
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
   padding: 10px;
 }
 
 .BookSearchCard-add {
   width: 80px;
+}
+
+
+
+.BookCardInfo {
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.BookCard-description {
+  margin: 5px 0;
+  overflow-y: auto;
 }

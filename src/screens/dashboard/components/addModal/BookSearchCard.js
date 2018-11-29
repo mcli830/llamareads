@@ -45,11 +45,11 @@ const BookSearchCard = (props) => {
   return (
     <div className="BookSearchCard">
       <div className="BookSearchCard-cover">
-        <img
-          className="BookCard-cover-img"
-          src={props.book.cover}
-          alt=""
-        />
+        <div
+          className="BookSearchCard-image"
+          style={{backgroundImage: `url('${props.book.cover}')`}}
+          onClick={()=>props.dispatch(viewStory(props.book))}
+        ></div>
       </div>
       <div className="BookSearchCard-info">
         <BookCardInfo book={props.book} />
@@ -63,7 +63,7 @@ const BookSearchCard = (props) => {
           }}>
           Add
         </button>
-        <button style={{paddingRight: 5}}className="BookCard-details btn" onClick={()=>props.dispatch(viewStory(props.book))}>Details</button>
+        <button style={{paddingRight: 5}} className="BookCard-details btn" onClick={()=>props.dispatch(viewStory(props.book))}>Details</button>
       </div>
     </div>
   );

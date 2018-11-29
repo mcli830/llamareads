@@ -17,11 +17,11 @@ const Story = props => {
     <div className="StoryView">
       <div className="Story-indicator-map">
         {[
-          { ring: true, tail: false },
-          { ring: false, tail: true },
-          { ring: false, tail: true }
+          { ring: true, tail: false, text: 'Details' },
+          { ring: false, tail: true, text: 'Journey' },
+          { ring: false, tail: true, text: 'Impact' }
         ].map(attr => (
-          <StoryIndicator ring={attr.ring} tail={attr.tail} />
+          <StoryIndicator ring={attr.ring} tail={attr.tail} text={attr.text} />
         ))}
       </div>
       <StoryRail cover={props.book.cover} />
