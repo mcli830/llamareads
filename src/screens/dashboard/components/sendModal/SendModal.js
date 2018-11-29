@@ -23,6 +23,7 @@ import viewModal from "../../../../functions/actions/viewModal";
 
 const enhance = compose(
   withFirestore,
+  connect(({view, dispatch}) => ({view, dispatch})),
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   firestoreConnect(({ auth }) => [
@@ -37,6 +38,7 @@ const enhance = compose(
   ),
   withState('note', 'writeNote', ''),
   withState('receiver', 'changeReceiver', ''),
+  withState('uid', 'uidChange', ''),
   withHandlers({
     sendBook: props => {
       props.firestore.add("userBooks", {
@@ -44,7 +46,7 @@ const enhance = compose(
         senderName: props.auth.displayName,
         inbox: true,
         book: props.view.book,
-        user: props.receiver,
+        user: document.getElementById("uid").value,
         note: props.note,
         sendDate: props.firestore.FieldValue.serverTimestamp(),
         journeyBook: {sender: props.auth.displayName, note: props.note}
@@ -55,6 +57,9 @@ const enhance = compose(
     },
     receiverChange: props => e => (
       props.changeReceiver(e.target.value)
+    ),
+    uidChange: props => event => (
+      props.uidChange(event)
     )
   }),
 );
@@ -69,13 +74,15 @@ const SendModal = (props) => {
         </div>
         {
         !isLoaded(props.users)
-          ? 'LOAD'
+          ? ''
           : isEmpty(props.users)
-            ? 'EMPTY'
+            ? ''
             : (
-              props.users.filter(receiver => receiver.displayName.toLowerCase().includes(props.receiver.toLowerCase())).map((user) =>
+              props.users.filter(receiver => receiver.displayName.toLowerCase().includes(props.receiver.toLowerCase()) && props.receiver != '').map((user) =>
+              <div className="divUsername">
+              <input type="hidden" key={user.id} id="uid" value={user.id}></input>
+              <p>{user.displayName}</p></div>         )[0]
               
-              console.log(user)            )
             )
         }
         <div className="SendForm-note">
