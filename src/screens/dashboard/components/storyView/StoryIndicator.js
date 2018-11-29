@@ -13,7 +13,9 @@ const StoryIndicator = (props) => {
     <div className="StoryIndicator" style={{backgroundColor: props.ring ? '#f76f6f' : '#484848'}}>
       {props.tail ? <div className="StoryIndicator-tail" /> : ""}
       {props.ring ? <div className="StoryIndicator-ring" /> : ""}
-      <div className="StoryIndicator-text">{props.text}</div>
+      <div className="StoryIndicator-text" style={ props.ring ?
+        { color: '#f76f6f', opacity: 1 } : {color: '#484848', opacity: 0.2 }
+      }>{props.text}</div>
     </div>
   );
 };

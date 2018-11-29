@@ -1,7 +1,7 @@
 .StoryWall {
   flex: 1 1 auto;
   padding: 160px 80px 60px 40px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .StoryWall-text {
@@ -11,7 +11,7 @@
 
 .StoryWall-main-info {
   position: sticky;
-  top: 0;
+  top: -30;
 }
 
 .StoryWall-title {

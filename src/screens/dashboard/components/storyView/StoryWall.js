@@ -22,18 +22,19 @@ const StoryWall = props => {
         <div className="StoryWall-excerpt">{props.book.excerpt}</div>
       </div>
 
-      <div className="Journey-header">Journey</div>
       <div className="Journey-container">
+        <div className="Journey-header">Journey</div>
         <Journey journey={{
             history: [
               { user: "Paul", note: "Book created.", avatar: 'https://source.unsplash.com/random/200x200' },
               { user: "Jordan", note: "This book is great!", avatar: 'https://source.unsplash.com/random/200x200'},
               { user: "Mike", note: "Paul bought this one for me, and I think you could learn alot from it.", avatar: 'https://source.unsplash.com/random/200x200'},
+              { user: "Sam", note: "This is probably the best book of the year!", avatar: 'https://source.unsplash.com/random/200x200'}
             ],
-            here: { user: "Sam", note: "This is probably the best book of the year!", avatar: 'https://source.unsplash.com/random/200x200'},
             sentTo: ["Hide", "Doug"],
             impact: 10
           }} />
+        <div className="Journey-header">Impact</div>
       </div>
     </div>
   );

@@ -35,3 +35,13 @@
     transform: scale(0.7);
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .StoryRail {
+    flex: 0 0 250px;
+  }
+  .StoryRail-cover {
+    width: 200px;
+    height: 300px;
+  }
+}

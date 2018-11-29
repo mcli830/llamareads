@@ -43,6 +43,11 @@
   width: 100%;
   height: 100%; }
 
+.flex-center-single {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 @keyframes fadeIn {
   from {
     opacity: 0; }
@@ -730,7 +735,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   animation: fadeIn 300ms ease-out; }
 
 .Story-indicator-map {
@@ -775,7 +780,8 @@
   width: 10px;
   border-radius: 50%;
   background-color: #484848;
-  margin-left: 50px; }
+  margin-left: 50px;
+  transition: 300ms; }
 
 .StoryIndicator-tail {
   position: absolute;
@@ -784,7 +790,8 @@
   height: 70px;
   width: 2px;
   background-color: #484848;
-  z-index: -1; }
+  z-index: -1;
+  opacity: 0.6; }
 
 .StoryIndicator-ring {
   height: 30px;
@@ -793,7 +800,8 @@
   left: -11px;
   top: -11px;
   border-radius: 50%;
-  border: 1px solid #f76f6f; }
+  border: 1px solid #f76f6f;
+  transition: 300ms; }
 
 .StoryIndicator-text {
   font-family: "Lato";
@@ -802,8 +810,7 @@
   position: absolute;
   left: 50px;
   bottom: calc(50% - 8px);
-  color: #484848;
-  opacity: 0.2; }
+  transition: 300ms; }
 
 .StoryRail {
   flex: 0 0 500px;
@@ -839,10 +846,16 @@
     margin-top: 0;
     transform: scale(0.7); }
 
+@media only screen and (max-width: 1200px) {
+  .StoryRail {
+    flex: 0 0 250px; }
+
+  .StoryRail-cover {
+    width: 200px;
+    height: 300px; } }
 .StoryWall {
   flex: 1 1 auto;
-  padding: 160px 80px 60px 40px;
-  overflow-y: scroll; }
+  padding: 160px 80px 60px 40px; }
 
 .StoryWall-text {
   font-family: "Lato";
@@ -852,7 +865,7 @@
 
 .StoryWall-main-info {
   position: sticky;
-  top: 0; }
+  top: -30; }
 
 .StoryWall-title {
   font-family: "Lato";
@@ -877,56 +890,71 @@
 .Journey-container {
   width: 100%; }
 
+.Journey-header {
+  font-family: "Julius Sans One";
+  font-size: 40px;
+  color: #484848;
+  text-align: center;
+  margin: 50px 16% 20px 0; }
+
 .Journey {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100%; }
+  width: 100%;
+  padding: 50px 0; }
 
-.Journey-header {
-  font-family: "Julius Sans One";
-  font-size: 40px;
-  color: #484848;
-  text-align: center;
-  margin-top: 50px; }
+.Journey-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
-.JourneyNode-tail {
+.Journey-timeline-svg {
   position: absolute;
-  border-radius: 10px;
-  bottom: 50%;
-  left: calc(50% - 2px);
-  width: 4px;
-  height: 300px;
-  background-color: #484848;
-  z-index: -1; }
+  top: 0;
+  height: 100%;
+  left: 40%; }
+
+.JourneyNode-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
 
 .JourneyNode {
+  width: 100%;
   position: relative;
-  margin-top: 200px;
-  height: 100px;
-  width: 100px; }
-  .JourneyNode:first-child {
-    margin-top: 100px; }
-    .JourneyNode:first-child .JourneyNode-tail {
-      height: 0; }
+  height: 200px;
+  display: flex;
+  flex-direction: row; }
+
+.JourneyNode-user-container {
+  flex: 0 0 40%; }
+
+.JourneyNode-avatar-container {
+  flex: 0 0 150px; }
+
+.JourneyNode-note-container {
+  flex: 1 1 auto; }
 
 .JourneyNode-username {
   font-family: "Lato";
   font-size: 16px;
   color: #484848;
-  color: #a8d0e6;
-  position: absolute;
-  right: 200%;
-  top: 50%;
-  height: 20px;
-  width: auto; }
+  position: absolute; }
+
+.JourneyNode-note {
+  font-family: "Lato";
+  font-size: 16px;
+  color: #484848;
+  opacity: 0.1;
+  background-color: #cbc9c2;
+  transition: 300ms; }
 
 .JourneyNode-avatar {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -939,8 +967,7 @@
   cursor: pointer; }
   .JourneyNode-avatar:hover {
     transform: scale(1.3); }
-
-.JourneyNode:last-child {
-  margin-bottom: 200px; }
+    .JourneyNode-avatar:hover ~ .JourneyNode-note {
+      opacity: 1; }
 
 /*# sourceMappingURL=base.css.map */
