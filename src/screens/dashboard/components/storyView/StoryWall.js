@@ -26,15 +26,21 @@ const StoryWall = props => {
         <div className="Journey-header">Journey</div>
         <Journey journey={{
             history: [
-              { user: "Paul", note: "Book created.", avatar: 'https://source.unsplash.com/random/200x200' },
-              { user: "Jordan", note: "This book is great!", avatar: 'https://source.unsplash.com/random/200x200'},
-              { user: "Mike", note: "Paul bought this one for me, and I think you could learn alot from it.", avatar: 'https://source.unsplash.com/random/200x200'},
-              { user: "Sam", note: "This is probably the best book of the year!", avatar: 'https://source.unsplash.com/random/200x200'}
+              { user: "Paul", note: "The journey begins.", avatar: 'https://source.unsplash.com/random/200x200' },
+              { user: "Jordan", note: "Paul bought this one for me, and I think you could learn alot from it.", avatar: 'https://source.unsplash.com/random/200x200'},
             ],
-            sentTo: ["Hide", "Doug"],
-            impact: 10
+            sentTo: ["Hide", "Doug"]
           }} />
         <div className="Journey-header">Impact</div>
+        <div
+          id="Journey-impact"
+          className="Journey-impact"
+        >
+          <div className="Journey-impact-number">
+            <div className="border-rotate" />
+            3
+          </div>
+        </div>
       </div>
     </div>
   );

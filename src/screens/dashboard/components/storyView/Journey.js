@@ -28,11 +28,6 @@ const Journey = (props) => (
         {props.journey.history.map((node, index) => <JourneyNode key={index} node={node} />)}
       </div>
     </div>
-    <div
-      id="Journey-impact"
-      className="Journey-impact"
-      data-impact={props.journey.impact}
-    />
   </div>
 );
 

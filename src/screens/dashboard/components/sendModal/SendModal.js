@@ -77,7 +77,6 @@ const SendModal = props => {
       <div className="SendForm">
         <div className="SendForm-search">
           <input
-            id="send-friend-input"
             placeholder="Type in your friend’s name"
             id="SendForm-search-input"
             value={props.receiver}
@@ -104,7 +103,7 @@ const SendModal = props => {
                       value={user.id}
                     />
                     <div className="Search-friend-results">
-                      {user.displayName}
+                      <i className="fas fa-paper-plane"></i> {user.displayName}
                     </div>
                   </div>
                 ))[0]}

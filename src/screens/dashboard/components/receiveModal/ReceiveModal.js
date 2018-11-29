@@ -36,13 +36,14 @@ const enhance = compose(
   connect(({ view, dispatch }) => ({ view, dispatch })),
   withHandlers({
     receiveBook:  props => ({ auth }) =>
-      props.firestore.update({ collection: 'userBooks', doc: props.view.book.id }, {inbox: false})
+      props.firestore.update({ collection: 'userBooks', doc: props.view.inbox }, {inbox: false})
   })
 );
 
 const ReceiveModal = (props) => {
   return (
     <div className="ReceiveModal">
+    {console.log(props)}
       <BookCard book={props.view.book} viewStory={()=>props.dispatch(viewStory(props.view.book, props.view.journey))} />
       <div className="SenderNote">
         <div className="SenderNote-text">

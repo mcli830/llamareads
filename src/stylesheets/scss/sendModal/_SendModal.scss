@@ -6,6 +6,7 @@
 .SendForm-search{
   flex: 0 0 80px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 #SendForm-search-input {
@@ -24,8 +25,11 @@
 
 .divUsername {
   position: absolute;
-  top: 100%;
-  left: 0;
+  bottom: calc(100% - 10px);
+  margin-left: 50px;
+  width: calc(100% - 140px);
+  padding: 10px 20px;
+  color: $primary;
 }
 
 .SendForm-note {
