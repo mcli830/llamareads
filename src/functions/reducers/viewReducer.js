@@ -11,13 +11,14 @@ export default (state = {
       return {
         ...state,
         modal: action.payload.modal,
-        book: action.payload.book
+        book: action.payload.book,
+        note: action.payload.note || state.note
       }
     case 'VIEW_STORY':
       return {
         ...state,
         story: action.payload.story,
-        book: action.payload.book,
+        book: action.payload.book || state.book,
         journey: action.payload.journey
       }
     default:

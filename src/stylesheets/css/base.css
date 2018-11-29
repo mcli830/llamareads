@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Karla|Fredericka+the+Great|Gentium+Book+Basic|Goudy+Bookletter+1911|Julius+Sans+One|Libre+Baskerville|Metamorphous|Raleway|Uncial+Antiqua");
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  resize: none; }
 
 .fill-container {
   width: 100%;
@@ -665,7 +666,7 @@
   left: 0; }
 
 .SendForm-note {
-  flex: 0 0 80px;
+  flex: 1 0 auto;
   margin-bottom: 40px; }
 
 #SendForm-note-input {
@@ -673,7 +674,6 @@
   font-size: 20px;
   color: #484848;
   font-weight: 100;
-  height: 280px;
   display: block;
   width: 86%;
   padding: 10px;
@@ -791,7 +791,7 @@
   align-items: flex-start; }
 
 .Story-exit {
-  position: absolute;
+  position: fixed;
   top: 30px;
   right: 30px;
   height: 30px;

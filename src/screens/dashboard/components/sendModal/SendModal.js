@@ -59,7 +59,7 @@ const enhance = compose(
 
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })
-      // props.firestore.update({ 
+      // props.firestore.update({
       //   collection: 'journey', where: ['id', '==', props.view.journey],
       // }, {timeline: props.view.journeyTimeline.timeline.push({user: props.auth.uid, note: props.note})})
     },
@@ -74,7 +74,6 @@ const enhance = compose(
 const SendModal = props => {
   return (
     <div className="SendModal">
-    {console.log(props.view)}
       <div className="SendForm">
         <div className="SendForm-search">
           <input
@@ -113,11 +112,11 @@ const SendModal = props => {
 
         <div className="SendForm-note">
           <textarea
-            id="send-note-input"
             placeholder="Add a short note"
             id="SendForm-note-input"
             value={props.note}
             onChange={e => props.noteChange(e)}
+            rows="10"
           />
         </div>
       </div>
