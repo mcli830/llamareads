@@ -24,10 +24,6 @@ const Shelf = (props) => {
           <div className="Shelf-header">My Books</div>
         </div>
         <BookList />
-        <div className="Shelf-right">
-          <BookPlaceholder />
-          <div className="Llama-container"></div>
-        </div>
     </div>
     </div>
   );

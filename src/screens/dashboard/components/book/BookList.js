@@ -40,7 +40,6 @@ const BookList = (props) => (
               key={book.id}
               book={book.book}
               journey={book.journey}
-              color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
             />
           ))}
   </div>
