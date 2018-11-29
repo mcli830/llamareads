@@ -1,0 +1,41 @@
+.LoginPage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../images/Llama_background.png');
+}
+
+.Login-form {
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > * {
+    margin: 10px 0;
+  }
+}
+
+.Login-brand {
+  font-family: $font-logo;
+  font-size: 40px;
+  font-weight: bold;
+  color: $primary;
+}
+
+.Login-logo {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../images/llama-logo.png')
+}
+
+.GoogleButton-wrapper {
+  margin-left: -10px;
+}
