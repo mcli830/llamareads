@@ -48,8 +48,9 @@ class ModalContainer extends React.Component {
             title={
               <ModalBaseTitle
                 title={this.props.view.book.book.title}
-                prefix="Send   "
-                suffix="   to..."
+                prefix=""
+                prefix="Send "
+                suffix=" to..."
               />
             }
           />
@@ -59,7 +60,13 @@ class ModalContainer extends React.Component {
           <ModalBase
             exit={this.exitModal}
             content={<ReceiveModal exit={this.exitModal} />}
-            title="Receive"
+            title={
+              <ModalBaseTitle
+                title={this.props.view.book.title}
+                prefix="Received "
+                suffix=""
+              />
+            }
           />
         );
       default:
