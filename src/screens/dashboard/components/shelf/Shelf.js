@@ -11,45 +11,26 @@ import viewModal from "../../../../functions/actions/viewModal";
 // linked component
 import ShelfHeader from "./ShelfHeader";
 import BookList from "../book/BookList";
+import BookPlaceholder from "../book/BookPlaceholder";
 
 // css
 import "../../../../stylesheets/css/base.css";
-
-//compose
-
-const enhance = compose(
-  connect(({ firebase: { auth } }) => ({ auth })),
-  firestoreConnect(({ auth }) => [
-    {
-      collection: 'usersBooks',
-      where: [
-        ['inbox', '==', false],
-        ['user', '==', auth.uid]
-      ]
-    }
-  ]),
-  connect(({ firestore }) => ({
-    userBooks: firestore.ordered.usersBooks
-  })),
-  connect(({dispatch}) => ({dispatch}))
-);
 
 const Shelf = (props) => {
   return (
     <div className="Shelf-wrapper">
       <div className="Shelf">
-        <div
-          className="Shelf-platform"
-          style={{width: (!isLoaded(props.userBooks) ? "calc(100% - 20px)" : (Array.from(document.querySelectorAll('.Book')).length * 94) + 600 )
-          }}
-        >
-          <ShelfHeader add={() => props.dispatch(viewModal('add'))} />
+        <div className="Shelf-platform">
+          <div className="Shelf-header">My Books</div>
         </div>
         <BookList />
-        <div className="Llama-container"><img src={require('../../../../images/Llama_drawing_light.png')}/></div>
-      </div>
+        <div className="Shelf-right">
+          <BookPlaceholder />
+          <div className="Llama-container"></div>
+        </div>
+    </div>
     </div>
   );
 };
 
-export default enhance(Shelf);
+export default Shelf;

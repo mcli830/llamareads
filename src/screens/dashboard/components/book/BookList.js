@@ -42,7 +42,6 @@ const BookList = (props) => (
               color={`hsl(${Math.floor(Math.random() * 360 + 1)},70%,70%)`}
             />
           ))}
-    <BookPlaceholder />
   </div>
 )
 
