@@ -43,14 +43,19 @@
   background-color: white;
   padding: 15px 35px;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 .ListEntry-text {
   display: flex;
   flex-direction: column;
-  @include textStyle(20px);
+  @include textStyle(18px);
   flex: 1 1;
+}
+
+.ListEntry-text-message {
+  margin-top: -20px;
+  padding-left: 10px;
 }
 
 .ListEntry-text-date {
@@ -66,7 +71,7 @@
 }
 
 .ListEntry-view-btn {
-  @include textStyle(22px);
+  @include textStyle(18px);
   border: none;
-  padding-top: 22px;
+  padding-top: 14px;
 }

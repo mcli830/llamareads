@@ -130,16 +130,19 @@
   border: 1px solid #E0E0E0;
   background-color: white;
   padding: 15px 35px;
-  align-items: center;
-  justify-content: space-between; }
+  align-items: center; }
 
 .ListEntry-text {
   display: flex;
   flex-direction: column;
   font-family: "Lato";
-  font-size: 20px;
+  font-size: 18px;
   color: #484848;
   flex: 1 1; }
+
+.ListEntry-text-message {
+  margin-top: -20px;
+  padding-left: 10px; }
 
 .ListEntry-text-date {
   font-size: 16px;
@@ -153,10 +156,10 @@
 
 .ListEntry-view-btn {
   font-family: "Lato";
-  font-size: 22px;
+  font-size: 18px;
   color: #484848;
   border: none;
-  padding-top: 22px; }
+  padding-top: 14px; }
 
 .Avatar {
   background-color: #cbc9c2;
