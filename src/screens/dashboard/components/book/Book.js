@@ -28,7 +28,7 @@ const Book = (props) => {
       </div>
       <div className="Book-send" onClick={(e) => {
           e.stopPropagation();
-          props.dispatch(viewModal('send',  props.book))
+          props.dispatch(viewModal('send',  props))
         }}
       >
         <i className="fas fa-paper-plane no-click" />

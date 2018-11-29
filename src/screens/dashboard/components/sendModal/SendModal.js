@@ -31,26 +31,37 @@ const enhance = compose(
       collection: "users"
     },
   ]),
+  firestoreConnect(({ view }) => [
+    {
+      collection: 'journey', where: ['id', '==', view.journey],
+      storeAs: 'journeyTimeline'
+    }
+  ]),
   connect(
     ({ firestore }) => ({
       users: firestore.ordered.users,
+      journey: firestore.ordered.journey
     })
   ),
   withState('note', 'writeNote', ''),
   withState('receiver', 'changeReceiver', ''),
   withState('uid', 'uidChange', ''),
   withHandlers({
-    sendBook:  props => ({ auth }) =>
+    sendBook:  props => ({ auth }) => {
       props.firestore.add("userBooks", {
         sender: props.auth.uid,
         senderName: props.auth.displayName,
         inbox: true,
-        book: props.view.book,
+        book: props.view.book.book,
         user: document.getElementById("uid").value,
         note: props.note,
         sendDate: props.firestore.FieldValue.serverTimestamp(),
         journeyBook: {sender: props.auth.displayName, note: props.note}
-      }),
+      })
+      // props.firestore.update({ 
+      //   collection: 'journey', where: ['id', '==', props.view.journey],
+      // }, {timeline: props.view.journeyTimeline.timeline.push({user: props.auth.uid, note: props.note})})
+    },
     noteChange: props => event => {
       props.writeNote(event.target.value)
     },
@@ -67,6 +78,7 @@ const enhance = compose(
 const SendModal = (props) => {
   return (
     <div className="SendModal">
+    {console.log(props.view)}
       <div className="SendForm">
         <div className="SendForm-search">
           <input id="send-friend-input" placeholder="Type in your friend’s name" id="SendForm-search-input" value={props.receiver} onChange={(e)=>props.receiverChange(e)} />
