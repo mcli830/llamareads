@@ -194,7 +194,7 @@
   text-align: right;
   width: 400px;
   right: 200px;
-  position: absolute;
+  margin-right: 20px;
   cursor: pointer; }
   .Inbox:hover .Inbox-list {
     max-height: 400px;
@@ -541,7 +541,6 @@
   box-sizing: border-box;
   position: absolute;
   width: 90%;
-  max-height: 640px;
   max-width: 900px;
   background-color: #faf8f3;
   padding: 3%;
@@ -690,7 +689,8 @@
   margin: 10px 30px;
   flex: 0 1 160px;
   padding: 5px;
-  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.7); }
+  display: flex;
+  align-items: center; }
 
 .BookCard-cover-img {
   width: 100%; }
@@ -1034,10 +1034,10 @@
 
 .Journey-header {
   font-family: "Julius Sans One";
-  font-size: 40px;
+  font-size: 70px;
   color: #484848;
   text-align: center;
-  margin: 50px 16% 20px 0; }
+  margin: 0; }
 
 .Journey {
   position: relative;
@@ -1057,8 +1057,8 @@
 .Journey-timeline-svg {
   position: absolute;
   top: 0;
-  height: 100%;
-  left: 40%; }
+  height: 90%;
+  left: 50%; }
 
 .JourneyNode-container {
   height: 100%;
@@ -1074,7 +1074,11 @@
   flex-direction: row; }
 
 .JourneyNode-user-container {
-  flex: 0 0 40%; }
+  flex: 0 0 50%; }
+
+.JourneyNode-user {
+  font-size: 35px;
+  font-family: "Julius Sans One"; }
 
 .JourneyNode-right-container {
   flex: 1 1 auto;
@@ -1118,7 +1122,7 @@
 
 .JourneyNode-avatar {
   flex: 0 0 100px;
-  margin: 0 25px;
+  margin: 0 15px 0 60px;
   height: 100px;
   border-radius: 50%;
   box-sizing: border-box;

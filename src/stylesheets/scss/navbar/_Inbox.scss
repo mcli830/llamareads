@@ -36,7 +36,8 @@
   text-align: right;
   width: 400px;
   right: 200px;
-  position: absolute;
+  margin-right: 20px;
+  // position: absolute;
   cursor: pointer;
   &:hover .Inbox-list {
     max-height: 400px;
