@@ -21,7 +21,17 @@ const BookPlaceholder = (props) => {
       className="Book-placeholder"
       onClick={() => props.dispatch(viewModal('add'))}
     >
-      <div className="Book-add-btn" />
+    <div className="wrapper">
+      <div className="cube">
+        <div className="side  front"><i class="fas fa-plus"></i></div>
+        <div className="side   back"><i class="fas fa-plus"></i></div>
+        <div className="side  right"><i class="fas fa-plus"></i></div>
+        <div className="side   left"><i class="fas fa-plus"></i></div>
+        <div className="side    top"><i class="fas fa-plus"></i></div>
+        <div className="side bottom"><i class="fas fa-plus"></i></div>
+      </div>
+    </div>
+
     </div>
   );
 };
