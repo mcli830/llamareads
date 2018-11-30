@@ -49,9 +49,8 @@ $shadow-sm: 2px 2px 5px $shadow-alpha-light;
 
 $bookshelf: $light-gray;
 
-$book-height: 320px;
-$book-width-shelf: 80px;
-$book-width-open: $book-height * (2/3);
+$book-width: 200px;
+$book-height: $book-width * 1.5;
 $shelf-height: 400px;
 $shelf-list-width: 70vw;
 
@@ -68,4 +67,12 @@ $jnode: 100px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@mixin overlay() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }

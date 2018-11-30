@@ -87,7 +87,7 @@
 .Book-placeholder {
   margin: 0 5px;
   height: $book-height;
-  width: $book-width-shelf;
+  width: $book-width;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,13 +109,4 @@
     z-index: 2;
     opacity: 0.8;
   }
-}
-
-.Llama-container {
-  height: 380px;
-  width: 380px;
-  margin-bottom: -48px;
-  background-image: url('../../images/Llama_drawing_light.png');
-  background-size: cover;
-  background-position: center;
 }
