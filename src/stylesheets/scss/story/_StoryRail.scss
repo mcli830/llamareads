@@ -21,9 +21,20 @@
   z-index: -1;
 }
 
+.StoryRail-buy-btn {
+  margin-top: 20px;
+}
+
+.StoryRail-buy-btn a {
+  width: 20px;
+  height: 20px;
+  text-decoration: none;
+  // position:
+}
+
 .StoryRail-cover {
   background-color: $bg;
-  position: absolute;
+  // position: absolute;
   background-size: cover;
   background-position: center;
   background-repeat: none;
@@ -31,10 +42,10 @@
   height: 450px;
   box-shadow: $shadow;
   transition: 400ms;
-  transform-origin: 50% 0;
+  transform-origin: 50% 100%;
   &:hover {
     margin-top: 0;
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
 }
 

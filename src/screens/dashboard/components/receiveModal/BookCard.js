@@ -38,7 +38,7 @@ const BookCard = (props) => {
         <div className="BookCard-author">
           Author: <span id="BookCard-title-author"> {props.book.author}</span>
         </div>
-        <div className="BookCard-description">
+        <div className="BookCard-description" style={{"-webkit-box-orient": "vertical"}}>
           {props.book.excerpt}
         </div>
         <button className="BookCard-details btn" onClick={()=>props.viewStory(props.book)}>
