@@ -23,7 +23,7 @@ const StoryWall = props => {
       </div>
 
       <div className="Journey-container">
-        <div className="Journey-header">Journey</div>
+        <div className="Journey-header">Book's Journey</div>
         <Journey journey={{
             history: [
               { user: "Paul", note: "The journey begins.", avatar: 'https://source.unsplash.com/random/200x200' },

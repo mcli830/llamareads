@@ -7,8 +7,9 @@ $jnode-stagger: $jnode / 8;
 }
 
 .Journey-header {
-  @include textStyle(70px, "Julius Sans One");
+  @include textStyle(40px);
   text-align: center;
+  font-weight: 600;
   margin: 0;
   // margin: 50px 16% 20px 0;
 }
@@ -32,7 +33,7 @@ $jnode-stagger: $jnode / 8;
 
 .Journey-timeline-svg {
   position: absolute;
-  top: 0;
+  top: 25px;
   height: 90%;
   left: 50%;
 }
@@ -57,8 +58,7 @@ $jnode-stagger: $jnode / 8;
 }
 
 .JourneyNode-user {
-  font-size: 35px;
-  font-family: "Julius Sans One";
+  @include textStyle(30px);
 }
 
 .JourneyNode-right-container {
