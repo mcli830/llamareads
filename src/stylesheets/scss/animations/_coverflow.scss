@@ -1,0 +1,57 @@
+$book-half: $book-width / 2;
+$book-half-height: $book-height / 2;
+
+.carousel {
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.carousel .Book {
+  top: calc(50% - $book-half-height);
+  left: calc(50% - $book-half);
+  transform-style: preserve-3d;
+}
+
+.carousel .Book.hideLeft {
+  opacity: 0;
+  z-index: -1;
+  transform: scale(0.8);
+}
+
+.carousel .Book.hideRight {
+  left: 100%;
+  opacity: 0;
+  z-index: -1;
+  transform: scale(0.8);
+}
+
+.carousel .Book.left2 {
+  z-index: 4;
+  left: calc(15% - $book-half);
+  transform: scale(0.9);
+  opacity: .7;
+}
+
+.carousel .Book.left1 {
+  z-index: 5;
+  left: calc(30% - $book-half);
+  transform: scale(1);
+}
+
+.carousel .Book.selected {
+  z-index: 10;
+  transform: scale(1.2) transformY(45deg);
+}
+
+.carousel .Book.right1 {
+  z-index: 5;
+  left: calc(70% - $book-half);
+  transform: scale(1);
+}
+
+.carousel .Book.right2 {
+  z-index: 4;
+  left: calc(85% - $book-half);
+  transform: scale(0.9);
+  opacity: .7;
+}

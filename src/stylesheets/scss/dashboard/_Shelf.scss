@@ -1,29 +1,29 @@
 .ShelfList {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
   z-index: 0;
+  height: 100%;
 }
 
 .Shelf-wrapper {
+  @include fillContainer;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 100%;
+  position: relative;
 }
 
 .Shelf {
   position: absolute;
-  height: $shelf-height;
-  padding: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
+  height: 100vh;
   box-sizing: content-box;
   position: relative;
-  width: 100%;
+  width: 100vw;
 }
 
 .Shelf-name {
@@ -70,8 +70,8 @@
 }
 
 .BookList {
-  flex: 1 0 auto;
-  max-width: 70%;
+  height: 100%;
+  width: 100%;
   transition: 300ms;
 }
 

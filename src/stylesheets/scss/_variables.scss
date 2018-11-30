@@ -57,6 +57,12 @@ $shelf-list-width: 70vw;
 $inode: 10px;
 $jnode: 100px;
 
+$jhead-push: 16%;
+$jsvg-push: 40%;
+
+
+$bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
+
 @mixin textStyle($size, $font: $font-main) {
   font-family: $font;
   font-size: $size;
@@ -68,11 +74,19 @@ $jnode: 100px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
+@mixin fillContainer() {
+  height: 100%;
+  width: 100%;
+}
 @mixin overlay() {
+  @include fillContainer;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+}
+@mixin flex($dir: col, $justify: center, $align: center){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
 }
