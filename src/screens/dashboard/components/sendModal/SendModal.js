@@ -49,7 +49,7 @@ const enhance = compose(
         user: document.getElementById("uid").value,
         note: props.note,
         sendDate: new Date().toString(),
-
+        journey: props.view.book.journey,
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })
       // props.firestore.update({
