@@ -132,9 +132,11 @@ class BookList extends React.Component {
     return (
       <div className="BookList Angled">
         <div className="Angled-wrapper">
-        {!isLoaded(this.props.userBooks) || isEmpty(this.props.userBooks)
+        {!isLoaded(this.props.userBooks)
           ? <div className="spinner-square" />
-          : this.props.userBooks.map((book, index) => (
+          : isEmpty(this.props.userBooks)
+          ? <div className="shelf-alert"><div>Add a book to your collection</div></div>
+          : this.props.userBooks.sort((a,b)=> new Date(b.date) - new Date(a.date)).map((book, index) => (
               <Book
                 key={book.id}
                 book={book.book}

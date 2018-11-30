@@ -28,7 +28,7 @@ const ListEntry = (props) => {
   return (
     <div className="ListEntry">
       <div className="ListEntry-text">
-        {/* <div className="ListEntry-text-date">{(props.date.toDate().getMonth()+1).toString() + "." + props.date.toDate().getDate().toString() + "." + props.date.toDate().getFullYear().toString()}</div> */}
+        <div className="ListEntry-text-date">{new Date(props.date).toDateString()}</div>
         <div className="ListEntry-text-message">
           {props.inbox.senderName} sent you a book
         </div>

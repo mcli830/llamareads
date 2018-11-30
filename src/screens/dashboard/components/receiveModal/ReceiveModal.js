@@ -38,7 +38,7 @@ const enhance = compose(
     receiveBook: props => ({ auth }) =>
       props.firestore.update(
         { collection: "userBooks", doc: props.view.inbox },
-        { inbox: false }
+        { inbox: false, date: new Date().toDateString() }
       )
   })
 );
