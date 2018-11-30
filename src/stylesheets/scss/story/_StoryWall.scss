@@ -6,7 +6,8 @@
 
 .StoryWall-text {
   @include textStyle(24);
-  min-height: 65vh;
+  min-height: 58vh;
+  margin-bottom: 30px;
 }
 
 .StoryWall-main-info {
@@ -28,5 +29,10 @@
 }
 
 .StoryWall-excerpt {
-  @include textStyle(20px);
+  @include textStyle(22px);
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5em;
 }
