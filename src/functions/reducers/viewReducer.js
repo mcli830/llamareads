@@ -16,7 +16,8 @@ export default (state = {
         book: action.payload.book,
         note: action.payload.note || state.note,
         inbox: action.payload.inbox,
-        date: action.payload.date || state.date
+        date: action.payload.date || state.date,
+        journey: action.payload.journey || state.journey
       }
     case 'VIEW_STORY':
       return {

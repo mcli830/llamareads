@@ -46,6 +46,7 @@ const enhance = compose(
 const ReceiveModal = props => {
   return (
     <div className="ReceiveModal">
+    {console.log(props)}
       <BookCard
         book={props.view.book}
         viewStory={() =>

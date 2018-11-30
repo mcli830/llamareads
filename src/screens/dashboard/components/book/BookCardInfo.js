@@ -9,14 +9,14 @@ import "../../../../stylesheets/css/base.css";
 
 const BookCardInfo = ({book}) => {
   return (
-    <div className="BookCardInfo">
-      <div className="BookCard-title">
+    <div className="BookCardInfo BookSearchCardInfo">
+      <div className="BookCard-title" >
         <p>{book.title}</p>
       </div>
-      <div className="BookCard-author">
+      <div className="BookCard-author"  >
         <p>{book.author}</p>
       </div>
-      <div className="BookCard-description">
+      <div className="BookSearchCard-description" style={{"-webkit-box-orient": "vertical"}}>
       {book.excerpt}
       </div>
     </div>
