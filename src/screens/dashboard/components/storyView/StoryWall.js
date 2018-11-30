@@ -16,7 +16,7 @@ const enhance = compose(
   connect(({view, dispatch}) => ({view, dispatch})),
   firestoreConnect(({ view }) => [
     {
-      collection: 'journey', where: ['id', '==', view.journey],
+      collection: 'journey', where: ['idLink', '==', view.journey],
       storeAs: 'journeyTimeline'
     }
   ]),

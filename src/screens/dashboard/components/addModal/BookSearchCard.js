@@ -43,7 +43,7 @@ const enhance = compose(
         date: new Date().toString()
       })
       props.firestore.add("journey", {
-        id: uuid,
+        idLink: uuid,
         timeline: [{user: props.auth.displayName, note: 'The journey begins.', picture: props.auth.photoURL, date: new Date().toString()}]
       })
     }
