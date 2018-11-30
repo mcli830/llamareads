@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore } from "react-redux-firebase";
+import { withFirestore, firestoreConnect } from "react-redux-firebase";
+import { connect } from "react-redux";
 
 // components
 import BookCardInfo from "../book/BookCardInfo";
@@ -11,7 +12,23 @@ import Journey from "./Journey";
 // css
 import "../../../../stylesheets/css/base.css";
 
-const StoryWall = props => {
+const enhance = compose(
+  connect(({view, dispatch}) => ({view, dispatch})),
+  firestoreConnect(({ view }) => [
+    {
+      collection: 'journey', where: ['id', '==', view.journey],
+      storeAs: 'journeyTimeline'
+    }
+  ]),
+  connect(
+    ({ firestore }) => ({
+      journeyTimeline: firestore.ordered.journeyTimeline,
+    })
+  ),
+  connect(({ firebase: { auth } }) => ({ auth })),
+);
+
+const StoryWall = (props)  => {
   return (
     <div className="StoryWall">
       <div className="StoryWall-text">
@@ -23,6 +40,7 @@ const StoryWall = props => {
       </div>
 
       <div className="Journey-container">
+      {console.log(props.journeyTimeline)}
         <div className="Journey-header">Journey</div>
         <Journey journey={{
             history: [
@@ -38,4 +56,4 @@ const StoryWall = props => {
   );
 };
 
-export default StoryWall;
+export default enhance(StoryWall);

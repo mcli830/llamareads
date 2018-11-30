@@ -20,7 +20,7 @@ const Book = (props) => {
   return (
     <div
       className={`Book Angled-slide ${props.flow}`}
-      onClick={() => props.dispatch(viewStory(props.book))}>
+      onClick={() => props.dispatch(viewStory(props.book, props.journey))}>
       <div className="Book-cover">
         <img src={props.book.cover} />
         <div className="Book-cover-overlay"></div>

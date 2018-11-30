@@ -25,7 +25,6 @@ const enhance = compose(
 );
 
 const ListEntry = (props) => {
-  console.log(props);
   return (
     <div className="ListEntry">
       <div className="ListEntry-text">
