@@ -31,7 +31,7 @@ const enhance = compose(
     },
     {
       collection: "journey",
-      where: ["id", "==", view.book.journey],
+      where: ["idLink", "==", view.book.journey],
       storeAs: "journeyTimeline"
     }
   ]),
@@ -57,10 +57,10 @@ const enhance = compose(
         journey: props.view.book.journey,
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })
-      // console.log(props.journeyTimeline.__proto__);
+      console.log(props.journeyTimeline.map(journey => journey.id));
       props.firestore.update({
-        collection: 'journey', where: ['id', '==', props.view.journey],
-      }, {timeline: props.journeyTimeline.push({user: props.auth.uid, note: props.note})})
+        collection: 'journey', doc: props.journeyTimeline[0].id,
+      }, {timeline: props.journeyTimeline[0].timeline.concat({user: props.auth.displayName, note: props.note, date: new Date().toString(), picture: props.auth.photoURL})})
     },
     noteChange: props => event => {
       props.writeNote(event.target.value);
