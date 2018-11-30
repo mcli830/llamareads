@@ -132,8 +132,10 @@ class BookList extends React.Component {
     return (
       <div className="BookList Angled">
         <div className="Angled-wrapper">
-        {!isLoaded(this.props.userBooks) || isEmpty(this.props.userBooks)
+        {!isLoaded(this.props.userBooks)
           ? <div className="spinner-square" />
+          : isEmpty(this.props.userBooks)
+          ? <div className="shelf-alert"><div>Add a book to your collection</div></div>
           : this.props.userBooks.map((book, index) => (
               <Book
                 key={book.id}
