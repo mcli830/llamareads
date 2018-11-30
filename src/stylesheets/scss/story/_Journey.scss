@@ -7,9 +7,11 @@ $jnode-stagger: $jnode / 8;
 }
 
 .Journey-header {
-  @include textStyle(40px, "Julius Sans One");
+  @include textStyle(40px);
   text-align: center;
-  margin: 50px 16% 20px 0;
+  font-weight: 600;
+  margin: 0;
+  // margin: 50px 16% 20px 0;
 }
 
 .Journey {
@@ -39,9 +41,9 @@ $jnode-stagger: $jnode / 8;
 
 .Journey-timeline-svg {
   position: absolute;
-  top: 0;
-  height: 100%;
-  left: 40%;
+  top: 25px;
+  height: 90%;
+  left: 50%;
 }
 
 .JourneyNode-container {
@@ -60,7 +62,11 @@ $jnode-stagger: $jnode / 8;
 }
 
 .JourneyNode-user-container {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
+}
+
+.JourneyNode-user {
+  @include textStyle(30px);
 }
 
 .JourneyNode-right-container {
