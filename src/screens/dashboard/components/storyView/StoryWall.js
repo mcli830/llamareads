@@ -42,9 +42,11 @@ const StoryWall = (props)  => {
       <div id="journey" className="Journey-container">
         <div className="Journey-header">Book's Journey</div>
         {console.log(props.journeyTimeline)}
-        { isLoaded(props.journeyTimeline) && !isEmpty(props.journeyTimeline)
-          ? <Journey journey={props.journeyTimeline[0].timeline} />
-          : <div className="spinner-square" />
+        { !isLoaded(props.journeyTimeline) 
+          ? <div className="spinner-square" />
+          : isEmpty(props.journeyTimeline)
+          ? "This book is a ghost."
+          : <Journey journey={props.journeyTimeline[0].timeline} />
         }
         {/* <div className="Journey-header">Impact</div>
         <div id="Journey-impact" className="Journey-impact"></div> */}
