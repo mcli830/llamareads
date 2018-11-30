@@ -23,7 +23,7 @@
 }
 
 .BookCard-info {
-  @include textStyle(10px);
+  @include textStyle(15px);
   padding: 10px 20px;
   margin-left: 30px;
   flex: 0 0 50%;
@@ -32,23 +32,37 @@
 
 .BookCard-title {
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 100;
   margin-bottom: 2px;
-  color: #979797;
+  color: $dark;
+}
+
+#BookCard-title-name {
+  color: $dark;
+  font-weight: 600;
+  padding-left: 15px;
 }
 
 .BookCard-author {
   margin-bottom: 2px;
-  color: #979797;
+  color: $dark;
+  font-weight: 100;
+}
+
+#BookCard-title-author {
+  color: $dark;
+  font-weight: 600;
+  padding-left: 15px;
 }
 
 .BookCard-description {
   font-weight: lighter;
-  color: #979797;
+  color: $dark;
+
 }
 
 .BookCard-details {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 5px;
+  right: -15px;
 }

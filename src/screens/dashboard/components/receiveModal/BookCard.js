@@ -33,10 +33,10 @@ const BookCard = (props) => {
       </div>
       <div className="BookCard-info">
         <div className="BookCard-title">
-          Title: <strong>{props.book.title}</strong>
+          Title: <span id="BookCard-title-name"> {props.book.title}</span>
         </div>
         <div className="BookCard-author">
-          Author: <strong>{props.book.author}</strong>
+          Author: <span id="BookCard-title-author"> {props.book.author}</span>
         </div>
         <div className="BookCard-description">
           {props.book.excerpt}
