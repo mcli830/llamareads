@@ -11,7 +11,7 @@ const JourneyNode = (props) => {
   return (
     <div className="JourneyNode">
       <div className="JourneyNode-user-container">
-        <div className="JourneyNode-user-date">{new Date(props.node.date).toDateString()}</div>
+        <div className="JourneyNode-user-date">{new Date(props.node.date).toDateString().replace(/(\w+)\s(\w+)\s(\w+)\s(\w+)/, "$2 $4")}</div>
         <div className="JourneyNode-user-name">{props.node.user}</div>
       </div>
       <div className="JourneyNode-right-container">

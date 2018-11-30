@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
-import { withHandlers, branch, renderNothing } from "recompose";
+import { connect } from "react-redux";
+import { withState, withHandlers, branch, renderNothing } from "recompose";
 import { withFirestore } from "react-redux-firebase";
 
 // components
@@ -12,6 +13,8 @@ import StoryWall from "./StoryWall";
 // css
 import "../../../../stylesheets/css/base.css";
 import JourneyBackground from '../../../../images/Journey_background.png';
+
+
 
 const Story = props => {
   return (

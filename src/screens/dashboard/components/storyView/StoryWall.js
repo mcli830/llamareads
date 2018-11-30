@@ -39,7 +39,7 @@ const StoryWall = (props)  => {
         <div className="StoryWall-excerpt">{props.book.excerpt}</div>
       </div>
 
-      <div className="Journey-container">
+      <div id="journey" className="Journey-container">
         <div className="Journey-header">Book's Journey</div>
         { isLoaded(props.journeyTimeline)
           ? <Journey journey={props.journeyTimeline[0].timeline} />
