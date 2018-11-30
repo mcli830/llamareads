@@ -19,7 +19,7 @@ const UserMenu = ({auth, changeModal}) => {
   return (
     <div className="UserMenu">
       <Inbox changeModal={changeModal} />
-      <Avatar />
+      {/* <Avatar /> */}
     </div>
   );
 };
