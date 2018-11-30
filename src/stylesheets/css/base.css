@@ -441,6 +441,7 @@
   color: #484848;
   border: none;
   padding-top: 14px;
+  background-color: transparent;
 }
 
 .Avatar {
@@ -1059,7 +1060,7 @@
 .BookCard-details {
   position: absolute;
   bottom: 5px;
-  right: -15px;
+  right: 15px;
 }
 
 .SendForm {
@@ -1321,7 +1322,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 0;
   height: 100vh;
 }
 
