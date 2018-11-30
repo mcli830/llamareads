@@ -136,7 +136,7 @@ class BookList extends React.Component {
           ? <div className="spinner-square" />
           : isEmpty(this.props.userBooks)
           ? <div className="shelf-alert"><div>Add a book to your collection</div></div>
-          : this.props.userBooks.map((book, index) => (
+          : this.props.userBooks.sort((a,b)=> new Date(b.date) - new Date(a.date)).map((book, index) => (
               <Book
                 key={book.id}
                 book={book.book}

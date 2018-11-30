@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore, firestoreConnect } from "react-redux-firebase";
+import { withFirestore, firestoreConnect, isLoaded } from "react-redux-firebase";
 import { connect } from "react-redux";
 
 // components
@@ -41,14 +41,10 @@ const StoryWall = (props)  => {
 
       <div className="Journey-container">
         <div className="Journey-header">Book's Journey</div>
-      {console.log(props.journeyTimeline)}
-        <Journey journey={{
-            history: [
-              { user: "Paul", note: "The journey begins.", avatar: 'https://source.unsplash.com/random/200x200' },
-              { user: "Jordan", note: "Paul bought this one for me, and I think you could learn alot from it.", avatar: 'https://source.unsplash.com/random/200x200'},
-            ],
-            sentTo: ["Hide", "Doug"]
-          }} />
+        { isLoaded(props.journeyTimeline)
+          ? <Journey journey={props.journeyTimeline[0].timeline} />
+          : <div className="spinner-square" />
+        }
         {/* <div className="Journey-header">Impact</div>
         <div id="Journey-impact" className="Journey-impact"></div> */}
       </div>

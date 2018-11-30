@@ -14,20 +14,24 @@ const Journey = (props) => (
   <div className="Journey">
     <div className="Journey-timeline">
       <div className="svg-container">
-      <svg
-        className="Journey-timeline-svg"
-        width="10"
-        height="100%"
-        viewBox="0 0 10 10"
-        preserveAspectRatio="none">
-        <path stroke="#484848"
-              stroke-width="2"
-              fill="none"
-              d="M0 0 v10" />
-      </svg>
+      {props.journey.length > 1 ?
+        <svg
+          className="Journey-timeline-svg"
+          width="10"
+          height="100%"
+          viewBox="0 0 10 10"
+          preserveAspectRatio="none">
+          <path stroke="#484848"
+                stroke-width="2"
+                fill="none"
+                d="M0 0 v10" />
+            </svg>
+            : ''
+      }
       </div>
       <div className="JourneyNode-container">
-        {props.journey.history.map((node, index) => <JourneyNode key={index} node={node} />)}
+        {console.log(props.journey)}
+        {props.journey.map((node, index) => <JourneyNode key={index} node={node} />)}
       </div>
     </div>
   </div>

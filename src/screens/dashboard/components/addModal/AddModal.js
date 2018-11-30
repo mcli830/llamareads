@@ -51,11 +51,11 @@ const AddModal = (props) => {
       <div className="AddModal-search-list">
       {
         !isLoaded(props.addBooks)
-          ? ''
+          ? <div className="spinner-square" />
           : isEmpty(props.addBooks)
-            ? ''
+            ? 'No books!'
             : (
-              
+
               props.addBooks.filter(search => search.title.toLowerCase().includes(props.search.toLowerCase()) || search.author.toLowerCase().includes(props.search.toLowerCase())).map((book) =>
 
           <BookSearchCard changeModal={props.changeModal} key={book.id} book={book} />
