@@ -29,6 +29,7 @@ $alpha-strong: rgba(255,255,255,0.5);
 $primary: $red;
 $secondary: $dark-blue;
 $text: $dark;
+$text-light: $light-gray;
 $bg: $off-white;
 $textbox-border-color: $shadow-gray;
 $textbox-border-radius: 3px;
@@ -48,14 +49,19 @@ $shadow-sm: 2px 2px 5px $shadow-alpha-light;
 
 $bookshelf: $light-gray;
 
-$book-height: 320px;
-$book-width-shelf: 80px;
-$book-width-open: $book-height * (2/3);
+$book-width: 200px;
+$book-height: $book-width * 1.5;
 $shelf-height: 400px;
 $shelf-list-width: 70vw;
 
 $inode: 10px;
 $jnode: 100px;
+
+$jhead-push: 16%;
+$jsvg-push: 40%;
+
+
+$bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
 
 @mixin textStyle($size, $font: $font-main) {
   font-family: $font;
@@ -67,4 +73,20 @@ $jnode: 100px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+@mixin fillContainer() {
+  height: 100%;
+  width: 100%;
+}
+@mixin overlay() {
+  @include fillContainer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@mixin flex($dir: col, $justify: center, $align: center){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
 }

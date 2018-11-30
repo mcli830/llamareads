@@ -30,13 +30,6 @@ const enhance = compose(
       collection: "users"
     }
   ]),
-
-  firestoreConnect(({ view }) => [
-    {
-      collection: 'journey', where: ['id', '==', view.journey],
-      storeAs: 'journeyTimeline'
-    }
-  ]),
   connect(
     ({ firestore }) => ({
       users: firestore.ordered.users,
@@ -55,7 +48,7 @@ const enhance = compose(
         book: props.view.book.book,
         user: document.getElementById("uid").value,
         note: props.note,
-        sendDate: props.firestore.FieldValue.serverTimestamp(),
+        sendDate: new Date().toString(),
 
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })

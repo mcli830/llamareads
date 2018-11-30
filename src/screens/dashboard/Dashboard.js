@@ -57,6 +57,7 @@ const enhance = compose(
 const Dashboard = () => (
   <div className="Dashboard" style={{backgroundImage: `url(${Background})`}}>
     <ShelfList />
+    <div className="Llama-container"></div>
     <Navbar />
     <ModalContainer />
     <StoryContainer />

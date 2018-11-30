@@ -28,7 +28,7 @@ import "../../../../stylesheets/css/base.css";
 
 const enhance = compose(
   withFirestore,
-  firebaseConnect(),
+  firestoreConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
   connect(({view, dispatch}) => ({view, dispatch})),
   withHandlers({
@@ -39,11 +39,12 @@ const enhance = compose(
         user: props.auth.uid,
         journey: uuid,
         status: 'to_read',
-        inbox: false
+        inbox: false,
+        date: new Date().toString()
       })
       props.firestore.add("journey", {
         id: uuid,
-        timeline: [{user: props.auth.displayName, note: 'Journey Begin'}]
+        timeline: [{user: props.auth.displayName, note: 'The journey begins.', picture: props.auth.photoURL, date: new Date().toString()}]
       })
     }
   })

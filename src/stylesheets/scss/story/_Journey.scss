@@ -4,12 +4,16 @@ $jnode-stagger: $jnode / 8;
 
 .Journey-container {
   width: 100%;
+  padding: 50px 0;
+  border-radius: 5px;
 }
 
 .Journey-header {
-  @include textStyle(40px, "Julius Sans One");
+  @include textStyle(40px);
   text-align: center;
-  margin: 50px 16% 20px 0;
+  font-weight: 600;
+  margin: 0;
+  // margin: 50px 16% 20px 0;
 }
 
 .Journey {
@@ -19,7 +23,8 @@ $jnode-stagger: $jnode / 8;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  padding: 50px 0;
+  padding: 10px 0;
+  margin-bottom: 200px;
 }
 
 .Journey-timeline {
@@ -29,11 +34,19 @@ $jnode-stagger: $jnode / 8;
   align-items: center;
 }
 
+.svg-container {
+  position: absolute;
+  top: $jnode;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 200px);
+}
+
 .Journey-timeline-svg {
   position: absolute;
-  top: 0;
-  height: 100%;
-  left: 40%;
+  top: 25px;
+  height: 90%;
+  left: 50%;
 }
 
 .JourneyNode-container {
@@ -52,7 +65,21 @@ $jnode-stagger: $jnode / 8;
 }
 
 .JourneyNode-user-container {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
+  @include flex(column, center, center);
+  text-align: right;
+  * {
+    width: 80%;
+  }
+}
+
+.JourneyNode-user-date{
+  @include textStyle(30px);
+  font-weight: 600;
+}
+
+.JourneyNode-user-name {
+  @include textStyle(20px);
 }
 
 .JourneyNode-right-container {
@@ -71,9 +98,9 @@ $jnode-stagger: $jnode / 8;
   @include textStyle(16px);
   flex: 1 1 auto;
   opacity: 0;
-  background-color: $yellow;
+  background-color: rgba($yellow, 0.5);
   transition: 300ms;
-  height: 70%;
+  // height: 70%;
   margin-left: 20px;
   border-radius: 5px;
   box-shadow: $shadow-sm;
@@ -89,7 +116,7 @@ $jnode-stagger: $jnode / 8;
     right: 100%;
     height: 0;
     width: 0;
-    border-right: 16px solid $yellow;
+    border-right: 16px solid rgba($yellow, 0.5);
     border-top: 16px solid transparent;
     border-left: 16px solid transparent;
     border-bottom: 16px solid transparent;

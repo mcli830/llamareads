@@ -1,29 +1,29 @@
 .ShelfList {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
   z-index: 0;
+  height: 100%;
 }
 
 .Shelf-wrapper {
+  @include fillContainer;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 100%;
+  position: relative;
 }
 
 .Shelf {
   position: absolute;
-  height: $shelf-height;
-  padding: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
+  height: 100vh;
   box-sizing: content-box;
   position: relative;
-  width: 100%;
+  width: 100vw;
 }
 
 .Shelf-name {
@@ -70,8 +70,8 @@
 }
 
 .BookList {
-  flex: 1 0 auto;
-  max-width: 70%;
+  height: 100%;
+  width: 100%;
   transition: 300ms;
 }
 
@@ -86,36 +86,81 @@
 
 .Book-placeholder {
   margin: 0 5px;
-  height: $book-height;
-  width: $book-width-shelf;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  transition: 400ms;
-  position: relative;
+  position: fixed;
+  top: 40%;
+  left: 8%;
+  height: 200px;
+  width: 200px;
   overflow: hidden;
-  padding: 5px;
-  cursor: pointer;
-  color: #444;
-  border: 2px dashed $dark;
   z-index: 1;
-  opacity: 0.3;
-  transform-origin: 50% 90%;
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 2px 10px $alpha-light;
-    border-width: 4px;
-    z-index: 2;
-    opacity: 0.8;
+  transform-origin: 50% 50%;
+  .wrapper {
+    position: absolute;
+    top: 10%;
+    perspective: 500px;
+    cursor: pointer;
+    transition: 300ms;
+    transition-timing-function: $bezier-bounce;
+    .cube {
+      font-size: 2em;
+      width: 2em;
+      margin: 1.5em auto;
+      transform-style: preserve-3d;
+      transform: rotateX(-8deg) rotateY(15deg);
+      .side {
+        position: absolute;
+        width: 2em;
+        height: 2em;
+
+        background-color: rgba(255,255,255,0.5);
+        border: 2px dashed $dark;
+        border-radius: 5px;
+
+        color: transparent;
+        text-align: center;
+        line-height: 2em;
+      }
+      .front  {
+        transform: translateZ(1em);
+        color: $dark;
+      }
+      .top    { transform: rotateX( 90deg)  translateZ(1em); }
+      .right  { transform: rotateY( 90deg)  translateZ(1em); }
+      .left   { transform: rotateY(-90deg)  translateZ(1em); }
+      .bottom { transform: rotateX(-90deg)  translateZ(1em); }
+      .back   { transform: rotateY(-180deg) translateZ(1em); }
+    }
+    &:hover {
+      transform: rotateX(-8deg) rotateY(15deg) scale(1.2);
+      .side {
+        border-width: 3px;
+      }
+      .add-book-text {
+        opacity: 1;
+      }
+    }
   }
 }
 
-.Llama-container {
-  height: 380px;
-  width: 380px;
-  margin-bottom: -48px;
-  background-image: url('../../images/Llama_drawing_light.png');
-  background-size: cover;
-  background-position: center;
+.add-book-text {
+  position: absolute;
+  top: 5%;
+  transition: 200s;
+  transition-timing-function: $bezier-bounce;
+  @include textStyle(20px);
+  opacity: 0;
+}
+
+.shelf-alert {
+  padding-left: 300px;
+  @include textStyle(40px);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  @include flex;
+  transform: rotateY(0);
 }

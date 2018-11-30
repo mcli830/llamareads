@@ -8,7 +8,7 @@ import {
   branch,
   renderNothing
 } from "recompose";
-import { withFirestore, firestoreConnect, firebaseConnect } from "react-redux-firebase";
+import { withFirestore, firestoreConnect, firebaseConnect , isLoaded, isEmpty } from "react-redux-firebase";
 import Modal from "react-modal";
 
 // components
@@ -28,7 +28,7 @@ const ListEntry = (props) => {
   return (
     <div className="ListEntry">
       <div className="ListEntry-text">
-        <div className="ListEntry-text-date">DATE PLACEHOLDER</div>
+        <div className="ListEntry-text-date">{new Date(props.date).toDateString()}</div>
         <div className="ListEntry-text-message">
           {props.inbox.senderName} sent you a book
         </div>

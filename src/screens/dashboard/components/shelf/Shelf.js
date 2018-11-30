@@ -20,14 +20,8 @@ const Shelf = (props) => {
   return (
     <div className="Shelf-wrapper">
       <div className="Shelf">
-        <div className="Shelf-platform">
-          <div className="Shelf-header">My Books</div>
-        </div>
-        <BookList />
-        <div className="Shelf-right">
-          <BookPlaceholder />
-          <div className="Llama-container"></div>
-        </div>
+      <BookPlaceholder />
+      <BookList />
     </div>
     </div>
   );
