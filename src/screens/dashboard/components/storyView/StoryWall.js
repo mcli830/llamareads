@@ -44,7 +44,7 @@ const StoryWall = (props)  => {
         { !isLoaded(props.journeyTimeline)
           ? <div className="spinner-square" />
           : isEmpty(props.journeyTimeline)
-          ? "This book is a ghost."
+          ? ""
           : <Journey journey={props.journeyTimeline[0].timeline} />
         }
         {/* <div className="Journey-header">Impact</div>

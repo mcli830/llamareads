@@ -44,6 +44,8 @@ const enhance = compose(
   withState('note', 'writeNote', ''),
   withState('receiver', 'changeReceiver', ''),
   withState('uid', 'uidChange', ''),
+  withState('dn', 'dnChange', ''),
+  withState('picture', 'pcChange', ''),
   withHandlers({
     sendBook:  props => ({ auth }) => {
       props.firestore.add("userBooks", {
@@ -57,16 +59,17 @@ const enhance = compose(
         journey: props.view.book.journey,
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })
-      console.log(props.journeyTimeline.map(journey => journey.id));
       props.firestore.update({
         collection: 'journey', doc: props.journeyTimeline[0].id,
-      }, {timeline: props.journeyTimeline[0].timeline.concat({user: props.auth.displayName, note: props.note, date: new Date().toString(), picture: props.auth.photoURL})})
+      }, {timeline: props.journeyTimeline[0].timeline.concat({user: document.getElementById("dn").value, note: props.note, date: new Date().toString(), picture: document.getElementById("picture").value})})
     },
     noteChange: props => event => {
       props.writeNote(event.target.value);
     },
     receiverChange: props => e => props.changeReceiver(e.target.value),
-    uidChange: props => event => props.uidChange(event)
+    uidChange: props => event => props.uidChange(event),
+    dnChange: props => event => props.dnChange(event),
+    pcChange: props => event => props.pcChange(event)
   })
 );
 
@@ -100,12 +103,23 @@ const SendModal = props => {
                       key={user.id}
                       id="uid"
                       value={user.id}
-                    />
+                    /><input
+                    type="hidden"
+                    key={user.id}
+                    id="dn"
+                    value={user.displayName}
+                  /><input
+                  type="hidden"
+                  key={user.id}
+                  id="picture"
+                  value={user.avatarUrl}
+                />
                     <div className="Search-friend-results">
                       <i className="fas fa-paper-plane"></i> {user.displayName}
                     </div>
                   </div>
-                ))[0]}
+                ))[0]
+              }
         </div>
 
         <div className="SendForm-note">
