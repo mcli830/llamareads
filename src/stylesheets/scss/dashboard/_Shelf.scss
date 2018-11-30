@@ -86,27 +86,60 @@
 
 .Book-placeholder {
   margin: 0 5px;
-  height: $book-height;
-  width: $book-width;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  transition: 400ms;
   position: relative;
   overflow: hidden;
   padding: 5px;
-  cursor: pointer;
-  color: #444;
-  border: 2px dashed $dark;
   z-index: 1;
-  opacity: 0.3;
   transform-origin: 50% 90%;
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 2px 10px $alpha-light;
-    border-width: 4px;
-    z-index: 2;
-    opacity: 0.8;
+  .wrapper {
+    perspective: 800px;
+    position: fixed;
+    top: 40%;
+    left: 8%;
+    cursor: pointer;
+    transition: 300ms;
+    transition-timing-function: $bezier-bounce;
+    .cube {
+      font-size: 2em;
+      width: 2em;
+      margin: 1.5em auto;
+      transform-style: preserve-3d;
+      transform: rotateX(-8deg) rotateY(15deg);
+      .side {
+        position: absolute;
+        width: 2em;
+        height: 2em;
+
+        background-color: rgba(255,255,255,0.5);
+        border: 2px dashed $dark;
+        border-radius: 5px;
+
+        color: transparent;
+        text-align: center;
+        line-height: 2em;
+      }
+      .front  {
+        transform: translateZ(1em);
+        color: $dark;
+        &:before {
+
+        }
+      }
+      .top    { transform: rotateX( 90deg)  translateZ(1em); }
+      .right  { transform: rotateY( 90deg)  translateZ(1em); }
+      .left   { transform: rotateY(-90deg)  translateZ(1em); }
+      .bottom { transform: rotateX(-90deg)  translateZ(1em); }
+      .back   { transform: rotateY(-180deg) translateZ(1em); }
+    }
+    &:hover {
+      transform: rotateX(-8deg) rotateY(15deg) scale(1.2);
+      .side {
+        border-width: 3px;
+      }
+    }
   }
 }
