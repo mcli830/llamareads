@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "redux";
 import { withHandlers, branch, renderNothing } from "recompose";
-import { withFirestore, firestoreConnect, isLoaded } from "react-redux-firebase";
+import { withFirestore, firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import { connect } from "react-redux";
 
 // components
@@ -41,7 +41,8 @@ const StoryWall = (props)  => {
 
       <div id="journey" className="Journey-container">
         <div className="Journey-header">Book's Journey</div>
-        { isLoaded(props.journeyTimeline)
+        {console.log(props.journeyTimeline)}
+        { isLoaded(props.journeyTimeline) && !isEmpty(props.journeyTimeline)
           ? <Journey journey={props.journeyTimeline[0].timeline} />
           : <div className="spinner-square" />
         }
