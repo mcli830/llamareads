@@ -25,15 +25,20 @@ const enhance = compose(
   connect(({ view, dispatch }) => ({ view, dispatch })),
   firebaseConnect(),
   connect(({ firebase: { auth } }) => ({ auth })),
-  firestoreConnect(({ auth }) => [
+  firestoreConnect(({ auth, view }) => [
     {
       collection: "users"
+    },
+    {
+      collection: "journey",
+      where: ["id", "==", view.book.journey],
+      storeAs: "journeyTimeline"
     }
   ]),
   connect(
     ({ firestore }) => ({
       users: firestore.ordered.users,
-      journey: firestore.ordered.journey
+      journeyTimeline: firestore.ordered.journeyTimeline
     })
   ),
   withState('note', 'writeNote', ''),
@@ -52,9 +57,10 @@ const enhance = compose(
         journey: props.view.book.journey,
         journeyBook: {sender: props.auth.displayName, note: props.note}
       })
-      // props.firestore.update({
-      //   collection: 'journey', where: ['id', '==', props.view.journey],
-      // }, {timeline: props.view.journeyTimeline.timeline.push({user: props.auth.uid, note: props.note})})
+      // console.log(props.journeyTimeline.__proto__);
+      props.firestore.update({
+        collection: 'journey', where: ['id', '==', props.view.journey],
+      }, {timeline: props.journeyTimeline.push({user: props.auth.uid, note: props.note})})
     },
     noteChange: props => event => {
       props.writeNote(event.target.value);
@@ -123,7 +129,7 @@ const SendModal = props => {
           className="mbtn mbtn-confirm"
           onClick={e => {
             if (props.note != "") {
-              props.sendBook(e);
+              props.sendBook(props.journeyTimeline);
               props.dispatch(viewModal());
             }
           }}
