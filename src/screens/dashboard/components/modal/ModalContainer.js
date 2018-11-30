@@ -30,7 +30,6 @@ class ModalContainer extends React.Component {
   }
 
   renderModal() {
-    console.log(this.props);
     switch (this.props.view.modal) {
       case "add":
         return (
