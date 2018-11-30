@@ -53,6 +53,7 @@ const Inbox = ({inboxBooks, changeModal}) => {
               ? <div className="ListEntry"><div className="ListEntry-text" style={{ textAlign: 'center' }}>Nothing here!</div></div>
             : inboxBooks.map((inbox) =>
               <ListEntry
+                date={inbox.sendDate}
                 key={inbox && inbox.id}
                 inbox={inbox}
                 changeModal={changeModal}
