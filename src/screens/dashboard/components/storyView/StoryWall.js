@@ -31,16 +31,8 @@ const StoryWall = props => {
             ],
             sentTo: ["Hide", "Doug"]
           }} />
-        <div className="Journey-header">Impact</div>
-        <div
-          id="Journey-impact"
-          className="Journey-impact"
-        >
-          <div className="Journey-impact-number">
-            <div className="border-rotate" />
-            3
-          </div>
-        </div>
+        {/* <div className="Journey-header">Impact</div>
+        <div id="Journey-impact" className="Journey-impact"></div> */}
       </div>
     </div>
   );
