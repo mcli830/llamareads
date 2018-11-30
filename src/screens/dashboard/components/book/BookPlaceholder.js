@@ -24,11 +24,11 @@ const BookPlaceholder = (props) => {
     <div className="wrapper">
       <div className="cube">
         <div className="side  front"><i class="fas fa-plus"></i></div>
-        <div className="side   back">2</div>
-        <div className="side  right">3</div>
-        <div className="side   left">4</div>
-        <div className="side    top">5</div>
-        <div className="side bottom">6</div>
+        <div className="side   back"><i class="fas fa-plus"></i></div>
+        <div className="side  right"><i class="fas fa-plus"></i></div>
+        <div className="side   left"><i class="fas fa-plus"></i></div>
+        <div className="side    top"><i class="fas fa-plus"></i></div>
+        <div className="side bottom"><i class="fas fa-plus"></i></div>
       </div>
     </div>
 

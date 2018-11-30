@@ -26,7 +26,7 @@ const enhance = compose(
   connect(({ firestore }) => ({
     userBooks: firestore.ordered.userBooks
   })),
-  connect(({dispatch}) => ({dispatch}))
+  connect(({view, dispatch}) => ({view, dispatch}))
 );
 
 class BookList extends React.Component {
@@ -86,8 +86,10 @@ class BookList extends React.Component {
   }
 
   handleWheel(e) {
-    const dir = e.deltaX / Math.abs(e.deltaX);
-    this.changePosition(dir);
+    if (this.props.view.modal == '' && !this.props.view.story){
+      const dir = e.deltaX / Math.abs(e.deltaX);
+      this.changePosition(dir);
+    }
   }
 
   changePosition(dir){
