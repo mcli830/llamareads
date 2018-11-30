@@ -1,0 +1,72 @@
+.Angled {
+  perspective: 600px;
+  margin-left: -10%;
+}
+
+.Angled-wrapper {
+  @include fillContainer;
+  transform-style: preserve-3d;
+  transform: rotateY(-20deg) rotateZ(1deg) rotateX(-3deg);
+  @include flex(row);
+}
+
+.Angled .sl {
+  opacity: 0;
+  transform: rotateY(15deg) translateX(-400px) translateZ(1);
+  left: 22%;
+  pointer-events: none;
+}
+.Angled .s1 {
+  transform: rotateY(18deg) translateX(-300px) translateZ(1px);
+  left: 32%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.Angled .s2 {
+  transform: rotateY(21deg) translateX(-200px) translateZ(1px);
+  left: 39%;
+}
+.Angled .s3 {
+  transform: rotateY(24deg) translateX(-100px) translateZ(1px);
+  left: 45%;
+}
+.Angled .s4 {
+  transform: rotateY(27deg) translateX(0) translateZ(1px);
+  left: 50%;
+}
+.Angled .s5 {
+  transform: rotateY(30deg) translateX(100px) translateZ(1px);
+  left: 55%;
+}
+.Angled .s6 {
+  transform: rotateY(33deg) translateX(200px) translateZ(1px);
+  left: 60%;
+}
+.Angled .s7 {
+  transform: rotateY(36deg) translateX(300px) translateZ(1px);
+  left: 65%;
+}
+.Angled .s8{
+  transform: rotateY(39deg) translateX(200px) translateZ(1px);
+  left: 71%;
+}
+.Angled .s9 {
+  transform: rotateY(42deg) translateX(300px) translateZ(1px);
+  left: 78%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.Angled .sr {
+  transform: rotateY(45deg) translateX(400px) translateZ(1px);
+  left: 88%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.Angled .Angled-slide {
+  transform-style: preserve-3d;
+  transform: rotateY(30deg);
+  &:hover {
+    transform: translateZ(40px) translateX(-60px) rotateY(28deg) rotateZ(-4deg) scale(1.2);
+  }
+}

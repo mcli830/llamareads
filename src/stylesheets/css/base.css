@@ -78,6 +78,13 @@
     margin-bottom: 300px; }
   to {
     margin-bottom: 0; } }
+@keyframes splash {
+  0% {
+    transform: scale(1.5) translate(-600px, 500px) skew(1.3); }
+  30% {
+    transform: scale(1.4) translate(-800px, 300px) skew(-1.3); }
+  100% {
+    transform: none; } }
 .LoginPage {
   height: 100vh;
   width: 100vw;
@@ -144,7 +151,8 @@
   width: 100%;
   transition: 300ms;
   box-shadow: 1px 1px 5px #cbc9c2;
-  border-top: none; }
+  border-top: none;
+  background: linear-gradient(#faf8f3, white); }
 
 .Inbox-header {
   display: inline-flex;
@@ -162,7 +170,8 @@
   border-radius: 50%;
   position: absolute;
   right: 35px;
-  top: 10px; }
+  top: 10px;
+  animation: splash 400ms cubic-bezier(0.21, 1.11, 0.6, 1.15); }
 
 .Inbox {
   font-family: "Lato";
@@ -177,6 +186,7 @@
   .Inbox:hover .Inbox-list {
     max-height: 400px;
     opacity: 1;
+    pointer-events: all;
     overflow-y: auto; }
 
 .ListEntry {
@@ -186,7 +196,6 @@
   display: flex;
   flex-direction: row;
   border: 1px solid #E0E0E0;
-  background-color: white;
   padding: 15px 35px;
   align-items: center; }
 
@@ -266,23 +275,28 @@
 .ShelfList {
   display: flex;
   flex-direction: column;
-  width: 70vw;
-  z-index: 0; }
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  z-index: 0;
+  height: 100%; }
 
 .Shelf-wrapper {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 100%; }
+  position: relative; }
 
 .Shelf {
   position: absolute;
-  height: 400px;
-  padding: 60px;
+  height: 100vh;
   box-sizing: content-box;
   position: relative;
-  width: 100%; }
+  width: 100vw; }
 
 .Shelf-name {
   display: block;
@@ -359,79 +373,78 @@
     opacity: 0.8; }
 
 .BookList {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  box-sizing: border-box;
-  width: 100%; }
+  align-items: center;
+  justify-content: center;
+  width: 100vw; }
 
 .Book {
   margin: 0 5px;
+  position: absolute;
   height: 300px;
   width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  transition: 400ms;
-  position: relative;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.21, 1.11, 0.6, 1.15);
+  position: relatwive;
   overflow: hidden;
   padding: 5px;
   cursor: pointer;
+  border-radius: 1px;
   color: #444;
   z-index: 1;
-  transform-origin: 50% 90%;
   animation: drop 500ms ease-out;
-  animation-timing-function: cubic-bezier(0.02, 1.04, 0.51, 1.07); }
+  animation-timing-function: cubic-bezier(0.21, 1.11, 0.6, 1.15); }
   .Book .Book-content {
     width: 300px;
     position: absolute;
     text-align: left;
     opacity: 0;
     overflow: hidden;
-    transition: 400ms;
+    transition: 250ms;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    transition: 300ms; }
-  .Book:hover {
-    transform: scale(1.15);
-    z-index: 2; }
-    .Book:hover .Book-cover {
-      width: 200px; }
-    .Book:hover .Book-content {
-      width: 90%;
-      text-align: center;
-      opacity: 0;
-      transform: rotate(0) scale(1);
-      align-items: center; }
-      .Book:hover .Book-content * {
-        white-space: normal;
-        text-overflow: initial; }
-    .Book:hover .Book-send {
-      opacity: 0.8; }
+    transition: 250ms; }
+  .Book:hover .Book-content {
+    width: 90%;
+    text-align: center;
+    opacity: 0;
+    transform: rotate(0) scale(1);
+    align-items: center; }
+    .Book:hover .Book-content * {
+      white-space: normal;
+      text-overflow: initial; }
+  .Book:hover .Book-send {
+    opacity: 0.8; }
 
 .Book-cover {
-  height: 300px;
-  width: 200px;
-  opacity: 1;
-  transition: 400ms;
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%; }
-
-.Book-cover-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  transition: 250ms;
   height: 100%;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .Book-cover img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.Book-cover-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   box-shadow: inset 0 0 120px #484848; }
 
 .Book-title {
@@ -1169,74 +1182,121 @@
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     background-color: #f8e9a1; } }
 .carousel {
-  position: relative;
-  height: 400px;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: hidden; }
+  overflow: hidden;
+  perspective: 1000px; }
 
-.carousel .Book-cover {
-  position: absolute;
-  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
-  opacity: 1; }
+.carousel .Book {
+  top: calc(50% - $book-half-height);
+  left: calc(50% - $book-half);
+  transform-style: preserve-3d; }
 
-.carousel .Book-cover img {
-  width: 400px;
-  transition: width 1s; }
-
-.carousel .Book-cover.hideLeft {
-  left: 0%;
+.carousel .Book.hideLeft {
   opacity: 0;
-  transform: translateY(50%) translateX(-50%); }
+  z-index: -1;
+  transform: scale(0.8); }
 
-.carousel .Book-cover.hideLeft img {
-  width: 200px; }
-
-.carousel .Book-cover.hideRight {
+.carousel .Book.hideRight {
   left: 100%;
   opacity: 0;
-  transform: translateY(50%) translateX(-50%); }
+  z-index: -1;
+  transform: scale(0.8); }
 
-.carousel .Book-cover.hideRight img {
-  width: 200px; }
-
-.carousel .Book-cover.prev {
-  z-index: 5;
-  left: 30%;
-  transform: translateY(50px) translateX(-50%); }
-
-.carousel .Book-cover.prev img {
-  width: 300px; }
-
-.carousel .Book-cover.prevLeftSecond {
+.carousel .Book.left2 {
   z-index: 4;
-  left: 15%;
-  transform: translateY(50%) translateX(-50%);
+  left: calc(15% - $book-half);
+  transform: scale(0.9);
   opacity: .7; }
 
-.carousel .Book-cover.prevLeftSecond img {
-  width: 200px; }
+.carousel .Book.left1 {
+  z-index: 5;
+  left: calc(30% - $book-half);
+  transform: scale(1); }
 
-.carousel .Book-cover.selected {
+.carousel .Book.selected {
   z-index: 10;
-  left: 50%;
-  transform: translateY(0px) translateX(-50%); }
+  transform: scale(1.2) transformY(45deg); }
 
-.carousel .Book-cover.next {
+.carousel .Book.right1 {
   z-index: 5;
-  left: 70%;
-  transform: translateY(50px) translateX(-50%); }
+  left: calc(70% - $book-half);
+  transform: scale(1); }
 
-.carousel .Book-cover.next img {
-  width: 300px; }
-
-.carousel .Book-cover.nextRightSecond {
+.carousel .Book.right2 {
   z-index: 4;
-  left: 85%;
-  transform: translateY(50%) translateX(-50%);
+  left: calc(85% - $book-half);
+  transform: scale(0.9);
   opacity: .7; }
 
-.carousel .Book-cover.nextRightSecond img {
-  width: 200px; }
+.Angled {
+  perspective: 600px;
+  margin-left: -10%; }
+
+.Angled-wrapper {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: rotateY(-20deg) rotateZ(1deg) rotateX(-3deg);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+.Angled .sl {
+  opacity: 0;
+  transform: rotateY(15deg) translateX(-400px) translateZ(1);
+  left: 22%;
+  pointer-events: none; }
+
+.Angled .s1 {
+  transform: rotateY(18deg) translateX(-300px) translateZ(1px);
+  left: 32%;
+  opacity: 0.2;
+  pointer-events: none; }
+
+.Angled .s2 {
+  transform: rotateY(21deg) translateX(-200px) translateZ(1px);
+  left: 39%; }
+
+.Angled .s3 {
+  transform: rotateY(24deg) translateX(-100px) translateZ(1px);
+  left: 45%; }
+
+.Angled .s4 {
+  transform: rotateY(27deg) translateX(0) translateZ(1px);
+  left: 50%; }
+
+.Angled .s5 {
+  transform: rotateY(30deg) translateX(100px) translateZ(1px);
+  left: 55%; }
+
+.Angled .s6 {
+  transform: rotateY(33deg) translateX(200px) translateZ(1px);
+  left: 60%; }
+
+.Angled .s7 {
+  transform: rotateY(36deg) translateX(300px) translateZ(1px);
+  left: 65%; }
+
+.Angled .s8 {
+  transform: rotateY(39deg) translateX(200px) translateZ(1px);
+  left: 71%; }
+
+.Angled .s9 {
+  transform: rotateY(42deg) translateX(300px) translateZ(1px);
+  left: 78%;
+  opacity: 0.2;
+  pointer-events: none; }
+
+.Angled .sr {
+  transform: rotateY(45deg) translateX(400px) translateZ(1px);
+  left: 88%;
+  opacity: 0;
+  pointer-events: none; }
+
+.Angled .Angled-slide {
+  transform-style: preserve-3d;
+  transform: rotateY(30deg); }
+  .Angled .Angled-slide:hover {
+    transform: translateZ(40px) translateX(-60px) rotateY(28deg) rotateZ(-4deg) scale(1.2); }
 
 /*# sourceMappingURL=base.css.map */

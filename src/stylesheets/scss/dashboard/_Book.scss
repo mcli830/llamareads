@@ -1,15 +1,17 @@
-$book-transition: 400ms;
+$book-transition: 250ms;
 
 .BookList {
+  @include fillContainer;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  box-sizing: border-box;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
 }
 
 .Book {
   margin: 0 5px;
+  position: absolute;
   height: $book-height;
   width: $book-width;
   display: flex;
@@ -17,15 +19,16 @@ $book-transition: 400ms;
   align-items: center;
   flex-shrink: 0;
   transition: $book-transition;
-  position: relative;
+  transition-timing-function: $bezier-bounce;
+  position: relatwive;
   overflow: hidden;
   padding: 5px;
   cursor: pointer;
+  border-radius: 1px;
   color: #444;
   z-index: 1;
-  transform-origin: 50% 90%;
   animation: drop 500ms ease-out;
-  animation-timing-function: cubic-bezier(.02,1.04,.51,1.07);
+  animation-timing-function: $bezier-bounce;
   .Book-content {
     width: $book-height;
     position: absolute;
@@ -37,14 +40,9 @@ $book-transition: 400ms;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    transition: 300ms;
+    transition: $book-transition;
   }
   &:hover {
-    transform: scale(1.15);
-    z-index: 2;
-    .Book-cover{
-      width: $book-width;
-    }
     .Book-content {
       width: 90%;
       text-align: center;
@@ -63,14 +61,11 @@ $book-transition: 400ms;
 }
 
 .Book-cover{
-  height: $book-height;
-  width: $book-width;
-  opacity: 1;
   transition: $book-transition;
-  background-size: cover;
-  background-position: center;
-  position: absolute;
   @include overlay;
+  img {
+    @include overlay;
+  }
 }
 
 .Book-cover-overlay {

@@ -1,86 +1,57 @@
+$book-half: $book-width / 2;
+$book-half-height: $book-height / 2;
+
 .carousel {
-  position: relative;
-  height: 400px;
-  top: 50%;
-  transform: translateY(-50%);
   overflow: hidden;
+  perspective: 1000px;
 }
 
-.carousel .Book-cover {
-  position: absolute;
-  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
-  opacity: 1;
+.carousel .Book {
+  top: calc(50% - $book-half-height);
+  left: calc(50% - $book-half);
+  transform-style: preserve-3d;
 }
 
-.carousel .Book-cover img {
-  width: 400px;
-  transition: width 1s;
-}
-
-.carousel .Book-cover.hideLeft {
-  left: 0%;
+.carousel .Book.hideLeft {
   opacity: 0;
-  transform: translateY(50%) translateX(-50%);
+  z-index: -1;
+  transform: scale(0.8);
 }
 
-.carousel .Book-cover.hideLeft img {
-  width: 200px;
-}
-
-.carousel .Book-cover.hideRight {
+.carousel .Book.hideRight {
   left: 100%;
   opacity: 0;
-  transform: translateY(50%) translateX(-50%);
+  z-index: -1;
+  transform: scale(0.8);
 }
 
-.carousel .Book-cover.hideRight img {
-  width: 200px;
-}
-
-.carousel .Book-cover.prev {
-  z-index: 5;
-  left: 30%;
-  transform: translateY(50px) translateX(-50%);
-}
-
-.carousel .Book-cover.prev img {
-  width: 300px;
-}
-
-.carousel .Book-cover.prevLeftSecond {
+.carousel .Book.left2 {
   z-index: 4;
-  left: 15%;
-  transform: translateY(50%) translateX(-50%);
+  left: calc(15% - $book-half);
+  transform: scale(0.9);
   opacity: .7;
 }
 
-.carousel .Book-cover.prevLeftSecond img {
-  width: 200px;
+.carousel .Book.left1 {
+  z-index: 5;
+  left: calc(30% - $book-half);
+  transform: scale(1);
 }
 
-.carousel .Book-cover.selected {
+.carousel .Book.selected {
   z-index: 10;
-  left: 50%;
-  transform: translateY(0px) translateX(-50%);
+  transform: scale(1.2) transformY(45deg);
 }
 
-.carousel .Book-cover.next {
+.carousel .Book.right1 {
   z-index: 5;
-  left: 70%;
-  transform: translateY(50px) translateX(-50%);
+  left: calc(70% - $book-half);
+  transform: scale(1);
 }
 
-.carousel .Book-cover.next img {
-  width: 300px;
-}
-
-.carousel .Book-cover.nextRightSecond {
+.carousel .Book.right2 {
   z-index: 4;
-  left: 85%;
-  transform: translateY(50%) translateX(-50%);
+  left: calc(85% - $book-half);
+  transform: scale(0.9);
   opacity: .7;
-}
-
-.carousel .Book-cover.nextRightSecond img {
-  width: 200px;
 }

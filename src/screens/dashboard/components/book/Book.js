@@ -19,10 +19,9 @@ const enhance = compose(
 const Book = (props) => {
   return (
     <div
-      className="Book"
-      onClick={() => props.dispatch(viewStory(props.book))}
-      style={props.style}>
-      <div className={`${props.coverflow}`}>
+      className={`Book Angled-slide ${props.flow}`}
+      onClick={() => props.dispatch(viewStory(props.book))}>
+      <div className="Book-cover">
         <img src={props.book.cover} />
         <div className="Book-cover-overlay"></div>
       </div>
