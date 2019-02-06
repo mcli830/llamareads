@@ -23,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "sass": "sass src/stylesheets/scss/base.scss src/stylesheets/css/base.css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

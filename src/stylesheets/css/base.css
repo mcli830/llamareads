@@ -1470,8 +1470,8 @@
   perspective: 1000px; }
 
 .carousel .Book {
-  top: calc(50% - $book-half-height);
-  left: calc(50% - $book-half);
+  top: calc(50% - 150px);
+  left: calc(50% - 100px);
   transform-style: preserve-3d; }
 
 .carousel .Book.hideLeft {
@@ -1487,13 +1487,13 @@
 
 .carousel .Book.left2 {
   z-index: 4;
-  left: calc(15% - $book-half);
+  left: calc(15% - 100px);
   transform: scale(0.9);
   opacity: .7; }
 
 .carousel .Book.left1 {
   z-index: 5;
-  left: calc(30% - $book-half);
+  left: calc(30% - 100px);
   transform: scale(1); }
 
 .carousel .Book.selected {
@@ -1502,12 +1502,12 @@
 
 .carousel .Book.right1 {
   z-index: 5;
-  left: calc(70% - $book-half);
+  left: calc(70% - 100px);
   transform: scale(1); }
 
 .carousel .Book.right2 {
   z-index: 4;
-  left: calc(85% - $book-half);
+  left: calc(85% - 100px);
   transform: scale(0.9);
   opacity: .7; }
 
