@@ -1,0 +1,9 @@
+Heroku linking:
+
+heroku git:remote -a llamareads
+git push heroku master
+
+
+Dyno scaling:
+
+heroku ps:scale web=1
