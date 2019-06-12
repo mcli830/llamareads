@@ -87,8 +87,13 @@ class BookList extends React.Component {
 
   handleWheel(e) {
     if (this.props.view.modal == '' && !this.props.view.story){
-      const dir = e.deltaX / Math.abs(e.deltaX);
+      const dir = Math.abs(e.deltaY) >= Math.abs(e.deltaX)
+        ?  getDirection(e.deltaY) : getDirection(e.deltaX);
       this.changePosition(dir);
+      //helper
+      function getDirection(delta){
+        return delta / Math.abs(delta);
+      }
     }
   }
 
