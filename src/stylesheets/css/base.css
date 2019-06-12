@@ -562,7 +562,7 @@
 .add-book-text {
   position: absolute;
   top: 5%;
-  transition: 200s;
+  transition: 200ms;
   transition-timing-function: cubic-bezier(0.21, 1.11, 0.6, 1.15);
   font-family: "Lato";
   font-size: 20px;
@@ -590,7 +590,46 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100vw; }
+  width: 100vw;
+  position: relative; }
+
+.BookList__button-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  bottom: 18%;
+  right: 16%;
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg) rotateZ(1deg) rotateX(-3deg); }
+
+.BookList__button {
+  bottom: 0;
+  height: 60px;
+  width: 60px;
+  font-size: 60px;
+  opacity: 0.4;
+  transition: 300ms cubic-bezier(0.21, 1.11, 0.6, 1.15);
+  cursor: pointer; }
+  .BookList__button:hover {
+    opacity: 0.7;
+    transform: scale(1.2); }
+  .BookList__button:active {
+    color: #f76f6f;
+    opacity: 0.9;
+    transition: 100ms linear;
+    transform: scale(1); }
+
+.BookList__button.left {
+  left: 0;
+  height: 70px;
+  width: 70px;
+  font-size: 70px; }
+
+.BookList__button--right {
+  right: 0; }
 
 .Book {
   margin: 0 5px;

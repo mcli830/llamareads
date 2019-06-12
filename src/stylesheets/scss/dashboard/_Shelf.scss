@@ -149,7 +149,7 @@
 .add-book-text {
   position: absolute;
   top: 5%;
-  transition: 200s;
+  transition: 200ms;
   transition-timing-function: $bezier-bounce;
   @include textStyle(20px);
   opacity: 0;

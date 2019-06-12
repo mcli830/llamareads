@@ -151,6 +151,10 @@ class BookList extends React.Component {
             ))
         }
         </div>
+        <div className="BookList__button-container">
+          <div className="BookList__button left" onClick={()=>this.changePosition(-1)}><i class="far fa-caret-square-left"></i></div>
+          <div className="BookList__button right" onClick={()=>this.changePosition(1)}><i class="far fa-caret-square-right"></i></div>
+        </div>
       </div>
     );
   }
