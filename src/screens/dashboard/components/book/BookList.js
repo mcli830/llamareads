@@ -45,27 +45,6 @@ class BookList extends React.Component {
     document.removeEventListener('wheel', this.handleWheel);
   }
 
-  // loadBooks(props) {
-  //   this.state.bookList = !isLoaded(this.props.userBooks)
-  //     || isEmpty(this.props.userBooks)
-  //     ? [] : this.props.userBooks ;
-  // }
-
-  // coverFlowPosition(index, length) {
-  //   var midpoint = Math.round(length / 2) - 1;
-  //   var position = index - midpoint;
-  //   switch (position){
-  //     case position < -2: return "hideLeft"
-  //     case -2: return "left2"
-  //     case -1: return "left1"
-  //     case 0: return "selected"
-  //     case 1: return "right1"
-  //     case 2: return "right2"
-  //     case position > 2: return "hideRight"
-  //     default: return ""
-  //   }
-  // }
-
   flowPosition(index, length) {
     var midpoint = Math.round(length / 2) - 1;
     var position = index - midpoint;
